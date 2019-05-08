@@ -26,16 +26,22 @@
 						<h1 class="title"><em>Faster-than-light</em> web app development.</h1>
 						<h2 class="subtitle">Sapling is a Node.js framework for building websites, web apps and APIs as fast as you can imagine them.  With unrivalled speed of development, you can prototype quickly, iterate with ease, and deploy the same day.  What's more, it comes with all the SaaS features you never want to write, all built-in.</h2>
 
-						<div class="level">
-							<div class="level-left">
-								<div class="level-item">
-									<code>yarn add saplingjs</code>
-								</div>
-								<div class="level-item">
-									<a class="github-button" href="https://github.com/groenroos/sapling" data-size="large" data-show-count="true" aria-label="View groenroos/sapling on GitHub">View on GitHub</a>
-								</div>
-							</div>
-						</div>
+						<table class="table">
+							<tbody>
+								<tr>
+									<th>Quick start</th>
+									<td><code>npm i -g saplingjs-cli && sapling create</code></td>
+								</tr>
+								<tr>
+									<th>DIY</th>
+									<td><code>npm i --save saplingjs</code> &amp; <a href="/docs" class="has-text-success">Docs</a></td>
+								</tr>
+								<tr>
+									<th>&nbsp;</th>
+									<td><a class="github-button" href="https://github.com/groenroos/sapling" data-size="large" data-show-count="true" aria-label="View groenroos/sapling on GitHub">View on GitHub</a></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
@@ -194,7 +200,7 @@
 							<li><code>DELETE /api/posts/_id/1</code> deletes records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
 						</ul>
 
-						<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into a new record or any matching records.</p>
+						<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value for a where clause, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into a new record or any matching records.</p>
 
 						<h2 class="title is-5 has-text-success">Oh wow.  Putting this on production would be <em>insanity</em>.</h2>
 						<p>Absolutely, and the default configuration of Sapling is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
@@ -248,7 +254,7 @@
 				<div class="column">
 					<div class="content">
 						<h3 class="title is-5 has-text-success">Start developing</h3>
-						<p>Navigate to the folder and run <code>sapling run</code> to turn on the server.  Read the documentation to learn the basics of Sapling.</p>
+						<p>Navigate to the folder and run <code>sapling run</code> to turn on the server.  Read the <a href="/docs" class="has-text-success">documentation</a> to learn the basics of Sapling.</p>
 					</div>
 				</div>
 			</div>

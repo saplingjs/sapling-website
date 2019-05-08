@@ -1,3 +1,12 @@
+::-moz-selection {
+	color: #fff;
+	background: #23d160;
+}
+::selection {
+	color: #fff;
+	background: #23d160;
+}
+
 h1.title {
 	font-family: clone-rounded-latin, sans-serif;
 	font-weight: 200;
@@ -38,7 +47,20 @@ p + .title {
 	padding-top: 0;
 }
 
-.hero .level code {
+.table {
+	background: none;
+}
+
+.table th {
+	padding-left: 0;
+}
+
+.table th, .table td {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.hero code {
 	font-size: 16px;
 	border: 1px solid #ccc;
 	padding: 0 8px;
