@@ -23,8 +23,8 @@
 				<div class="columns">
 					<div class="column"></div>
 					<div class="column">
-						<h1 class="title"><em>Faster-than-light</em> web app development.</h1>
-						<h2 class="subtitle">Sapling is a Node.js framework for building websites, web apps and APIs as fast as you can imagine them.  With unrivalled speed of development, you can prototype quickly, iterate with ease, and deploy the same day.  What's more, it comes with all the SaaS features you never want to write, all built-in.</h2>
+						<h1 class="title"><em>Faster-than-light</em> minimalist development framework.</h1>
+						<h2 class="subtitle">Sapling is a Node.js framework for building websites, web apps and APIs as fast as you can imagine them.  With unrivalled speed of development, you can prototype quickly, iterate with ease, and deploy the same day.  Zero code, zero config &ndash; unless you want to.  And what's more, it comes with all the SaaS features you never want to write, all built-in.</h2>
 
 						<table class="table">
 							<tbody>
@@ -53,7 +53,7 @@
 			<h1 class="title">Unmatched speed of development.</h1>
 			<p>Sapling is designed for <strong>faster-than-light development</strong>.  There is zero mandatory configuration or boilerplate code.  UIs and forms simply come alive as you write them.  All the common SaaS features are built in and fully configurable.</p>
 
-			<p class="fade-out">With other frameworks, displaying a simple post form requires writing a controller and a service provider and a facade and a contract and a middleware and a response class and a test suite and a migration and a caching service and an event bus and a helper function.</p>
+			<p>With other frameworks, displaying a simple post form requires writing a controller and a service provider and a facade and a contract and a middleware and a response class and a test suite and a migration and a caching service and an event bus and a helper function.<span class="is-fade-out"></span></p>
 
 			<p>With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to <code>/api/posts</code>.  <strong>That's it.</strong>  Sapling will handle the backend, saving the post in the database and returning it when you <code>GET /api/posts</code>, with absolutely zero backend code required.</p>
 		</div>
@@ -202,7 +202,7 @@
 
 						<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value for a where clause, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into a new record or any matching records.</p>
 
-						<h2 class="title is-5 has-text-success">Oh wow.  Putting this on production would be <em>insanity</em>.</h2>
+						<h2 class="title is-5 has-text-success">Oh wow.  Putting this on production would be <em class="has-shake">insanity!</em></h2>
 						<p>Absolutely, and the default configuration of Sapling is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
 						<p>Sapling has robust support for defining data models (aka database schemata), and access permissions for each type-route combination.  In the default configuration, these are optional for the developer to define.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and <strong>nothing</strong> is ever implicitly saved into the database.</p>
 						<p>Sapling will refuse to run with production mode off when it detects it's not running on localhost. Sapling will also refuse to run if production mode is on, but the required definitions are not found or are incomplete.</p>
@@ -219,11 +219,11 @@
 						<p>Sapling has built-in support for custom handlers for any route, including the <code>/api</code> backend.  These handlers are just regular Node.js files, where you can code whatever you want just like normal, and organise these handlers in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
 
 						<h2 class="title is-5 has-text-success">I don't like MongoDB or Nunjucks or Vue.</h2>
-						<p>You don't have to!  By default, Sapling uses these three, but that's all they are &mdash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
+						<p>You don't have to!  By default, Sapling uses these three, but that's all they are &ndash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
 						<p>Database and templating engines are based on a driver model, where Sapling abstracts them into a generic wrapper.  Loads of drivers already exist for the most popular databases and templating languages, and writing your own is a cinch.</p>
 
 						<h2 class="title is-5 has-text-success">There must be a whole pile of dependencies.</h2>
-						<p>Sapling is split into multiple packages, so you only need to install what you actually need.  At the bare minimum, the Sapling core package must be installed, which has 10 direct dependencies.  Additional packages for database, templating, frontend, payment processing, and more, must be installed separately if these features are required &mdash; the Sapling CLI can install these packages and their dependencies on demand.</p>
+						<p>Sapling is split into multiple packages, so you only need to install what you actually need.  At the bare minimum, the Sapling core package must be installed, which has 10 direct dependencies.  Additional packages for database, templating, frontend, payment processing, and more, must be installed separately if these features are required &ndash; the Sapling CLI can install these packages and their dependencies on demand.</p>
 
 						<h2 class="title is-5 has-text-success">What about performance?</h2>
 						<p>In production mode, Sapling can serve an average of xx,xxx requests per second on a single four-core CPU.  Utilising the built-in cluster functionality in Node.js, caching all templates in memory, and minimising request-time filesystem calls and external dependencies, it is one of the fastest frameworks of its type around.</p>

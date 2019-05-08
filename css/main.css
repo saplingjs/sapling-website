@@ -19,6 +19,22 @@ p {
 	margin-bottom: 0.6em !important;
 }
 
+span.is-fade-out {
+	position: relative;
+}
+
+span.is-fade-out:after {
+	content: " ";
+	display: inline-block;
+	height: 1.2em;
+	vertical-align: middle;
+	width: 250px;
+	position: absolute;
+	left: -250px;
+	z-index: 2;
+	background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
 code {
 	font-family: antarctican-mono,sans-serif;
 	font-weight: 400;
@@ -69,4 +85,28 @@ p + .title {
 
 .hero .level span {
 	height: 28px;
+}
+
+@keyframes shake {
+	0%, 100% {
+		top: -1px;
+		left: -1px;
+	}
+	25% {
+		top: 0;
+		left: 1px;
+	}
+	50% {
+		top: -1px;
+		left: 0;
+	}
+	75% {
+		top: 1px;
+		left: 1px;
+	}
+}
+
+.has-shake {
+	position: relative;
+	animation: shake 0.2s infinite;
 }
