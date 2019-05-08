@@ -1,0 +1,32 @@
+h1.title {
+	font-family: clone-rounded-latin, sans-serif;
+	font-weight: 200;
+	font-style: normal;
+	font-size: 2.8em;
+	margin-bottom: 0.5em !important;
+}
+
+p {
+	margin-bottom: 0.6em !important;
+}
+
+.title:not(.is-spaced)+.subtitle {
+	margin-top: -0.4em !important;
+	line-height: 1.4em;
+}
+
+p + .title {
+	margin-top: 1.8em !important;
+}
+
+.section {
+	padding: 5.5rem 1.5rem;
+}
+
+.section.is-light {
+	background: #fafafa;
+}
+
+.section.is-light + .section.is-light {
+	padding-top: 0;
+}
