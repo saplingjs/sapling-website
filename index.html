@@ -26,8 +26,16 @@
 						<h1 class="title"><em>Faster-than-light</em> web app development.</h1>
 						<h2 class="subtitle">Sapling is a Node.js framework for building websites, web apps and APIs as fast as you can imagine them.  With unrivalled speed of development, you can prototype quickly, iterate with ease, and deploy the same day.  What's more, it comes with all the SaaS features you never want to write, all built-in.</h2>
 
-						<a class="github-button" href="https://github.com/groenroos/sapling/archive/master.zip" data-icon="octicon-cloud-download" data-size="large" aria-label="Download groenroos/sapling on GitHub">Download</a>
-						<a class="github-button" href="https://github.com/groenroos/sapling" data-size="large" data-show-count="true" aria-label="View groenroos/sapling on GitHub">View on GitHub</a>
+						<div class="level">
+							<div class="level-left">
+								<div class="level-item">
+									<code>yarn add saplingjs</code>
+								</div>
+								<div class="level-item">
+									<a class="github-button" href="https://github.com/groenroos/sapling" data-size="large" data-show-count="true" aria-label="View groenroos/sapling on GitHub">View on GitHub</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -172,44 +180,115 @@
 			<br>
 
 			<div class="columns">
-				<div class="column content">
-					<h2 class="title is-5 has-text-success">How can all the forms work with no backend code?</h2>
-					<p>Sapling's dynamic data backend figures out what to do based on the type of request it receives at the built-in <code>/api</code> route. It acts as a very light wrapper for queries of document-based databases (such as MongoDB);</p>
+				<div class="column">
+					<div class="content">
+						<h2 class="title is-5 has-text-success">How can all the forms work with no backend code?</h2>
+						<p>Sapling's dynamic data backend figures out what to do based on the type of request it receives to the built-in <code>/api</code> route. It acts as a very light wrapper for abstract CRUD queries;</p>
 
-					<ul>
-						<li><code>GET /api/posts</code> returns all records in the collection <strong>posts</strong></li>
-						<li><code>GET /api/posts/type/text</code> returns records in the collection <strong>posts</strong>, where the value of <strong>type</strong> is <strong>text</strong></li>
-						<li><code>POST /api/posts</code> creates a new record in the collection <strong>posts</strong></li>
-						<li><code>POST /api/posts/_id/1</code> modifies records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
-						<li><code>DELETE /api/posts</code> deletes all records in the collection <strong>posts</strong></li>
-						<li><code>DELETE /api/posts/_id/1</code> deletes records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
-					</ul>
+						<ul>
+							<li><code>GET /api/posts</code> returns all records in the collection <strong>posts</strong></li>
+							<li><code>GET /api/posts/type/text</code> returns records in the collection <strong>posts</strong>, where the value of <strong>type</strong> is <strong>text</strong></li>
+							<li><code>POST /api/posts</code> creates a new record in the collection <strong>posts</strong></li>
+							<li><code>POST /api/posts/_id/1</code> modifies records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
+							<li><code>DELETE /api/posts</code> deletes all records in the collection <strong>posts</strong></li>
+							<li><code>DELETE /api/posts/_id/1</code> deletes records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
+						</ul>
 
-					<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into matching records.</p>
+						<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into a new record or any matching records.</p>
 
-					<h2 class="title is-5 has-text-success">Oh wow.  Putting this on production would be <em>insanity</em>.</h2>
-					<p>Absolutely, and the default configuration of Sapling is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
-					<p>Sapling has robust support for defining data models (aka database schemata), and access permissions for each type-route combination.  In the default configuration, these are optional for the developer to define.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and <strong>nothing</strong> is ever implicitly saved into the database.</p>
-					<p>Sapling will refuse to run with production mode off when it detects it's not running on localhost.</p>
+						<h2 class="title is-5 has-text-success">Oh wow.  Putting this on production would be <em>insanity</em>.</h2>
+						<p>Absolutely, and the default configuration of Sapling is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
+						<p>Sapling has robust support for defining data models (aka database schemata), and access permissions for each type-route combination.  In the default configuration, these are optional for the developer to define.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and <strong>nothing</strong> is ever implicitly saved into the database.</p>
+						<p>Sapling will refuse to run with production mode off when it detects it's not running on localhost. Sapling will also refuse to run if production mode is on, but the required definitions are not found or are incomplete.</p>
 
-					<h2 class="title is-5 has-text-success">Still, though.  This sounds very precarious.</h2>
-					<p>The entire codebase has xx% test coverage, and you can see the results here, and the test suites here.  The entire server is fully open source, and smoke, unit and penetration tested.</p>
+						<h2 class="title is-5 has-text-success">Still, though.  This sounds very precarious.</h2>
+						<p>The entire codebase has xx% test coverage, and you can see the results here, and the test suites here.  The entire server is fully open source, and smoke, unit and penetration tested.</p>
+						<p>All user input is escaped and never eval'd.  Variables used in templates are also automatically escaped.  File uploads are checked for viruses.</p>
+					</div>
 				</div>
-				<div class="column content">
-					<h2 class="title is-5 has-text-success">This must be basically a drag'n'drop framework for noobs, with no option for <em>real</em> development.</h2>
-					<p>Just because you don't <em>need</em> to write code to achieve basic CRUD functionality with Sapling, doesn't mean you <em>can't</em> write code to do more advanced stuff.</p>
-					<p>Sapling has built-in support for custom handlers for any route, including the <code>/api</code> backend.  These handlers are just regular Node.js files, where you can code whatever you want just like normal, and organise these handlers in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
+				<div class="column">
+					<div class="content">
+						<h2 class="title is-5 has-text-success">This must be basically a drag'n'drop framework for noobs, with no option for <em>real</em> development.</h2>
+						<p>Just because you don't <em>need</em> to write code to achieve basic CRUD functionality with Sapling, doesn't mean you <em>can't</em> write code to do more advanced stuff.</p>
+						<p>Sapling has built-in support for custom handlers for any route, including the <code>/api</code> backend.  These handlers are just regular Node.js files, where you can code whatever you want just like normal, and organise these handlers in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
 
-					<h2 class="title is-5 has-text-success">I don't like MongoDB or Nunjucks or Vue.</h2>
-					<p>You don't have to!  By default, Sapling uses these three, but that's all they are &mdash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
-					<p>Database and templating engines are based on a driver model, where Sapling normalises them into a generic wrapper.  Loads of drivers already exist for the most popular databases and templating languages, and writing your own is a cinch.</p>
+						<h2 class="title is-5 has-text-success">I don't like MongoDB or Nunjucks or Vue.</h2>
+						<p>You don't have to!  By default, Sapling uses these three, but that's all they are &mdash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
+						<p>Database and templating engines are based on a driver model, where Sapling abstracts them into a generic wrapper.  Loads of drivers already exist for the most popular databases and templating languages, and writing your own is a cinch.</p>
 
-					<h2 class="title is-5 has-text-success">There must be a whole pile of dependencies.</h2>
-					<p>Sapling is split into multiple packages, so you only need to install what you actually need.  At the bare minimum, the Sapling core package must be installed, which has 10 direct dependencies.  Additional packages for database, templating, frontend, payment processing, and more, must be installed separately if these features are required &mdash; the Sapling CLI can install these packages and their dependencies on demand.</p>
+						<h2 class="title is-5 has-text-success">There must be a whole pile of dependencies.</h2>
+						<p>Sapling is split into multiple packages, so you only need to install what you actually need.  At the bare minimum, the Sapling core package must be installed, which has 10 direct dependencies.  Additional packages for database, templating, frontend, payment processing, and more, must be installed separately if these features are required &mdash; the Sapling CLI can install these packages and their dependencies on demand.</p>
+
+						<h2 class="title is-5 has-text-success">What about performance?</h2>
+						<p>In production mode, Sapling can serve an average of xx,xxx requests per second on a single four-core CPU.  Utilising the built-in cluster functionality in Node.js, caching all templates in memory, and minimising request-time filesystem calls and external dependencies, it is one of the fastest frameworks of its type around.</p>
+						<p>Additional performance improvements can be achieved with specific server configuration as detailed in the documentation.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<section class="section is-light">
+		<div class="container">
+			<h1 class="title">Quick start.</h1>
+
+			<div class="columns">
+				<div class="column">
+					<div class="content">
+						<h3 class="title is-5 has-text-success">Install the CLI</h3>
+						<p>Run <code>npm install -g saplingjs-cli</code> to install the command line tool globally.  The command line tool helps you create and manage Sapling projects.</p>
+					</div>
+				</div>
+				<div class="column">
+					<div class="content">
+						<h3 class="title is-5 has-text-success">Create your first project</h3>
+						<p>Run <code>sapling create</code> to run a wizard for creating a new blank project.  It will automatically create the files and folders needed, and install any dependencies.</p>
+					</div>
+				</div>
+				<div class="column">
+					<div class="content">
+						<h3 class="title is-5 has-text-success">Start developing</h3>
+						<p>Navigate to the folder and run <code>sapling run</code> to turn on the server.  Read the documentation to learn the basics of Sapling.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<h1 class="title has-text-centered">Premium support.</h1>
+
+			<div class="columns is-centered">
+				<div class="column is-two-thirds">
+					<div class="content">
+						<p>Sapling is 100% free and open source.  However, premium support, custom feature development, freelance development services or urgent bugfixing to do with Sapling is available at a fee.</p>
+
+						<ul>
+							<li>Private premium support email with a guaranteed response in 12 hours.</li>
+							<li>Direct access to the developers of Sapling.</li>
+							<li>Custom feature development on highest priority.</li>
+						</ul>
+
+						<br>
+
+						<div class="has-text-centered">
+							<a href="mailto:premium@saplingjs.com" class="button is-success">Enquire about premium support</a>		
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<div class="content has-text-centered">
+			<p>
+				<strong>Sapling</strong> by <a href="https://groenroos.fi" class="has-text-success">Oskari Groenroos</a>. Licensed under
+				<a href="http://opensource.org/licenses/mit-license.php" class="has-text-success">MIT</a>.
+			</p>
+		</div>
+	</footer>
 
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>

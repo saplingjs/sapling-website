@@ -10,6 +10,13 @@ p {
 	margin-bottom: 0.6em !important;
 }
 
+code {
+	font-family: antarctican-mono,sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	border-radius: 3px;
+}
+
 .title:not(.is-spaced)+.subtitle {
 	margin-top: -0.4em !important;
 	line-height: 1.4em;
@@ -20,7 +27,7 @@ p + .title {
 }
 
 .section {
-	padding: 5.5rem 1.5rem;
+	padding: 6.5rem 1.5rem;
 }
 
 .section.is-light {
@@ -29,4 +36,15 @@ p + .title {
 
 .section.is-light + .section.is-light {
 	padding-top: 0;
+}
+
+.hero .level code {
+	font-size: 16px;
+	border: 1px solid #ccc;
+	padding: 0 8px;
+	line-height: 26px;
+}
+
+.hero .level span {
+	height: 28px;
 }
