@@ -50,12 +50,54 @@
 
 	<section class="section">
 		<div class="container">
-			<h1 class="title">Unmatched speed of development.</h1>
-			<p>Sapling is designed for <strong>faster-than-light development</strong>.  There is zero mandatory configuration or boilerplate code.  UIs and forms simply come alive as you write them.  All the common SaaS features are built in and fully configurable.</p>
+			<div class="columns is-centered">
+				<div class="column is-four-fifths">
+					<div class="content">
+						<h1 class="title">Unmatched speed of development.</h1>
+						<p>Sapling is designed for <strong>faster-than-light development</strong>.  There is zero mandatory configuration or boilerplate code.  UIs and forms simply come alive as you write them.  All the common SaaS features are built in and fully configurable.</p>
 
-			<p>With other frameworks, displaying a simple post form requires writing a controller and a service provider and a facade and a contract and a middleware and a response class and a test suite and a migration and a caching service and an event bus and a helper function.<span class="is-fade-out"></span></p>
+						<h2 class="title is-4 has-text-centered">Task: Create a UI that allows the user to write and save a note.</h2>
 
-			<p>With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to <code>/api/posts</code>.  <strong>That's it.</strong>  Sapling will handle the backend, saving the post in the database and returning it when you <code>GET /api/posts</code>, with absolutely zero backend code required.</p>
+						<div class="columns is-centered">
+							<div class="column is-half">
+								<h3 class="title is-5 has-text-success">With Sapling</h3>
+								<ol>
+									<li>Create the form:
+<pre>&lt;form method="post" action="/api/notes">
+    &lt;textarea name="note">&lt;/textarea>
+    &lt;button type="submit">Save note&lt;/button>
+&lt;/form>
+</pre>
+									</li>
+									<li><strong>That's it.</strong> It works.</li>
+								</ol>
+							</div>
+							<div class="column is-one-third">
+								<h3 class="title is-5 has-text-grey">With other leading brands of frameworks</h3>
+
+								<ol class="is-faded">
+									<li>Create an inherited controller class</li>
+									<li>Write a service provider</li>
+									<li>Define a contract</li>
+									<li>Have a break</li>
+									<li>Develop a middleware</li>
+									<li>Craft a facade</li>
+									<li>Search on Stack Overflow</li>
+									<li>Add a response class</li>
+									<li>Write a test suite</li>
+									<li>Have a cup of coffee</li>
+									<li>Create a database migration</li>
+									<li>Develop and test validations</li>
+									<li>Contemplate life decisions</li>
+									<li>Handle exceptions</li>
+								</ol>
+							</div>
+						</div>
+
+						<p>No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/api/notes</code>.  That's all.  Sapling will handle the backend, creating the "notes" collection if it doesn't exist, saving the message in the database, and returning a list of all notes when you <code>GET /api/notes</code> &ndash; all with absolutely zero backend code required.</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 

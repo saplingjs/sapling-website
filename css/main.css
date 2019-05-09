@@ -19,23 +19,23 @@ p {
 	margin-bottom: 0.6em !important;
 }
 
-span.is-fade-out {
+.is-faded {
 	position: relative;
 }
 
-span.is-fade-out:after {
+.is-faded:after {
 	content: " ";
-	display: inline-block;
-	height: 1.2em;
-	vertical-align: middle;
-	width: 250px;
+	display: block;
+	height: 50%;
 	position: absolute;
-	left: -250px;
+	left: -2em;
+	right: 0;
+	bottom: 0;
 	z-index: 2;
-	background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
 }
 
-code {
+code, pre {
 	font-family: antarctican-mono,sans-serif;
 	font-weight: 400;
 	font-style: normal;
