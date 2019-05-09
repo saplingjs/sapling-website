@@ -56,16 +56,16 @@
 						<h1 class="title">Unmatched speed of development.</h1>
 						<p>Sapling is designed for <strong>faster-than-light development</strong>.  There is zero mandatory configuration or boilerplate code.  UIs and forms simply come alive as you write them.  All the common SaaS features are built in and fully configurable.</p>
 
-						<h2 class="title is-4 has-text-centered">Task: Create a UI that allows the user to write and save a note.</h2>
+						<h2 class="title is-4 has-text-centered">Task: Create a UI that allows the user to <span id="usecase-generator" title="Click to see other examples" class="usecase" data-type="task">write and save a note</span>.</h2>
 
 						<div class="columns is-centered">
 							<div class="column is-half">
 								<h3 class="title is-5 has-text-success">With Sapling</h3>
 								<ol>
 									<li>Create the form:
-<pre>&lt;form method="post" action="/api/notes">
-    &lt;textarea name="note">&lt;/textarea>
-    &lt;button type="submit">Save note&lt;/button>
+<pre>&lt;form method="post" action="/api/<span class="usecase" data-type="collection">notes</span>">
+    &lt;textarea name="<span class="usecase" data-type="item">note</span>">&lt;/textarea>
+    &lt;button type="submit">Save <span class="usecase" data-type="item">note</span>&lt;/button>
 &lt;/form>
 </pre>
 									</li>
@@ -94,7 +94,7 @@
 							</div>
 						</div>
 
-						<p>No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/api/notes</code>.  That's all.  Sapling will handle the backend, creating the "notes" collection if it doesn't exist, saving the message in the database, and returning a list of all notes when you <code>GET /api/notes</code> &ndash; all with absolutely zero backend code required.</p>
+						<p>No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/api/<span class="usecase" data-type="collection">notes</span></code>.  That's all.  Sapling will handle the backend, creating the "<span class="usecase" data-type="collection">notes</span>" collection if it doesn't exist, saving the <span class="usecase" data-type="item">note</span> in the database, and returning a list of all <span class="usecase" data-type="collection">notes</span> when you <code>GET /api/<span class="usecase" data-type="collection">notes</span></code> &ndash; all with absolutely zero backend code required.</p>
 					</div>
 				</div>
 			</div>
@@ -338,6 +338,9 @@
 		</div>
 	</footer>
 
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+	<script src="js/main.js"></script>
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
