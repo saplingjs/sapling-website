@@ -31,10 +31,15 @@ var usecases = [
 	}
 ];
 
-var generateUsecase = function(e) {
-	e.preventDefault();
-	
+var current_usecase = null;
+
+var generateUsecase = function() {
 	var usecase = usecases[Math.floor(Math.random()*usecases.length)];
+
+	if(current_usecase && current_usecase.collection == usecase.collection)
+		return generateUsecase();
+	else
+		current_usecase = usecase;
 
 	$(".usecase").each(function(){
 		$(this).text(usecase[$(this).data("type")]);
