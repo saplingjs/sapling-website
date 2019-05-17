@@ -1,78 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sapling - Node.js framework for faster-than-light web development</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Node.js framework for faster-than-light web development.">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="https://use.typekit.net/vlu8wla.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+	<meta charset="UTF-8">
+	<title>Sapling - Documentation</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="Documentation for Sapling, a minimalist Node.js framework for faster-than-light web development.">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://use.typekit.net/vlu8wla.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
 
-  <style>
-    :root {
-      --base-font-size            : 17px;
-      --base-color                : #4a4a4a;
-      --base-font-family          : BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-      --theme-color               : #23d160;
-      --code-font-family          : antarctican-mono,sans-serif;
-      --code-inline-color         : #ff3860;
-      --code-inline-background    : #f5f5f5;
-      --code-theme-background     : #f5f5f5;
-      --code-font-size            : .825rem;
-      --heading-h1-font-family    : clone-rounded-latin, sans-serif;
-      --heading-h1-font-weight    : 200;
-      --heading-h2-font-family    : clone-rounded-latin, sans-serif;
-      --heading-h2-font-weight    : 200;
-      --heading-h3-font-weight    : 500;
-      --sidebar-background        : #fafafa;
-      --sidebar-toggle-background : #fff;
-      --blockquote-em-font-style  : italic;
-      --sidebar-toggle-offset-left: 8px;
-    }
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5AP4Ke427Y">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5AP4Ke427Y">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5AP4Ke427Y">
+	<link rel="manifest" href="/site.webmanifest?v=5AP4Ke427Y">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg?v=5AP4Ke427Y" color="#4ecf89">
+	<link rel="shortcut icon" href="/favicon.ico?v=5AP4Ke427Y">
+	<meta name="msapplication-TileColor" content="#4ecf89">
+	<meta name="theme-color" content="#4ecf89">
 
-    @media screen and (max-width: 640px) {
-      .sidebar-toggle .sidebar-toggle-button {
-        width: 42px;
-        border-radius: 50%;
-        height: 42px;
-        left: 8px;
-        box-shadow: 0px 1.5px 3px 1px rgba(0,0,0,0.17);
-      }
+	<meta name="image" content="https://www.saplingjs.com/sapling.jpg">
+	<meta itemprop="name" content="Sapling">
+	<meta itemprop="description" content="Documentation for Sapling, a minimalist Node.js framework for faster-than-light web development.">
+	<meta itemprop="image" content="https://www.saplingjs.com/sapling.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Sapling">
+	<meta name="twitter:description" content="Documentation for Sapling, a minimalist Node.js framework for faster-than-light web development.">
+	<meta name="og:title" content="Sapling">
+	<meta name="og:description" content="Documentation for Sapling, a minimalist Node.js framework for faster-than-light web development.">
+	<meta name="og:image" content="https://www.saplingjs.com/sapling.jpg">
+	<meta name="og:url" content="https://www.saplingjs.com">
+	<meta name="og:site_name" content="Sapling">
+	<meta name="og:locale" content="en_GB">
+	<meta name="og:type" content="website">
 
-      .markdown-section {
-        padding: 3rem 20px 6rem;
-      }
-    }
+	<style>
+	:root {
+		--base-font-size            : 17px;
+		--base-color                : #4a4a4a;
+		--base-font-family          : BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+		--theme-color               : #23d160;
+		--code-font-family          : antarctican-mono,sans-serif;
+		--code-inline-color         : #ff3860;
+		--code-inline-background    : #f5f5f5;
+		--code-theme-background     : #f5f5f5;
+		--code-font-size            : .825rem;
+		--heading-h1-font-family    : clone-rounded-latin, sans-serif;
+		--heading-h1-font-weight    : 200;
+		--heading-h2-font-family    : clone-rounded-latin, sans-serif;
+		--heading-h2-font-weight    : 200;
+		--heading-h3-font-weight    : 500;
+		--sidebar-background        : #fafafa;
+		--sidebar-toggle-background : #fff;
+		--blockquote-em-font-style  : italic;
+		--sidebar-toggle-offset-left: 8px;
+	}
 
-    @media screen and (max-width: 47.99em) {
-      .markdown-section {
-        transition: 0.3s linear opacity;
-      }
+	@media screen and (max-width: 640px) {
+		.sidebar-toggle .sidebar-toggle-button {
+			width: 42px;
+			border-radius: 50%;
+			height: 42px;
+			left: 8px;
+			box-shadow: 0px 1.5px 3px 1px rgba(0,0,0,0.17);
+		}
 
-      body.close .markdown-section {
-        opacity: .25;
-      }
-    }
-  </style>
+		.markdown-section {
+			padding: 3rem 20px 6rem;
+		}
+	}
+
+	@media screen and (max-width: 47.99em) {
+		.markdown-section {
+			transition: 0.3s linear opacity;
+		}
+
+		body.close .markdown-section {
+			opacity: .25;
+		}
+	}
+</style>
 </head>
 <body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      name: 'Sapling',
-      repo: 'groenroos/sapling',
-      homepage: 'home.md',
-      auto2top: true,
-      loadSidebar: true,
-      executeScript: true,
-      mergeNavbar: true,
-      maxLevel: 4,
-      subMaxLevel: 2,
-    }
-  </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-  <script src="//unpkg.com/docsify-copy-code"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+	<div id="app"></div>
+	<script>
+		window.$docsify = {
+			name: 'Sapling',
+			repo: 'groenroos/sapling',
+			homepage: 'home.md',
+			auto2top: true,
+			loadSidebar: true,
+			executeScript: true,
+			mergeNavbar: true,
+			maxLevel: 4,
+			subMaxLevel: 2,
+		}
+	</script>
+	<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+	<script src="//unpkg.com/docsify-copy-code"></script>
+	<script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
 </body>
 </html>
