@@ -1,10 +1,14 @@
 ::-moz-selection {
 	color: #fff;
-	background: #23d160;
+	background: #4dcf89;
 }
 ::selection {
 	color: #fff;
-	background: #23d160;
+	background: #4dcf89;
+}
+
+.has-text-success {
+	color: #4dcf89 !important;
 }
 
 h1.title {
@@ -76,6 +80,26 @@ p + .title {
 	padding-bottom: 1em;
 }
 
+.navbar-brand img {
+	max-height: 2.5rem;
+	margin: 0.5rem 1rem 0.5rem 0;
+}
+
+.navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
+	color: #4dcf89;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+	border-color: #aaa;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-radius: 2px;
+}
+
+.hero {
+	margin-top: 3rem;
+}
+
 .hero code {
 	font-size: 16px;
 	border: 1px solid #ccc;
@@ -107,7 +131,7 @@ p + .title {
 	left: 0;
 	right: 0;
 	height: 6px;
-	background: #23d160;
+	background: #4dcf89;
 	opacity: .5;
 	z-index: -1;
 }

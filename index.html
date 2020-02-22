@@ -42,6 +42,61 @@
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 	<![endif]-->
 
+	<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+		<div class="container">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="https://www.saplingjs.com">
+					<img src="/images/logo.svg" alt="Sapling" />
+				</a>
+				
+				<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</a>
+			</div>
+			
+			<div id="main-navbar" class="navbar-menu">
+				<div class="navbar-start">
+					<a href="#features" class="navbar-item">
+						Features
+					</a>
+					
+					<a href="#faq" class="navbar-item">
+						FAQ
+					</a>
+					
+					<a href="/docs" class="navbar-item">
+						Documentation
+					</a>
+					
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link">
+							More
+						</a>
+						
+						<div class="navbar-dropdown">
+							<a href="https://github.com/groenroos/sapling/issues" class="navbar-item">
+								Report an issue
+							</a>
+							<a href="#premium" class="navbar-item">
+								Premium support
+							</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="navbar-end">
+					<div class="navbar-item">
+						<div class="buttons">
+							<a class="github-button" href="https://github.com/groenroos/sapling" data-size="large" data-show-count="true" aria-label="View groenroos/sapling on GitHub">View on GitHub</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
 	<section class="hero is-medium is-light is-bold">
 		<div class="hero-body">
 			<div class="container">
@@ -128,7 +183,7 @@
 		</div>
 	</section>
 
-	<section class="section is-light">
+	<section id="features" class="section is-light">
 		<div class="container">
 			<h1 class="title has-text-centered">All the SaaS features you hate to write.</h1>
 			<p class="subtitle has-text-centered">Sapling features all of the usual SaaS features nobody likes to write, built right in.</p>
@@ -248,7 +303,7 @@
 		</div>
 	</section>
 
-	<section class="section">
+	<section id="faq" class="section">
 		<div class="container">
 			<h1 class="title has-text-centered">Your grave concerns.</h1>
 			<p class="subtitle has-text-centered">Rightly you might feel skeptical.  Here are the common "but"s and our take on them.</p>
@@ -330,7 +385,7 @@
 		</div>
 	</section>
 
-	<section class="section">
+	<section id="premium" class="section">
 		<div class="container">
 			<h1 class="title has-text-centered">Premium support.</h1>
 
