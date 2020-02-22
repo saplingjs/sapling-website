@@ -39,6 +39,10 @@ p {
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
 }
 
+code {
+	color: #da1c42;
+}
+
 code, pre {
 	font-family: antarctican-mono,sans-serif;
 	font-weight: 400;
