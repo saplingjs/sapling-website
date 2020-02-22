@@ -3,12 +3,12 @@
     "short_name": "Sapling",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png?v=5AP4Ke427Y",
+            "src": "/images/android-chrome-192x192.png?v=5AP4Ke427Y",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-512x512.png?v=5AP4Ke427Y",
+            "src": "/images/android-chrome-512x512.png?v=5AP4Ke427Y",
             "sizes": "512x512",
             "type": "image/png"
         }
