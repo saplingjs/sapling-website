@@ -2,6 +2,7 @@
     height: 65%;
     height: 65vh;
     width: auto;
+    max-height: 700px;
     margin: -6rem auto 0;
     display: block;
 }

@@ -148,7 +148,7 @@ var bonsai = function(){
 
     $(document).ready(function(){
         setTimeout(function(){
-            $("svg").addClass("v");
+            $("#bonsai").addClass("v");
 
             for(var i = 0; i < leafLocations.length; i++) {
                 generateLeaf(leafLocations[i][0], leafLocations[i][1]);
