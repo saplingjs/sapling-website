@@ -1,2 +1,3 @@
 - [Home](home.md)
 - [Installation](installation.md)
+- [Production mode](production.md)
