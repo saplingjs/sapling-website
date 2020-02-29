@@ -19,9 +19,12 @@ Run `sapling create` to run a wizard for creating a new blank project.  It will 
 
 Navigate to the folder and run `sapling run` to turn on the server.  You can then visit your new site at `http://localhost:3000`.
 
-> If port 3000 is no good, you can definite a different port with the `--port` flag; for example, `sapling run --port 8000`
+?> If port 3000 is no good, you can definite a different port with the `--port` flag; for example, `sapling run --port 8000`
 
 
 ## Manual installation
 
 If you do not wish to use the CLI, you can also add Sapling as a dependency with `npm install --save saplingjs` or `yarn add saplingjs`.
+
+
+> Next, [let's take a look at views](/views).

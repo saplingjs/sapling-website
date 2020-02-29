@@ -2,6 +2,7 @@
 
 Sapling is a Node.js framework for building websites, web apps and APIs as fast as you can imagine them.  With unrivalled speed of development, you can prototype quickly, iterate with ease, and deploy the same day.  Zero code, zero config &ndash; unless you want to.  And what's more, it comes with all the SaaS features you never want to write, all built-in.
 
+
 ## Introduction
 
 Say you want to create a form that allows users to add a restaurant review.  You might create a form that looks something like this;
@@ -26,7 +27,7 @@ No, seriously.  With Sapling, all data is handled by its special and powerful dy
 - When you send a `POST` request to `/api/reviews/_id/1`, you'll edit the review with an `_id` of `1` with whatever POST values you send.
 - When you send a `DELETE` request to `/api/reviews/_id/1`, you'll delete the review with an `_id` of `1`.
 
-> **So, how do you create the `reviews` collection, then?**  You don't have to.  Just by sending a `POST` request to *anything* beginning with `/api/`, Sapling will save the data, and make it available at the corresponding `GET` routes as above.
+?> **So, how do you create the `reviews` collection, then?**  You don't have to.  Just by sending a `POST` request to *anything* beginning with `/api/`, Sapling will save the data, and make it available at the corresponding `GET` routes as above.
 
 Say you want to then show a list of the reviews that have been posted.  This is also super easy.  By default, Sapling uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language, with a few custom tags to make things easier.
 
@@ -38,3 +39,10 @@ Say you want to then show a list of the reviews that have been posted.  This is 
     {% endfor %}
 
 The `set` tag fetches the reviews that have been posted with the form above, and the `for` loop below goes through each review, and displays the fields that were defined in the form.
+
+
+## Let's get started!
+
+Now that you've got an idea of how Sapling works, let's get started with installing the required bits!
+
+[Next: Installation](/installation)
