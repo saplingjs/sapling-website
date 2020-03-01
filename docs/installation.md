@@ -9,7 +9,7 @@ With the CLI tool, you can quickly create projects with all the necessary files 
 
 #### 1. Install the CLI
 
-Run `npm install -g saplingjs-cli` to install the command line tool globally.  The command line tool helps you create and manage Sapling projects.
+Run `npm install -g @sapling/cli` to install the command line tool globally.  The command line tool helps you create and manage Sapling projects.
 
 #### 2. Create your first project
 
@@ -24,7 +24,7 @@ Navigate to the folder and run `sapling run` to turn on the server.  You can the
 
 ## Manual installation
 
-If you do not wish to use the CLI, you can also add Sapling as a dependency with `npm install --save saplingjs` or `yarn add saplingjs`.
+If you do not wish to use the CLI, you can also add Sapling as a dependency with `npm install --save @sapling/framework` or `yarn add @sapling/framework`.
 
 
 > Next, [let's take a look at views](/views).
