@@ -1,4 +1,5 @@
 - [Home](home.md)
 - [Installation](installation.md)
 - [Views](views.md)
+- [Models](models.md)
 - [Production mode](production.md)

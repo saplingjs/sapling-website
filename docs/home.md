@@ -45,4 +45,5 @@ The `set` tag fetches the reviews that have been posted with the form above, and
 
 Now that you've got an idea of how Sapling works, let's get started with installing the required bits!
 
-[Next: Installation](/installation)
+
+> [Next: Installation](/installation)
