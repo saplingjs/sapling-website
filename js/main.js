@@ -40,12 +40,22 @@ var generateUsecase = function() {
 		return generateUsecase();
 	else
 		current_usecase = usecase;
-
-	$(".usecase").each(function(){
-		$(this).text(usecase[$(this).data("type")]);
+	
+	Array.prototype.forEach.call(document.querySelectorAll(".usecase"), function(el, i){
+		el.textContent = usecase[el.getAttribute('data-type')];
 	});
 
 	return false;
 }
 
-$(document).ready(generateUsecase).on("click", "#usecase-generator", generateUsecase);
+var ready = function(fn) {
+	if (document.readyState != 'loading'){
+		fn();
+	} else {
+		document.addEventListener('DOMContentLoaded', fn);
+	}
+}
+
+ready(generateUsecase);
+
+document.querySelector("#usecase-generator").addEventListener("click", generateUsecase);

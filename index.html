@@ -436,8 +436,6 @@
 		</div>
 	</footer>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script>window.jQuery || document.write('<script src="/js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
 	<script src="https://kit.fontawesome.com/b8ff1e101d.js" crossorigin="anonymous"></script>
 	<script src="/js/main.js"></script>
 	<script src="/js/bonsai.js"></script>
@@ -447,7 +445,7 @@
 			svgSelector: 'img.svg',
 			initClass: 'js-inlinesvg',
 		}, function(){
-			$("#bonsai").show();
+			document.querySelector("#bonsai").style.display = '';
 			bonsai();
 		});
 	</script>

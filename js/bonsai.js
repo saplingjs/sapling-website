@@ -1,3 +1,11 @@
+var ready = function(fn) {
+	if (document.readyState != 'loading'){
+		fn();
+	} else {
+		document.addEventListener('DOMContentLoaded', fn);
+	}
+};
+
 var bonsai = function(){
     var offset = 650;
 
@@ -9,7 +17,7 @@ var bonsai = function(){
         tag.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#Leaf-' + leafID);
         tag.setAttribute('transform', 'translate('+x+', '+y+') rotate('+rotation+') scale(0)');
 
-        $("#bonsai").append(tag);
+        document.querySelector("#bonsai").appendChild(tag);
 
         setTimeout(function(){
             tag.setAttribute('transform', 'translate('+x+', '+y+') rotate('+rotation+') scale(1)');
@@ -146,9 +154,9 @@ var bonsai = function(){
         [377, 122]
     ];
 
-    $(document).ready(function(){
+    ready(function(){
         setTimeout(function(){
-            $("#bonsai").addClass("v");
+            document.querySelector("#bonsai").classList.add("v");
 
             for(var i = 0; i < leafLocations.length; i++) {
                 generateLeaf(leafLocations[i][0], leafLocations[i][1]);
