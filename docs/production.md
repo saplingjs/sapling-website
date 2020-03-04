@@ -18,6 +18,7 @@ Here's a simple comparison of how Sapling behaves in production mode, compared t
 | Config file          | Optional                                                  | Mandatory                                                  |
 | Posting to data API  | Data structure for missing models is inferred from input  | Requests to missing models throw an error                  |
 | Template rendering   | On each page load                                         | Heavily cached; updates only visible after server restart  |
+| CORS headers         | Yes, except if explicitly turned off                      | No, except if explicitly turned on                         |
 
 
 ## Configuration
@@ -36,7 +37,7 @@ It's also possible to let Sapling automatically determine whether to use product
 
 When set to `"auto"`, Sapling will serve requests via `localhost` in normal mode, and requests from outside it in production mode.
 
-!> Automatic detection isn't necessarily always reliable in all environments, so we **strongly suggest** setting the production setting explicitly to either `true` or `false` (default).
+!> Automatic detection isn't necessarily always reliable in all environments, so we **strongly suggest** setting the production setting explicitly to either `true` or `false`.
 
 It's common that you would want a different configuration for a production environment than your development environment.  You can create a duplicate of your `config.json`, and call it `config-production.json`.  When in production mode, this file will be used in place of `config.json`.
 

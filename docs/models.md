@@ -21,11 +21,44 @@ Fields are described by setting properties, which affect the type of data is sto
 | Property     | Description                                                                                                                            |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `name`       | The name of the field that will be used in the data API.  The only strictly required property.                                         |
-| `type`       | Type of data stored in this field.  Can be one of `text` (default), `number`, `boolean`, `date`, `password`, `array`, or `reference`.  |
+| `type`       | Type of data stored in this field.  Can be one of `"text"` (default), `"number"`, `"boolean"`, `"date"`, `"password"`, `"array"`, or `"reference"`.  |
 | `required`   | Whether this field is mandatory.  `false` by default.  If `true`, Sapling will throw an error if the field is missing.                 |
 | `choices`    | An array of possible values for the field.  If defined, submitting a value not in the array will throw an error.                       |
 | `default`    | The default value if the field is not sent in a request.  Must match `type` and `choices`, if defined.                                 |
-| `reference`  | Only needed if `type` is `reference`.  Name of another model that this field references.                                               |
+| `reference`  | Only needed if `type` is `"reference"`.  Name of a model that this field references.                                               |
+
+
+## Reference fields
+
+If the `type` of a field is set to `"reference"`, it creates a link between two records from the same or different model.
+
+This is useful if you want to make strong many-to-one connections between different records; for instance, a particular review in the `reviews` model may be about a particular movie in the `movies` model.  Therefore, you may want to define a reference field in the `reviews` model:
+
+    [
+        ...
+        {
+            "name": "movie",
+            "type": "reference",
+            "required": true,
+            "reference": "movies"
+        }
+    ]
+
+The above example would mean that any `POST` request to the `reviews` model would have to include a valid ID of a record in the `movies` model.  Sending an ID that is not a valid record in `movies` would result in an error.
+
+`GET` requests to `reviews` would then include the entire record of the referenced movie in place of the ID in the `movie` key:
+
+    {
+        ...
+        "movie": {
+            "_id": 1,
+            "title": "Gone With The Wind"
+        }
+    }
+
+If the `movies` model also included a reference field, the contents of the referenced field would also be included inside the `movie` field above.  This allows you to create very deep and detailed data structures.
+
+!> While there is nothing stopping you from creating a reference field that points to itself (i.e. a reference field in `movies` that references `movies`), this can easily lead to circular references.  This is where movie A references movie B that references movie A, in an infinite loop.  Sapling will automatically stop including the referenced object when it reaches 10 levels deep.
 
 
 ## Default fields
