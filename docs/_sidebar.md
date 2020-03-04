@@ -2,4 +2,5 @@
 - [Installation](installation.md)
 - [Views](views.md)
 - [Models](models.md)
+- [Routing](routes.md)
 - [Production mode](production.md)

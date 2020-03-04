@@ -9,11 +9,9 @@ Views contain standard HTML, and by default, the [Nunjucks](https://mozilla.gith
 
 All views are files ending in `.html`, and they are located in the `views/` directory in your project.  Both of these facts can be customised in `config.json`, but typically you won't need to.
 
-By default, Sapling will use auto-routing whenever the project doesn't contain a `routes.json` (which the default project doesn't).  What this means is that the view files will immediately and automatically correspond to a public route.
+By default, Sapling will use auto-routing whenever the project doesn't contain a `routes.json` (which the default project doesn't).  What this means is that the view files will immediately and automatically correspond to a public route. Learn more about routing [here](/routes).
 
-For example, the view in `views/reviews.html` will automatically be accessible to users at `/reviews`.  A view at `views/review/new.html` will be available at `/review/new`.
-
-?> Any view, and views inside any folder, that *begin* with `_` will not be accessible automatically.  For example, `views/_header.html` and `views/_templates/header.html` would both be inaccessible.  Use this to create partial views (like headers, footers, etc) that you can re-use in other views, but which shouldn't be viewed on their own.
+You can create whatever naming conventions and subdirectories inside `views/` that makes sense to you.  However, because the views are used in routing and code, keeping to normal alphanumeric names is probably advisable.  Any view, and views inside any folder, that *begin* with `_` will not be accessible via auto-routing.
 
 
 ## Nunjucks
