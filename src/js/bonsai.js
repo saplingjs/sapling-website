@@ -1,10 +1,4 @@
-var ready = function(fn) {
-	if (document.readyState != 'loading'){
-		fn();
-	} else {
-		document.addEventListener('DOMContentLoaded', fn);
-	}
-};
+import ready from './ready.js';
 
 var bonsai = function(){
     var offset = 650;
@@ -164,3 +158,5 @@ var bonsai = function(){
         }, 400);
     });
 };
+
+export default bonsai;
