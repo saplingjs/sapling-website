@@ -55,3 +55,6 @@ You can do this with the colon notation:
 Now, the `views/review/view.html` view is injected with the variable `id`, which contains `"12"` when the user visits `/review/12`.
 
 !> The first matching route is the one that's used; therefore, in cases where parameters may make two similar routes clash (`/review/new` and `/review/:id`), define the more specific route first.
+
+
+> Then, [let's see how you can protect those routes with permissions](/permissions).

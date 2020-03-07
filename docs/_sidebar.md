@@ -9,6 +9,7 @@
     - [Views](views.md)
     - [Models](models.md)
     - [Routing](routes.md)
+    - [Permissions](permissions.md)
 
 - Advanced
 
