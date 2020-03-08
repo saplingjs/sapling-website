@@ -25,6 +25,3 @@ Navigate to the folder and run `sapling run` to turn on the server.  You can the
 ## Manual installation
 
 If you do not wish to use the CLI, you can also add Sapling as a dependency with `npm install --save @sapling/framework` or `yarn add @sapling/framework`.
-
-
-> Next, [let's take a look at views](/views).

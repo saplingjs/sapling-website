@@ -57,6 +57,3 @@ Much like `post`, the `delete` tag will fire an immediate data API `DELETE` requ
     {{ delete /api/statistics?id=1 }}
 
 This would delete any record in the `statistics` collection, where the `id` key has the value of `"1"`.
-
-
-> Now, [let's learn about models](/models).

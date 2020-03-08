@@ -109,6 +109,3 @@ The default configuration of Sapling uses [MongoDB](https://www.mongodb.com/) to
 However, if you prefer to use a different storage technology, you can.  All storage functionality is abstracted into generic methods that Sapling uses interally, and integrating a new technology is a matter of mapping these abstracted methods into the technology-specific commands.
 
 Many popular storage technologies have already been adapted for Sapling, and you easily may write your own.  Sapling even supports relational databases that require rigid homogeneous column structures.
-
-
-> Next, [let's look at routing](/routes).

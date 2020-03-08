@@ -1,5 +1,4 @@
 import "docsify";
-import "docsify-copy-code";
 import "docsify-themeable";
 
 window.$docsify = {
@@ -13,4 +12,11 @@ window.$docsify = {
     mergeNavbar: true,
     maxLevel: 4,
     subMaxLevel: 2,
-}
+    pagination: {
+        crossChapter: true,
+        crossChapterText: false
+    }
+};
+
+require("docsify-pagination");
+require("docsify-copy-code");

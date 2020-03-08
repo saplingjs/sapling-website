@@ -4,6 +4,7 @@
     "cross-env": "^7.0.2",
     "docsify": "^4.10.2",
     "docsify-copy-code": "^2.1.0",
+    "docsify-pagination": "^2.6.0",
     "docsify-themeable": "^0.8.0",
     "inline-svg": "^2.2.3",
     "laravel-mix": "^5.0.1",
