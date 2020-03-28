@@ -5,7 +5,7 @@ You can control which users can access which [routes](/routes) and data API requ
 
 ## User roles
 
-The built-in users model has a `role` key, which defines the level of access for each user.  Sapling typically deals with two roles and one inferred role out of the box:
+The built-in users model has a `role` key, which defines the level of access for each user.  Sapling typically deals with two explicit roles and two inferred roles out of the box:
 
 | Role         | Description                                                                                              |
 |--------------|----------------------------------------------------------------------------------------------------------|
@@ -14,11 +14,9 @@ The built-in users model has a `role` key, which defines the level of access for
 | `admin`      | Special user role that is able to access all routes regardless of the permissions configuration.         |
 | `owner`      | The user who originally created the record in question.  Only applicable to the data API.                |
 
-Aside from these three roles, you can assign any user any role you wish, and create corresponding permissions.  You cannot prohibit users with the `admin` role from accessing any route or data API request.
+Aside from these four roles, you can assign any user any role you wish, and create corresponding permissions.  You cannot prohibit users with the `admin` role from accessing any route or data API request.
 
-You cannot assign the `anonymous` role to any actual user account, as this is used to describe visitors who have not logged in.
-
-The `owner` role is only applicable to permissions of `POST` and `DELETE` requests to the data API, and refers to the user who originally created the record in question.
+You cannot assign the `anonymous` or `owner` roles to any actual user account, as these are dynamic.  `anonymous` is used to describe visitors who have not logged in.  The `owner` role is only applicable to permissions of `POST` and `DELETE` requests to the data API, and refers to the user who originally created the record in question.
 
 
 ## Defining permissions
