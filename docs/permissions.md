@@ -75,7 +75,7 @@ For example, if you wanted to create a `moderator` role for users that should ha
 
     {
         "POST /api/reviews/*/*": ["moderator", "owner"],
-        "POST /api/reviews": ["moderator, "user"],
+        "POST /api/reviews": ["moderator", "user"],
         "DELETE /api/reviews/_id/*": "moderator",
         "DELETE /api/reviews": "admin"
     }

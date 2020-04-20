@@ -11,7 +11,7 @@ By default, Sapling handles routing automatically.  This maps the contents and f
 
 For example, the view in `views/reviews.html` will automatically be accessible to users at `/reviews`.  A view at `views/review/new.html` will be available at `/review/new`.
 
-| View path                        | Automatic route        |
+| Example view path                | Automatic route        |
 |----------------------------------|------------------------|
 | `views/index.html`               | `/`                    |
 | `views/reviews.html`             | `/reviews`             |
