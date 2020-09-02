@@ -1,6 +1,6 @@
 - Getting started
 
-    - [Home](home.md)
+    - [Home](/)
     - [Installation](installation.md)
 
 - Basics
