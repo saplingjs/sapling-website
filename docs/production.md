@@ -13,7 +13,7 @@ Here's a simple comparison of how Sapling behaves in production mode, compared t
 
 | Feature              | Normal                                                    | Production mode                                            |
 |----------------------|-----------------------------------------------------------|------------------------------------------------------------|
-| Routing              | Automatic based on view folder content                    | Must be defined in `controller.json`                       |
+| Routing              | Automatic based on view folder content                    | Must be defined in `routes.json`                           |
 | Models               | Optional                                                  | Mandatory                                                  |
 | Permissions          | Optional                                                  | Mandatory for all `POST`s and `DELETE`s                    |
 | Config file          | Optional                                                  | Mandatory                                                  |
