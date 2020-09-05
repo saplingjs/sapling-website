@@ -142,7 +142,7 @@
 								<h3 class="title is-5 has-text-success">With Sapling</h3>
 								<ol>
 									<li>Create the form:
-<pre>&lt;form method="post" action="/api/<span class="usecase" data-type="collection">notes</span>">
+<pre>&lt;form method="post" action="/data/<span class="usecase" data-type="collection">notes</span>">
     &lt;textarea name="<span class="usecase" data-type="item">note</span>">&lt;/textarea>
     &lt;button type="submit">Save <span class="usecase" data-type="item">note</span>&lt;/button>
 &lt;/form>
@@ -173,7 +173,7 @@
 							</div>
 						</div>
 
-						<p>No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/api/<span class="usecase" data-type="collection">notes</span></code>.  That's all.  Sapling will handle the backend, creating the "<span class="usecase" data-type="collection">notes</span>" collection if it doesn't exist, saving the <span class="usecase" data-type="item">note</span> in the database, and returning a list of all <span class="usecase" data-type="collection">notes</span> when you <code>GET /api/<span class="usecase" data-type="collection">notes</span></code> &ndash; all with absolutely zero backend code required.</p>
+						<p>No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/data/<span class="usecase" data-type="collection">notes</span></code>.  That's all.  Sapling will handle the backend, creating the "<span class="usecase" data-type="collection">notes</span>" collection if it doesn't exist, saving the <span class="usecase" data-type="item">note</span> in the database, and returning a list of all <span class="usecase" data-type="collection">notes</span> when you <code>GET /data/<span class="usecase" data-type="collection">notes</span></code> &ndash; all with absolutely zero backend code required.</p>
 					</div>
 				</div>
 			</div>
@@ -326,15 +326,15 @@
 				<div class="column">
 					<div class="content">
 						<h2 class="title is-5 has-text-success">How can all the forms work with no backend code?</h2>
-						<p>Sapling's dynamic data backend figures out what to do based on the type of request it receives to the built-in <code>/api</code> route. It acts as a very light wrapper for abstract CRUD queries;</p>
+						<p>Sapling's dynamic data backend figures out what to do based on the type of request it receives to the built-in <code>/data</code> route. It acts as a very light wrapper for abstract CRUD queries;</p>
 
 						<ul>
-							<li><code>GET /api/posts</code> returns all records in the collection <strong>posts</strong></li>
-							<li><code>GET /api/posts/type/text</code> returns records in the collection <strong>posts</strong>, where the value of <strong>type</strong> is <strong>text</strong></li>
-							<li><code>POST /api/posts</code> creates a new record in the collection <strong>posts</strong></li>
-							<li><code>POST /api/posts/_id/1</code> modifies records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
-							<li><code>DELETE /api/posts</code> deletes all records in the collection <strong>posts</strong></li>
-							<li><code>DELETE /api/posts/_id/1</code> deletes records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
+							<li><code>GET /data/posts</code> returns all records in the collection <strong>posts</strong></li>
+							<li><code>GET /data/posts/type/text</code> returns records in the collection <strong>posts</strong>, where the value of <strong>type</strong> is <strong>text</strong></li>
+							<li><code>POST /data/posts</code> creates a new record in the collection <strong>posts</strong></li>
+							<li><code>POST /data/posts/_id/1</code> modifies records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
+							<li><code>DELETE /data/posts</code> deletes all records in the collection <strong>posts</strong></li>
+							<li><code>DELETE /data/posts/_id/1</code> deletes records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
 						</ul>
 
 						<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value for a where clause, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into a new record or any matching records.</p>
@@ -353,7 +353,7 @@
 					<div class="content">
 						<h2 class="title is-5 has-text-success">This must be basically a drag'n'drop framework for noobs, with no option for <em>real</em> development.</h2>
 						<p>Just because you don't <em>need</em> to write code to achieve basic CRUD functionality with Sapling, doesn't mean you <em>can't</em> write code to do more advanced stuff.</p>
-						<p>Sapling has built-in support for custom handlers for any route, including the <code>/api</code> backend.  These handlers are just regular Node.js files, where you can code whatever you want just like normal, and organise these handlers in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
+						<p>Sapling has built-in support for custom handlers for any route, including the <code>/data</code> backend.  These handlers are just regular Node.js files, where you can code whatever you want just like normal, and organise these handlers in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
 
 						<h2 class="title is-5 has-text-success">I don't like MongoDB or Nunjucks or Vue.</h2>
 						<p>You don't have to!  By default, Sapling uses these three, but that's all they are &ndash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>

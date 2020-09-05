@@ -7,7 +7,7 @@ Sapling is a Node.js framework for building websites, web apps and APIs as fast 
 
 Say you want to create a form that allows users to add a restaurant review.  You might create a form that looks something like this;
 
-    <form action="/api/reviews" method="post">
+    <form action="/data/reviews" method="post">
     	<input type="text" name="title" placeholder="Review title" />
     	<textarea name="content" placeholder="Say a few words"></textarea>
     	<button type="submit">Post review</button>
@@ -21,17 +21,17 @@ With Sapling... **it already works, as-is.**
 
 No, seriously.  With Sapling, all data is handled by its special and powerful dynamic data endpoint.  It sounds complicated, but it really isn't:
 
-- When you send a `GET` request to `/api/reviews`, you'll get a list of all reviews.
-- When you send a `GET` request to `/api/reviews/_id/1`, you'll get the review with an `_id` of `1`.
-- When you send a `POST` request to `/api/reviews`, you'll create a new review with whatever POST values you send.
-- When you send a `POST` request to `/api/reviews/_id/1`, you'll edit the review with an `_id` of `1` with whatever POST values you send.
-- When you send a `DELETE` request to `/api/reviews/_id/1`, you'll delete the review with an `_id` of `1`.
+- When you send a `GET` request to `/data/reviews`, you'll get a list of all reviews.
+- When you send a `GET` request to `/data/reviews/_id/1`, you'll get the review with an `_id` of `1`.
+- When you send a `POST` request to `/data/reviews`, you'll create a new review with whatever POST values you send.
+- When you send a `POST` request to `/data/reviews/_id/1`, you'll edit the review with an `_id` of `1` with whatever POST values you send.
+- When you send a `DELETE` request to `/data/reviews/_id/1`, you'll delete the review with an `_id` of `1`.
 
-?> **So, how do you create the `reviews` collection, then?**  You don't have to.  Just by sending a `POST` request to *anything* beginning with `/api/`, Sapling will save the data, and make it available at the corresponding `GET` routes as above.
+?> **So, how do you create the `reviews` collection, then?**  You don't have to.  Just by sending a `POST` request to *anything* beginning with `/data/`, Sapling will save the data, and make it available at the corresponding `GET` routes as above.
 
 Say you want to then show a list of the reviews that have been posted.  This is also super easy.  By default, Sapling uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language, with a few custom tags to make things easier.
 
-    {{ set reviews as get /api/reviews }}
+    {{ set reviews as get /data/reviews }}
      
     {% for review in reviews %}
     <h2>{{ review.title }}</h2>

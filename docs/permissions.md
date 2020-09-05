@@ -32,16 +32,16 @@ For example, if you wanted to make sure that **only logged-in users** can access
 It works the same way for controlling access to the data API.  If you wanted to make sure that **only logged-in users** are able to create reviews, users are able to only edit **their own reviews** (and not be able to edit reviews posted by someone else), and **only admins** are able to edit them, you might create a `permissions.json` like this:
 
     {
-        "POST /api/reviews/*/*": "owner",
-        "POST /api/reviews": "user",
-        "DELETE /api/reviews": "admin"
+        "POST /data/reviews/*/*": "owner",
+        "POST /data/reviews": "user",
+        "DELETE /data/reviews": "admin"
     }
 
 The first definition makes sure that users with the `user` role are able to send `POST` requests to the `reviews` model in the data API.  This precludes those with the `anonymous` role, i.e. users who have not logged in to a valid account.  However, `admin` users will be able to also do this, as all routes remain available to them.
 
 The second definition makes sure that only users with the `admin` role are able to send a `DELETE` requests to the `reviews` model in the data API.  This will preclude those with `user` or `anonymous` roles.
 
-!> Note, that the third definition (`"DELETE /api/reviews"`) will apply to `DELETE` requests to both `/api/reviews` and e.g. `/api/reviews/_id/1`
+!> Note, that the third definition (`"DELETE /data/reviews"`) will apply to `DELETE` requests to both `/data/reviews` and e.g. `/data/reviews/_id/1`
 
 
 ### Priority
@@ -74,10 +74,10 @@ You can create additional user roles simply by creating a user account with that
 For example, if you wanted to create a `moderator` role for users that should have access to edit or delete anyone's reviews, you might change the above example to something like this:
 
     {
-        "POST /api/reviews/*/*": ["moderator", "owner"],
-        "POST /api/reviews": ["moderator", "user"],
-        "DELETE /api/reviews/_id/*": "moderator",
-        "DELETE /api/reviews": "admin"
+        "POST /data/reviews/*/*": ["moderator", "owner"],
+        "POST /data/reviews": ["moderator", "user"],
+        "DELETE /data/reviews/_id/*": "moderator",
+        "DELETE /data/reviews": "admin"
     }
 
 The first two definitions are changed into arrays, so that both the original value and the new `moderator` role can be accommodated at the same time.
