@@ -343,28 +343,20 @@
 						<p>Absolutely, and the default configuration of Sapling is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
 						<p>Sapling has robust support for defining data models (aka database schemata), and access permissions for each type-route combination.  In the default configuration, these are optional for the developer to define.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and <strong>nothing</strong> is ever implicitly saved into the database.</p>
 						<p>Sapling will refuse to run with production mode off when it detects it's not running on localhost. Sapling will also refuse to run if production mode is on, but the required definitions are not found or are incomplete.</p>
-
-						<h2 class="title is-5 has-text-success">Still, though.  This sounds very precarious.</h2>
-						<p>The entire codebase has xx% test coverage, and you can see the results here, and the test suites here.  The entire server is fully open source, and smoke, unit and penetration tested.</p>
-						<p>All user input is escaped and never eval'd.  Variables used in templates are also automatically escaped.  File uploads are checked for viruses.</p>
 					</div>
 				</div>
 				<div class="column">
 					<div class="content">
-						<h2 class="title is-5 has-text-success">This must be basically a drag'n'drop framework for noobs, with no option for <em>real</em> development.</h2>
-						<p>Just because you don't <em>need</em> to write code to achieve basic CRUD functionality with Sapling, doesn't mean you <em>can't</em> write code to do more advanced stuff.</p>
+						<h2 class="title is-5 has-text-success">This must be basically a drag'n'drop framework for beginners, with no option for <em>real</em> development.</h2>
+						<p>Just because you don't <em>need</em> to write code to achieve basic CRUD functionality with Sapling, doesn't mean you <em>can't</em> write code when you actually need to.</p>
 						<p>Sapling has built-in support for custom handlers for any route, including the <code>/data</code> backend.  These handlers are just regular Node.js files, where you can code whatever you want just like normal, and organise these handlers in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
 
 						<h2 class="title is-5 has-text-success">I don't like MongoDB or Nunjucks or Vue.</h2>
 						<p>You don't have to!  By default, Sapling uses these three, but that's all they are &ndash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
 						<p>Database and templating engines are based on a driver model, where Sapling abstracts them into a generic wrapper.  Loads of drivers already exist for the most popular databases and templating languages, and writing your own is a cinch.</p>
 
-						<h2 class="title is-5 has-text-success">There must be a whole pile of dependencies.</h2>
-						<p>Sapling is split into multiple packages, so you only need to install what you actually need.  At the bare minimum, the Sapling core package must be installed, which has 10 direct dependencies.  Additional packages for database, templating, frontend, payment processing, and more, must be installed separately if these features are required &ndash; the Sapling CLI can install these packages and their dependencies on demand.</p>
-
 						<h2 class="title is-5 has-text-success">What about performance?</h2>
-						<p>In production mode, Sapling can serve an average of xx,xxx requests per second on a single four-core CPU.  Utilising the built-in cluster functionality in Node.js, caching all templates in memory, and minimising request-time filesystem calls and external dependencies, it is one of the fastest frameworks of its type around.</p>
-						<p>Additional performance improvements can be achieved with specific server configuration as detailed in the documentation.</p>
+						<p>Sapling features a production mode that turns off the slowest development aids to bring the end-user performance to the same level as other Node.js based frameworks.</p>
 					</div>
 				</div>
 			</div>
