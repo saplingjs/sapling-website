@@ -4,6 +4,8 @@ import bonsai from './bonsai.js';
 
 import vue from 'vue';
 
+
+
 /* Different use cases */
 
 var usecases = [
@@ -58,7 +60,6 @@ var generateUsecase = function() {
 
 ready(generateUsecase);
 
-document.querySelector("#usecase-generator").addEventListener("click", generateUsecase);
 
 
 /* Load bonsai */

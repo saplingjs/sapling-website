@@ -1,6 +1,6 @@
 {
-    "/js/docs.js": "/js/docs.js",
-    "/js/main.js": "/js/main.js",
-    "/css/main.css": "/css/main.css",
-    "/css/docs.css": "/css/docs.css"
+    "/build/js/docs.js": "/build/js/docs.js",
+    "/build/js/main.js": "/build/js/main.js",
+    "/build/css/main.css": "/build/css/main.css",
+    "/build/css/docs.css": "/build/css/docs.css"
 }
