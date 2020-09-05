@@ -13,11 +13,14 @@ Here's a simple comparison of how Sapling behaves in production mode, compared t
 
 | Feature              | Normal                                                    | Production mode                                            |
 |----------------------|-----------------------------------------------------------|------------------------------------------------------------|
+| Routing              | Automatic based on view folder content                    | Must be defined in `controller.json`                       |
 | Models               | Optional                                                  | Mandatory                                                  |
 | Permissions          | Optional                                                  | Mandatory for all `POST`s and `DELETE`s                    |
 | Config file          | Optional                                                  | Mandatory                                                  |
 | Posting to data API  | Data structure for missing models is inferred from input  | Requests to missing models throw an error                  |
 | Template rendering   | On each page load                                         | Heavily cached; updates only visible after server restart  |
+| Errors               | All errors visible to the user                            | Only data validation errors will be visible                |
+| Logging              | Everything                                                | Only errors                                                |
 | CORS headers         | Yes, except if explicitly turned off                      | No, except if explicitly turned on                         |
 
 
@@ -35,10 +38,13 @@ It's also possible to let Sapling automatically determine whether to use product
         "production": "auto"
     }
 
-When set to `"auto"`, Sapling will serve requests via `localhost` in normal mode, and requests from outside it in production mode.
+This is the default value.  When set to `"auto"`, Sapling will turn on production mode whenever the `NODE_ENV` is set to `"production"`.
 
-!> Automatic detection isn't necessarily always reliable in all environments, so we **strongly suggest** setting the production setting explicitly to either `true` or `false`.
 
-It's common that you would want a different configuration for a production environment than your development environment.  You can create a duplicate of your `config.json`, and call it `config-production.json`.  When in production mode, this file will be used in place of `config.json`.
+## Separate config file
+
+It's common that you would want a different configuration for a production environment than your development environment.  You can create a duplicate of your `config.json`, and call it `config.production.json`.  When in production mode, this file will be used in place of `config.json`.
+
+If you'd like additional configurations for other environments (i.e. staging), set production mode in your `config.json` to `"on"`, and create a separate configuration file with a suffix that matches the `NODE_ENV`.  For instance, if your `NODE_ENV` is set to `"staging"`, Sapling will load `config.staging.json`, if it exists.
 
 ?> The two config files are **not** merged, so make sure your production config file contains all the settings you would expect to have in the `config.json` for your project.
