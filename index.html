@@ -39,391 +39,393 @@
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 	<![endif]-->
 
-	<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-		<div class="container">
-			<div class="navbar-brand">
-				<a class="navbar-item" href="/">
-					<img src="/images/logo.svg" alt="Sapling" />
-				</a>
+	<div id="app">
+		<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+			<div class="container">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="/">
+						<img src="/images/logo.svg" alt="Sapling" />
+					</a>
+					
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
 				
-				<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-				</a>
-			</div>
-			
-			<div id="main-navbar" class="navbar-menu">
-				<div class="navbar-start">
-					<a href="#features" class="navbar-item">
-						Features
-					</a>
-					
-					<a href="#faq" class="navbar-item">
-						FAQ
-					</a>
-					
-					<a href="/docs" class="navbar-item">
-						Documentation
-					</a>
-					
-					<div class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">
-							More
+				<div id="main-navbar" class="navbar-menu">
+					<div class="navbar-start">
+						<a href="#features" class="navbar-item">
+							Features
 						</a>
 						
-						<div class="navbar-dropdown">
-							<a href="https://github.com/groenroos/sapling/issues" target="_blank" rel="noopener" class="navbar-item">
-								Report an issue
+						<a href="#faq" class="navbar-item">
+							FAQ
+						</a>
+						
+						<a href="/docs" class="navbar-item">
+							Documentation
+						</a>
+						
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link">
+								More
 							</a>
-							<a href="#premium" class="navbar-item">
-								Premium support
-							</a>
+							
+							<div class="navbar-dropdown">
+								<a href="https://github.com/groenroos/sapling/issues" target="_blank" rel="noopener" class="navbar-item">
+									Report an issue
+								</a>
+								<a href="#premium" class="navbar-item">
+									Premium support
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
-				
-				<div class="navbar-end">
-					<div class="navbar-item">
-						<div class="buttons">
-							<a class="github-button" href="https://github.com/groenroos/sapling" target="_blank" rel="noopener" data-size="large" data-show-count="true" aria-label="View groenroos/sapling on GitHub">View on GitHub</a>
+					
+					<div class="navbar-end">
+						<div class="navbar-item">
+							<div class="buttons">
+								<a class="github-button" href="https://github.com/groenroos/sapling" target="_blank" rel="noopener" data-size="large" data-show-count="true" aria-label="View groenroos/sapling on GitHub">View on GitHub</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 
-	<section class="hero is-medium is-light is-bold">
-		<div class="hero-body">
+		<section class="hero is-medium is-light is-bold">
+			<div class="hero-body">
+				<div class="container">
+					<div class="columns">
+						<div class="column">
+							<img src="/images/bonsai.svg" class="svg" id="bonsai" style="display: none;" />
+						</div>
+						<div class="column">
+							<h1 class="title"><em>Faster-than-light</em> minimalist development framework.</h1>
+							<h2 class="subtitle"><strong>Sapling</strong> is a Node.js framework for building websites, web apps and APIs as fast as you can imagine them.  With unrivalled speed of development, you can prototype quickly, iterate with ease, and deploy the same day.  Zero code, zero config &ndash; unless you want to.  And what's more, it comes with all the SaaS features you never want to write, all built-in.</h2>
+
+							<table class="table">
+								<tbody>
+									<tr>
+										<th>Quick start</th>
+										<td><code>npm i -g @sapling/cli && sapling create</code></td>
+									</tr>
+									<tr>
+										<th>DIY</th>
+										<td><code>npm i --save @sapling/sapling</code> &amp; <a href="/docs" class="has-text-success">Docs</a></td>
+									</tr>
+									<tr>
+										<th>&nbsp;</th>
+										<td><a class="github-button" href="https://github.com/groenroos/sapling" target="_blank" rel="noopener" data-size="large" data-show-count="true" aria-label="View groenroos/sapling on GitHub">View on GitHub</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
 			<div class="container">
+				<div class="columns is-centered">
+					<div class="column is-four-fifths">
+						<div class="content">
+							<h1 class="title">Unmatched speed of development.</h1>
+							<p>Sapling is designed for <strong>faster-than-light development</strong>.  There is zero mandatory configuration or boilerplate code.  UIs and forms simply come alive as you write them.  All the common SaaS features are built in and fully configurable.</p>
+
+							<h2 class="title is-4 has-text-centered">5-second tutorials</h2>
+
+							<div class="columns is-centered is-light">
+								<div class="column is-one-third">
+									<h3 class="title is-5 has-text-grey">With other leading brands of frameworks</h3>
+
+									<ol class="is-faded">
+										<li>Create an inherited controller class</li>
+										<li>Write a service provider</li>
+										<li>Define a contract</li>
+										<li>Have a break</li>
+										<li>Develop a middleware</li>
+										<li>Craft a facade</li>
+										<li>Search on Stack Overflow</li>
+										<li>Add a response class</li>
+										<li>Write a test suite</li>
+										<li>Have a cup of coffee</li>
+										<li>Create a database migration</li>
+										<li>Develop and test validations</li>
+										<li>Contemplate life decisions</li>
+										<li>Handle exceptions</li>
+									</ol>
+								</div>
+								<div class="column is-half">
+									<h3 class="title is-5 has-text-success">With Sapling</h3>
+									<ol>
+										<li>Create the form:
+	<pre>&lt;form method="post" action="/data/<span class="usecase" data-type="collection">notes</span>">
+		&lt;textarea name="<span class="usecase" data-type="item">note</span>">&lt;/textarea>
+		&lt;button type="submit">Save <span class="usecase" data-type="item">note</span>&lt;/button>
+	&lt;/form>
+	</pre>
+										</li>
+										<li><strong>That's it.</strong> It works.</li>
+									</ol>
+
+									<p>No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/data/<span class="usecase" data-type="collection">notes</span></code>.  That's all.  Sapling will handle the backend, creating the "<span class="usecase" data-type="collection">notes</span>" collection if it doesn't exist, saving the <span class="usecase" data-type="item">note</span> in the database, and returning a list of all <span class="usecase" data-type="collection">notes</span> when you <code>GET /data/<span class="usecase" data-type="collection">notes</span></code> &ndash; all with absolutely zero backend code required.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="features" class="section is-light">
+			<div class="container">
+				<h1 class="title has-text-centered">All the SaaS features you hate to write.</h1>
+				<p class="subtitle has-text-centered">Sapling features all of the usual SaaS features nobody likes to write, built right in.</p>
+				<br>
 				<div class="columns">
 					<div class="column">
-						<img src="/images/bonsai.svg" class="svg" id="bonsai" style="display: none;" />
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-user"></i></div>
+							<h3 class="title is-5 has-text-success">User accounts</h3>
+							<p>Login, registration, forgot password, change password, all handled natively out of the box.</p>
+						</div>
 					</div>
 					<div class="column">
-						<h1 class="title"><em>Faster-than-light</em> minimalist development framework.</h1>
-						<h2 class="subtitle">Sapling is a Node.js framework for building websites, web apps and APIs as fast as you can imagine them.  With unrivalled speed of development, you can prototype quickly, iterate with ease, and deploy the same day.  Zero code, zero config &ndash; unless you want to.  And what's more, it comes with all the SaaS features you never want to write, all built-in.</h2>
-
-						<table class="table">
-							<tbody>
-								<tr>
-									<th>Quick start</th>
-									<td><code>npm i -g @sapling/cli && sapling create</code></td>
-								</tr>
-								<tr>
-									<th>DIY</th>
-									<td><code>npm i --save @sapling/framework</code> &amp; <a href="/docs" class="has-text-success">Docs</a></td>
-								</tr>
-								<tr>
-									<th>&nbsp;</th>
-									<td><a class="github-button" href="https://github.com/groenroos/sapling" target="_blank" rel="noopener" data-size="large" data-show-count="true" aria-label="View groenroos/sapling on GitHub">View on GitHub</a></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="section">
-		<div class="container">
-			<div class="columns is-centered">
-				<div class="column is-four-fifths">
-					<div class="content">
-						<h1 class="title">Unmatched speed of development.</h1>
-						<p>Sapling is designed for <strong>faster-than-light development</strong>.  There is zero mandatory configuration or boilerplate code.  UIs and forms simply come alive as you write them.  All the common SaaS features are built in and fully configurable.</p>
-
-						<h2 class="title is-4 has-text-centered">Task: Create a UI that allows the user to <span id="usecase-generator" title="Click to see other examples" class="usecase" data-type="task">write and save a note</span>.</h2>
-
-						<div class="columns is-centered">
-							<div class="column is-half">
-								<h3 class="title is-5 has-text-success">With Sapling</h3>
-								<ol>
-									<li>Create the form:
-<pre>&lt;form method="post" action="/data/<span class="usecase" data-type="collection">notes</span>">
-    &lt;textarea name="<span class="usecase" data-type="item">note</span>">&lt;/textarea>
-    &lt;button type="submit">Save <span class="usecase" data-type="item">note</span>&lt;/button>
-&lt;/form>
-</pre>
-									</li>
-									<li><strong>That's it.</strong> It works.</li>
-								</ol>
-							</div>
-							<div class="column is-one-third">
-								<h3 class="title is-5 has-text-grey">With other leading brands of frameworks</h3>
-
-								<ol class="is-faded">
-									<li>Create an inherited controller class</li>
-									<li>Write a service provider</li>
-									<li>Define a contract</li>
-									<li>Have a break</li>
-									<li>Develop a middleware</li>
-									<li>Craft a facade</li>
-									<li>Search on Stack Overflow</li>
-									<li>Add a response class</li>
-									<li>Write a test suite</li>
-									<li>Have a cup of coffee</li>
-									<li>Create a database migration</li>
-									<li>Develop and test validations</li>
-									<li>Contemplate life decisions</li>
-									<li>Handle exceptions</li>
-								</ol>
-							</div>
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-fingerprint"></i></div>
+							<h3 class="title is-5 has-text-success">2FA</h3>
+							<p>Two-factor authentication, with QR codes, recovery codes, setup, enforcement, app specific passwords and more.</p>
 						</div>
-
-						<p>No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/data/<span class="usecase" data-type="collection">notes</span></code>.  That's all.  Sapling will handle the backend, creating the "<span class="usecase" data-type="collection">notes</span>" collection if it doesn't exist, saving the <span class="usecase" data-type="item">note</span> in the database, and returning a list of all <span class="usecase" data-type="collection">notes</span> when you <code>GET /data/<span class="usecase" data-type="collection">notes</span></code> &ndash; all with absolutely zero backend code required.</p>
+					</div>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-wallet"></i></div>
+							<h3 class="title is-5 has-text-success">One-off payments</h3>
+							<p>Sapling integrates with Stripe or Braintree, and handles payments, paywalls, credit card details, VAT, order histories, PDF invoices and more.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-credit-card"></i></div>
+							<h3 class="title is-5 has-text-success">Recurring payments</h3>
+							<p>Plans, subscriptions, upgrading, downgrading, prorating, free trials, all out of the box and ready to go.</p>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="features" class="section is-light">
-		<div class="container">
-			<h1 class="title has-text-centered">All the SaaS features you hate to write.</h1>
-			<p class="subtitle has-text-centered">Sapling features all of the usual SaaS features nobody likes to write, built right in.</p>
-			<br>
-			<div class="columns">
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-user"></i></div>
-						<h3 class="title is-5 has-text-success">User accounts</h3>
-						<p>Login, registration, forgot password, change password, all handled natively out of the box.</p>
+				<div class="columns">
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-bell"></i></div>
+							<h3 class="title is-5 has-text-success">Notifications</h3>
+							<p>Send users notifications and messages via email, SMS, or even push notifications integrated into your app.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-users"></i></div>
+							<h3 class="title is-5 has-text-success">Teams</h3>
+							<p>Allow users to create and manage teams, with invites, permission levels and admin tools built in (and yes, there's also team billing).</p>
+						</div>
+					</div>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-folder-upload"></i></div>
+							<h3 class="title is-5 has-text-success">File upload</h3>
+							<p>Handle user-uploaded files with ease, including image thumbnails, file previews, virus scanning, image optimisation, and S3 storage integration.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-plug"></i></div>
+							<h3 class="title is-5 has-text-success">Websockets</h3>
+							<p>Sapling can also run a websocket server, creating real-time interactions with zero configuration.</p>
+						</div>
 					</div>
 				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-fingerprint"></i></div>
-						<h3 class="title is-5 has-text-success">2FA</h3>
-						<p>Two-factor authentication, with QR codes, recovery codes, setup, enforcement, app specific passwords and more.</p>
+				<div class="columns">
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-user-secret"></i></div>
+							<h3 class="title is-5 has-text-success">User Impersonation</h3>
+							<p>Securely authenticate as any of your users to immediately see your app through their eyes.</p>
+						</div>
 					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-wallet"></i></div>
-						<h3 class="title is-5 has-text-success">One-off payments</h3>
-						<p>Sapling integrates with Stripe or Braintree, and handles payments, paywalls, credit card details, VAT, order histories, PDF invoices and more.</p>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-globe-stand"></i></div>
+							<h3 class="title is-5 has-text-success">Localisation</h3>
+							<p>Translations, number and date formats, and everything else for a fully internationalisable app.</p>
+						</div>
 					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-credit-card"></i></div>
-						<h3 class="title is-5 has-text-success">Recurring payments</h3>
-						<p>Plans, subscriptions, upgrading, downgrading, prorating, free trials, all out of the box and ready to go.</p>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-gavel"></i></div>
+							<h3 class="title is-5 has-text-success">GDPR &amp; Legal</h3>
+							<p>Being legally compliant is important, but boring.  Sapling can handle GDPR and cookie consent automatically, and offers mad-libs style T&amp;C's and Privacy Policies.</p>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="columns">
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-bell"></i></div>
-						<h3 class="title is-5 has-text-success">Notifications</h3>
-						<p>Send users notifications and messages via email, SMS, or even push notifications integrated into your app.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-users"></i></div>
-						<h3 class="title is-5 has-text-success">Teams</h3>
-						<p>Allow users to create and manage teams, with invites, permission levels and admin tools built in (and yes, there's also team billing).</p>
-					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-folder-upload"></i></div>
-						<h3 class="title is-5 has-text-success">File upload</h3>
-						<p>Handle user-uploaded files with ease, including image thumbnails, file previews, virus scanning, image optimisation, and S3 storage integration.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-plug"></i></div>
-						<h3 class="title is-5 has-text-success">Websockets</h3>
-						<p>Sapling can also run a websocket server, creating real-time interactions with zero configuration.</p>
-					</div>
-				</div>
-			</div>
-			<div class="columns">
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-user-secret"></i></div>
-						<h3 class="title is-5 has-text-success">User Impersonation</h3>
-						<p>Securely authenticate as any of your users to immediately see your app through their eyes.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-globe-stand"></i></div>
-						<h3 class="title is-5 has-text-success">Localisation</h3>
-						<p>Translations, number and date formats, and everything else for a fully internationalisable app.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-gavel"></i></div>
-						<h3 class="title is-5 has-text-success">GDPR &amp; Legal</h3>
-						<p>Being legally compliant is important, but boring.  Sapling can handle GDPR and cookie consent automatically, and offers mad-libs style T&amp;C's and Privacy Policies.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-brackets-curly"></i></div>
-						<h3 class="title is-5 has-text-success">Backend &amp; API</h3>
-						<p>Sapling features a zero-code dynamic data backend which can double up as an API for a mobile app.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="creds" class="section is-light">
-		<div class="container">
-			<h1 class="title has-text-centered">All the other good stuff, too.</h1>
-			<p class="subtitle has-text-centered">Despite the focus on prototyping and speed of development, Sapling is fully production-ready, too.</p>
-			<br>
-			<div class="columns">
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-expand-alt"></i></div>
-						<h3 class="title is-5 has-text-success">Scalable</h3>
-						<p>Native cluster support for utilising all CPU cores, and support for load balancing.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-lock-alt"></i></div>
-						<h3 class="title is-5 has-text-success">Secure</h3>
-						<p>Robust permission structure, and a production mode that trades some of the development speed for completeness.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-tachometer-alt-fastest"></i></div>
-						<h3 class="title is-5 has-text-success">Fully tested</h3>
-						<p>All Sapling core files have a full test suite and nothing that doesn't pass gets released.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div>
-						<div class="feature-icon"><i class="far fa-2x fa-box-full"></i></div>
-						<h3 class="title is-5 has-text-success">Unopinionated</h3>
-						<p>Sapling likes MongoDB, Nunjucks and Vue, but you don't have to.  Use any database, templating language and frontend framework you like.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="faq" class="section">
-		<div class="container">
-			<h1 class="title has-text-centered">Your grave concerns.</h1>
-			<p class="subtitle has-text-centered">Rightly you might feel skeptical.  Here are the common "but"s and our take on them.</p>
-			<br>
-
-			<div class="columns">
-				<div class="column">
-					<div class="content">
-						<h2 class="title is-5 has-text-success">How can all the forms work with no backend code?</h2>
-						<p>Sapling's dynamic data backend figures out what to do based on the type of request it receives to the built-in <code>/data</code> route. It acts as a very light wrapper for abstract CRUD queries;</p>
-
-						<ul>
-							<li><code>GET /data/posts</code> returns all records in the collection <strong>posts</strong></li>
-							<li><code>GET /data/posts/type/text</code> returns records in the collection <strong>posts</strong>, where the value of <strong>type</strong> is <strong>text</strong></li>
-							<li><code>POST /data/posts</code> creates a new record in the collection <strong>posts</strong></li>
-							<li><code>POST /data/posts/_id/1</code> modifies records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
-							<li><code>DELETE /data/posts</code> deletes all records in the collection <strong>posts</strong></li>
-							<li><code>DELETE /data/posts/_id/1</code> deletes records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
-						</ul>
-
-						<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value for a where clause, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into a new record or any matching records.</p>
-
-						<h2 class="title is-5 has-text-success">Oh wow.  Putting this on production would be <em class="has-shake">insanity!</em></h2>
-						<p>Absolutely, and the default configuration of Sapling is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
-						<p>Sapling has robust support for defining data models (aka database schemata), and access permissions for each type-route combination.  In the default configuration, these are optional for the developer to define.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and <strong>nothing</strong> is ever implicitly saved into the database.</p>
-						<p>Sapling will refuse to run with production mode off when it detects it's not running on localhost. Sapling will also refuse to run if production mode is on, but the required definitions are not found or are incomplete.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div class="content">
-						<h2 class="title is-5 has-text-success">This must be basically a drag'n'drop framework for beginners, with no option for <em>real</em> development.</h2>
-						<p>Just because you don't <em>need</em> to write code to achieve basic CRUD functionality with Sapling, doesn't mean you <em>can't</em> write code when you actually need to.</p>
-						<p>Sapling has built-in support for custom handlers for any route, including the <code>/data</code> backend.  These handlers are just regular Node.js files, where you can code whatever you want just like normal, and organise these handlers in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
-
-						<h2 class="title is-5 has-text-success">I don't like MongoDB or Nunjucks or Vue.</h2>
-						<p>You don't have to!  By default, Sapling uses these three, but that's all they are &ndash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
-						<p>Database and templating engines are based on a driver model, where Sapling abstracts them into a generic wrapper.  Loads of drivers already exist for the most popular databases and templating languages, and writing your own is a cinch.</p>
-
-						<h2 class="title is-5 has-text-success">What about performance?</h2>
-						<p>Sapling features a production mode that turns off the slowest development aids to bring the end-user performance to the same level as other Node.js based frameworks.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="section is-light">
-		<div class="container">
-			<h1 class="title">Quick start.</h1>
-
-			<div class="columns">
-				<div class="column">
-					<div class="content">
-						<h3 class="title is-5 has-text-success">Install the CLI</h3>
-						<p>Run <code>npm install -g @sapling/cli</code> to install the command line tool globally.  The command line tool helps you create and manage Sapling projects.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div class="content">
-						<h3 class="title is-5 has-text-success">Create your first project</h3>
-						<p>Run <code>sapling create</code> to run a wizard for creating a new blank project.  It will automatically create the files and folders needed, and install any dependencies.</p>
-					</div>
-				</div>
-				<div class="column">
-					<div class="content">
-						<h3 class="title is-5 has-text-success">Start developing</h3>
-						<p>Navigate to the folder and run <code>sapling run</code> to turn on the server.  Read the <a href="/docs" class="has-text-success">documentation</a> to learn the basics of Sapling.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="premium" class="section">
-		<div class="container">
-			<h1 class="title has-text-centered">Premium support.</h1>
-
-			<div class="columns is-centered">
-				<div class="column is-two-thirds">
-					<div class="content">
-						<p>Sapling is 100% free and open source.  However, premium support, custom feature development, freelance development services or urgent bugfixing to do with Sapling is available at a fee.</p>
-
-						<ul>
-							<li>Private premium support email with a guaranteed response in 12 hours.</li>
-							<li>Direct access to the developers of Sapling.</li>
-							<li>Custom feature development on highest priority.</li>
-						</ul>
-
-						<br>
-
-						<div class="has-text-centered">
-							<a href="mailto:premium@saplingjs.com" class="button is-success">Enquire about premium support</a>		
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-brackets-curly"></i></div>
+							<h3 class="title is-5 has-text-success">Backend &amp; API</h3>
+							<p>Sapling features a zero-code dynamic data backend which can double up as an API for a mobile app.</p>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<footer class="footer">
-		<div class="content has-text-centered">
-			<p>
-				<strong>Sapling</strong> by <a href="https://groenroos.fi" target="_blank" rel="noopener" class="has-text-success">Oskari Groenroos</a>. Licensed under
-				<a href="http://opensource.org/licenses/mit-license.php" target="_blank" rel="noopener" class="has-text-success">MIT</a>.
-			</p>
-		</div>
-	</footer>
+		<section id="creds" class="section is-light">
+			<div class="container">
+				<h1 class="title has-text-centered">All the other good stuff, too.</h1>
+				<p class="subtitle has-text-centered">Despite the focus on prototyping and speed of development, Sapling is fully production-ready, too.</p>
+				<br>
+				<div class="columns">
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-expand-alt"></i></div>
+							<h3 class="title is-5 has-text-success">Scalable</h3>
+							<p>Native cluster support for utilising all CPU cores, and support for load balancing.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-lock-alt"></i></div>
+							<h3 class="title is-5 has-text-success">Secure</h3>
+							<p>Robust permission structure, and a production mode that trades some of the development speed for completeness.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-tachometer-alt-fastest"></i></div>
+							<h3 class="title is-5 has-text-success">Fully tested</h3>
+							<p>All Sapling core files have a full test suite and nothing that doesn't pass gets released.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div>
+							<div class="feature-icon"><i class="far fa-2x fa-box-full"></i></div>
+							<h3 class="title is-5 has-text-success">Unopinionated</h3>
+							<p>Sapling likes MongoDB, Nunjucks and Vue, but you don't have to.  Use any database, templating language and frontend framework you like.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="faq" class="section">
+			<div class="container">
+				<h1 class="title has-text-centered">Your grave concerns.</h1>
+				<p class="subtitle has-text-centered">Rightly you might feel skeptical.  Here are the common "but"s and our take on them.</p>
+				<br>
+
+				<div class="columns">
+					<div class="column">
+						<div class="content">
+							<h2 class="title is-5 has-text-success">How can all the forms work with no backend code?</h2>
+							<p>Sapling's dynamic data backend figures out what to do based on the type of request it receives to the built-in <code>/data</code> route. It acts as a very light wrapper for abstract CRUD queries;</p>
+
+							<ul>
+								<li><code>GET /data/posts</code> returns all records in the collection <strong>posts</strong></li>
+								<li><code>GET /data/posts/type/text</code> returns records in the collection <strong>posts</strong>, where the value of <strong>type</strong> is <strong>text</strong></li>
+								<li><code>POST /data/posts</code> creates a new record in the collection <strong>posts</strong></li>
+								<li><code>POST /data/posts/_id/1</code> modifies records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
+								<li><code>DELETE /data/posts</code> deletes all records in the collection <strong>posts</strong></li>
+								<li><code>DELETE /data/posts/_id/1</code> deletes records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
+							</ul>
+
+							<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value for a where clause, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into a new record or any matching records.</p>
+
+							<h2 class="title is-5 has-text-success">Oh wow.  Putting this on production would be <em class="has-shake">insanity!</em></h2>
+							<p>Absolutely, and the default configuration of Sapling is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
+							<p>Sapling has robust support for defining data models (aka database schemata), and access permissions for each type-route combination.  In the default configuration, these are optional for the developer to define.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and <strong>nothing</strong> is ever implicitly saved into the database.</p>
+							<p>Sapling will refuse to run with production mode off when it detects it's not running on localhost. Sapling will also refuse to run if production mode is on, but the required definitions are not found or are incomplete.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div class="content">
+							<h2 class="title is-5 has-text-success">This must be basically a drag'n'drop framework for beginners, with no option for <em>real</em> development.</h2>
+							<p>Just because you don't <em>need</em> to write code to achieve basic CRUD functionality with Sapling, doesn't mean you <em>can't</em> write code when you actually need to.</p>
+							<p>Sapling has built-in support for custom handlers for any route, including the <code>/data</code> backend.  These handlers are just regular Node.js files, where you can code whatever you want just like normal, and organise these handlers in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
+
+							<h2 class="title is-5 has-text-success">I don't like MongoDB or Nunjucks or Vue.</h2>
+							<p>You don't have to!  By default, Sapling uses these three, but that's all they are &ndash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
+							<p>Database and templating engines are based on a driver model, where Sapling abstracts them into a generic wrapper.  Loads of drivers already exist for the most popular databases and templating languages, and writing your own is a cinch.</p>
+
+							<h2 class="title is-5 has-text-success">What about performance?</h2>
+							<p>Sapling features a production mode that turns off the slowest development aids to bring the end-user performance to the same level as other Node.js based frameworks.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section is-light">
+			<div class="container">
+				<h1 class="title">Quick start.</h1>
+
+				<div class="columns">
+					<div class="column">
+						<div class="content">
+							<h3 class="title is-5 has-text-success">Install the CLI</h3>
+							<p>Run <code>npm install -g @sapling/cli</code> to install the command line tool globally.  The command line tool helps you create and manage Sapling projects.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div class="content">
+							<h3 class="title is-5 has-text-success">Create your first project</h3>
+							<p>Run <code>sapling create</code> to run a wizard for creating a new blank project.  It will automatically create the files and folders needed, and install any dependencies.</p>
+						</div>
+					</div>
+					<div class="column">
+						<div class="content">
+							<h3 class="title is-5 has-text-success">Start developing</h3>
+							<p>Navigate to the folder and run <code>sapling run</code> to turn on the server.  Read the <a href="/docs" class="has-text-success">documentation</a> to learn the basics of Sapling.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="premium" class="section">
+			<div class="container">
+				<h1 class="title has-text-centered">Premium support.</h1>
+
+				<div class="columns is-centered">
+					<div class="column is-two-thirds">
+						<div class="content">
+							<p>Sapling is 100% free and open source.  However, premium support, custom feature development, freelance development services or urgent bugfixing to do with Sapling is available at a fee.</p>
+
+							<ul>
+								<li>Private premium support email with a guaranteed response in 12 hours.</li>
+								<li>Direct access to the developers of Sapling.</li>
+								<li>Custom feature development on highest priority.</li>
+							</ul>
+
+							<br>
+
+							<div class="has-text-centered">
+								<a href="mailto:premium@saplingjs.com" class="button is-success">Enquire about premium support</a>		
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div class="content has-text-centered">
+				<p>
+					<strong>Sapling</strong> by <a href="https://groenroos.fi" target="_blank" rel="noopener" class="has-text-success">Oskari Groenroos</a>. Licensed under
+					<a href="http://opensource.org/licenses/mit-license.php" target="_blank" rel="noopener" class="has-text-success">MIT</a>.
+				</p>
+			</div>
+		</footer>
+	</div>
 
 	<script src="https://kit.fontawesome.com/b8ff1e101d.js" crossorigin="anonymous"></script>
 	<script src="/js/main.js"></script>

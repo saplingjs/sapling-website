@@ -2,6 +2,8 @@ import inlineSVG from 'inline-svg';
 import ready from './ready.js';
 import bonsai from './bonsai.js';
 
+import vue from 'vue';
+
 /* Different use cases */
 
 var usecases = [
