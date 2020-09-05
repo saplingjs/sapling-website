@@ -7,16 +7,17 @@ You can control which users can access which [routes](/routes) and data API requ
 
 The built-in users model has a `role` key, which defines the level of access for each user.  Sapling typically deals with two explicit roles and two inferred roles out of the box:
 
-| Role         | Description                                                                                              |
-|--------------|----------------------------------------------------------------------------------------------------------|
-| `anonymous`  | Any visitor to the site that has not logged in.  Cannot be assigned to a real user.                      |
-| `user`       | A user who has logged in.  This is the default role every new account uses, unless otherwise specified.  |
-| `admin`      | Special user role that is able to access all routes regardless of the permissions configuration.         |
-| `owner`      | The user who originally created the record in question.  Only applicable to the data API.                |
+| Role         | Description                                                                                                |
+|--------------|------------------------------------------------------------------------------------------------------------|
+| `anyone`     | Anyone, logged in or not.  This is default permission level for all routes.  Unassignable to a real user.  |
+| `stranger`   | Any visitor to the site that has not logged in.  Unassignable to a real user.                              |
+| `member`     | A user who has logged in.  This is the default role every new account uses, unless otherwise specified.    |
+| `admin`      | Special user role that is able to access all routes regardless of the permissions configuration.           |
+| `owner`      | The user who originally created the record in question.  Only applicable to the data API.                  |
 
 Aside from these four roles, you can assign any user any role you wish, and create corresponding permissions.  You cannot prohibit users with the `admin` role from accessing any route or data API request.
 
-You cannot assign the `anonymous` or `owner` roles to any actual user account, as these are dynamic.  `anonymous` is used to describe visitors who have not logged in.  The `owner` role is only applicable to permissions of `POST` and `DELETE` requests to the data API, and refers to the user who originally created the record in question.
+You cannot assign the `stranger` or `owner` roles to any actual user account, as these are dynamic.  `stranger` is used to describe visitors who have not logged in.  The `owner` role is only applicable to permissions of `POST` and `DELETE` requests to the data API, and refers to the user who originally created the record in question.
 
 
 ## Defining permissions
@@ -26,20 +27,20 @@ Permissions are defined in `permissions.json` in the root of the project, as a J
 For example, if you wanted to make sure that **only logged-in users** can access your `/account` route, you would define like this:
 
     {
-        "GET /account": "user"
+        "GET /account": "member"
     }
 
 It works the same way for controlling access to the data API.  If you wanted to make sure that **only logged-in users** are able to create reviews, users are able to only edit **their own reviews** (and not be able to edit reviews posted by someone else), and **only admins** are able to edit them, you might create a `permissions.json` like this:
 
     {
         "POST /data/reviews/*/*": "owner",
-        "POST /data/reviews": "user",
+        "POST /data/reviews": "member",
         "DELETE /data/reviews": "admin"
     }
 
-The first definition makes sure that users with the `user` role are able to send `POST` requests to the `reviews` model in the data API.  This precludes those with the `anonymous` role, i.e. users who have not logged in to a valid account.  However, `admin` users will be able to also do this, as all routes remain available to them.
+The first definition makes sure that users with the `member` role are able to send `POST` requests to the `reviews` model in the data API.  This precludes those with the `stranger` role, i.e. users who have not logged in to a valid account.  However, `admin` users will be able to also do this, as all routes remain available to them.
 
-The second definition makes sure that only users with the `admin` role are able to send a `DELETE` requests to the `reviews` model in the data API.  This will preclude those with `user` or `anonymous` roles.
+The second definition makes sure that only users with the `admin` role are able to send a `DELETE` requests to the `reviews` model in the data API.  This will preclude those with `member` or `stranger` roles.
 
 !> Note, that the third definition (`"DELETE /data/reviews"`) will apply to `DELETE` requests to both `/data/reviews` and e.g. `/data/reviews/_id/1`
 
@@ -50,32 +51,32 @@ The second definition makes sure that only users with the `admin` role are able 
 
 The `*` is a wildcard for any matching segment.  Because editing reviews via the data API requires defining four segments in the URL, this reserves editing reviews to only those with the `admin` role.
 
-Creating reviews only requires two segments, so the first definition in the above example doesn't match those requests.  They will take on the second definition, which gives create access to those with the `user` role.
+Creating reviews only requires two segments, so the first definition in the above example doesn't match those requests.  They will take on the second definition, which gives create access to those with the `member` role.
 
 
 ### Explicit openness
 
 Sometimes, you may need to create a permission definition that explicitly allows anyone access.
 
-You can either create a definition for `anonymous` or for the wildcard `*` to do this:
+You can create a definition either with the `anyone` or the `stranger` roles to do this:
 
     {
-        "GET /about": "*",
-        "GET /faq": "anonymous"
+        "GET /about": "anyone",
+        "GET /faq": "stranger"
     }
 
-Both of the above definitions work the same, and allow any user, logged in or not, to access the routes.
+?> The `anyone` role allows access to anyone, whether logged-in or not.  The `stranger` role requires the user to be **explicitly logged out.**
 
 
 ## Custom roles
 
-You can create additional user roles simply by creating a user account with that role name in the `role` key.  All custom roles are treated like `user` is, and therefore you have to explicitly enable access to each route.
+You can create additional user roles simply by creating a user account with that role name in the `role` key.  All custom roles are treated like `member` is, and therefore you have to explicitly enable access to each route.
 
 For example, if you wanted to create a `moderator` role for users that should have access to edit or delete anyone's reviews, you might change the above example to something like this:
 
     {
         "POST /data/reviews/*/*": ["moderator", "owner"],
-        "POST /data/reviews": ["moderator", "user"],
+        "POST /data/reviews": ["moderator", "member"],
         "DELETE /data/reviews/_id/*": "moderator",
         "DELETE /data/reviews": "admin"
     }
