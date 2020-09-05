@@ -1,9 +1,13 @@
-import inlineSVG from 'inline-svg';
+
 import ready from './ready.js';
-import bonsai from './bonsai.js';
 
-import vue from 'vue';
+import Vue from 'vue';
 
+Vue.component("bonsai", require("./components/Bonsai.vue").default);
+
+const app = new Vue({
+	el: "#app"
+});
 
 
 /* Different use cases */
@@ -61,13 +65,3 @@ var generateUsecase = function() {
 ready(generateUsecase);
 
 
-
-/* Load bonsai */
-
-inlineSVG.init({
-	svgSelector: 'img.svg',
-	initClass: 'js-inlinesvg',
-}, function(){
-	document.querySelector("#bonsai").style.display = '';
-	bonsai();
-});
