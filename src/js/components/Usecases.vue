@@ -1,132 +1,149 @@
 <template>
 	<div id="usecases">
-		<button v-if="type" @click.prevent="type = null" id="back-button" class="button">Back</button>
+		<transition name="fade">
+			<button v-if="type" @click.prevent="type = null" id="back-button" class="button is-success">Back</button>
+		</transition>
 
-		<h2 class="title is-4 has-text-centered" v-if="!type">5-second tutorials</h2>
-		<h2 class="title is-4 has-text-centered" v-else>5-second tutorial to <span v-text="title[type]"></span></h2>
+		<header class="has-text-centered">
+			<h2 class="title is-4" ref="title">
+				<span key="title">5-second</span>
+				<span v-if="!type" key="singular">tutorials</span>
+				<span v-else key="specific">tutorial to <span v-text="title[type]"></span></span>
+			</h2>
+		</header>
 
-		<div id="usecases-container">
-			<div v-if="!type">
-				<div class="tile is-12">
-					<div class="tile is-parent is-4">
-						<button @click="type = 'contact'">
-							<div class="feature-icon"><i class="far fa-2x fa-envelope-open"></i></div>
-							<p>Create a <strong>contact form</strong></p>
-						</button>
+		<div id="usecases-container" ref="container">
+			<main>
+				<transition name="fade-slide">
+					<div v-if="!type" key="options">
+						<div class="tile is-12">
+							<div class="tile is-parent is-4">
+								<button @click="type = 'contact'">
+									<div class="feature-icon"><i class="far fa-2x fa-envelope-open"></i></div>
+									<p>Create a <strong>contact form</strong></p>
+								</button>
+							</div>
+							<div class="tile is-parent is-4">
+								<button @click="type = 'status'">
+									<div class="feature-icon"><i class="far fa-2x fa-share-alt"></i></div>
+									<p>Create a <strong>status update form</strong></p>
+								</button>
+							</div>
+							<div class="tile is-parent is-4">
+								<button @click="type = 'login'">
+									<div class="feature-icon"><i class="far fa-2x fa-lock"></i></div>
+									<p>Create a <strong>login form</strong></p>
+								</button>
+							</div>
+						</div>
+						<div class="tile is-12">
+							<div class="tile is-parent is-4">
+								<button @click="type = 'todo'">
+									<div class="feature-icon"><i class="far fa-2x fa-clipboard-list-check"></i></div>
+									<p>Create a <strong>todo app</strong></p>
+								</button>
+							</div>
+							<div class="tile is-parent is-4">
+								<button @click="type = 'search'">
+									<div class="feature-icon"><i class="far fa-2x fa-search"></i></div>
+									<p>Create a <strong>search form</strong></p>
+								</button>
+							</div>
+							<div class="tile is-parent is-4">
+								<button @click="type = 'api'">
+									<div class="feature-icon"><i class="far fa-2x fa-mobile"></i></div>
+									<p>Create an <strong>API for an app</strong></p>
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="tile is-parent is-4">
-						<button @click="type = 'status'">
-							<div class="feature-icon"><i class="far fa-2x fa-share-alt"></i></div>
-							<p>Create a <strong>status update form</strong></p>
-						</button>
-					</div>
-					<div class="tile is-parent is-4">
-						<button @click="type = 'login'">
-							<div class="feature-icon"><i class="far fa-2x fa-lock"></i></div>
-							<p>Create a <strong>login form</strong></p>
-						</button>
-					</div>
-				</div>
-				<div class="tile is-12">
-					<div class="tile is-parent is-4">
-						<button @click="type = 'todo'">
-							<div class="feature-icon"><i class="far fa-2x fa-clipboard-list-check"></i></div>
-							<p>Create a <strong>todo app</strong></p>
-						</button>
-					</div>
-					<div class="tile is-parent is-4">
-						<button @click="type = 'search'">
-							<div class="feature-icon"><i class="far fa-2x fa-search"></i></div>
-							<p>Create a <strong>search form</strong></p>
-						</button>
-					</div>
-					<div class="tile is-parent is-4">
-						<button @click="type = 'api'">
-							<div class="feature-icon"><i class="far fa-2x fa-mobile"></i></div>
-							<p>Create an <strong>API for an app</strong></p>
-						</button>
-					</div>
-				</div>
-			</div>
-			<div v-else class="columns is-centered is-light">
-				<div class="column is-one-third">
-					<h3 class="title is-5 has-text-grey">With other leading brands of frameworks</h3>
+					<div v-else class="columns is-centered is-light" key="tutorial">
+						<div v-if="type" class="column is-one-third animated-reveal" style="animation-delay: 0.7s;">
+							<h3 class="title is-5 has-text-grey">With other leading brands of frameworks</h3>
 
-					<ol class="is-faded">
-						<li>Create an inherited controller class</li>
-						<li>Write a service provider</li>
-						<li>Define a contract</li>
-						<li>Have a break</li>
-						<li>Develop a middleware</li>
-						<li>Craft a facade</li>
-						<li>Search on Stack Overflow</li>
-						<li>Add a response class</li>
-						<li>Write a test suite</li>
-						<li>Have a cup of coffee</li>
-						<li>Create a database migration</li>
-						<li>Develop and test validations</li>
-						<li>Contemplate life decisions</li>
-						<li>Handle exceptions</li>
-					</ol>
-				</div>
-				<div class="column is-two-thirds">
-					<h3 class="title is-4 has-text-success">With Sapling</h3>
+							<ol class="is-faded">
+								<li>Create an inherited controller class</li>
+								<li>Write a service provider</li>
+								<li>Define a contract</li>
+								<li>Have a break</li>
+								<li>Develop a middleware</li>
+								<li>Craft a facade</li>
+								<li>Search on Stack Overflow</li>
+								<li>Add a response class</li>
+								<li>Write a test suite</li>
+								<li>Have a cup of coffee</li>
+								<li>Create a database migration</li>
+								<li>Develop and test validations</li>
+								<li>Contemplate life decisions</li>
+								<li>Handle exceptions</li>
+							</ol>
+						</div>
+						<div class="column is-two-thirds">
+							<h3 class="title is-4 has-text-success animated-reveal" style="animation-delay: 1.6s;">With Sapling</h3>
 
-					<div v-if="type == 'api'">
-						<ol>
-							<li>Nothing!</li>
-						</ol>
+							<div v-if="type == 'api'">
+								<ol class="animated-reveal" style="animation-delay: 2.6s;">
+									<li>Nothing!</li>
+								</ol>
 
-						<p>No, seriously.  With Sapling, you have a RESTful API out of the box.  All you need to do is to start sending requests to a built-in backend route, for example, <code>/data/<span v-text="collection[type]">notes</span></code>.  That's all.</p>
+								<p class="animated-reveal" style="animation-delay: 5.5s;">No, seriously.  With Sapling, you have a RESTful API out of the box.  All you need to do is to start sending requests to a built-in backend route, for example, <code>/data/<span v-text="collection[type]">notes</span></code>.  That's all.</p>
+							</div>
+							<div v-else-if="type == 'login'">
+								<ol>
+									<li class="animated-reveal" style="animation-delay: 2.6s;">Write the view:
+										<pre v-html="markup[type]"></pre>
+									</li>
+									<li class="animated-reveal" style="animation-delay: 3.6s;"><strong>That's it.</strong> It works.</li>
+								</ol>
+
+								<p class="animated-reveal" style="animation-delay: 5.5s;">No, seriously.  With Sapling, you have user accounts out of the box - login, registration, password reset, everything.  All you need to do is to send a POST request to a built-in backend route, <code>/api/login</code>.  That's all.</p>
+							</div>
+							<div v-else-if="type == 'search'">
+								<ol>
+									<li class="animated-reveal" style="animation-delay: 2.6s;">Write the view:
+										<pre v-html="markup[type]"></pre>
+									</li>
+									<li class="animated-reveal" style="animation-delay: 3.6s;"><strong>That's it.</strong> It works.</li>
+								</ol>
+
+								<p class="animated-reveal" style="animation-delay: 5.5s;">No, seriously.  With Sapling, you get searching built right in.  All you need to do is to send a GET request to a magic built-in backend route, such as <code>/data/posts</code>.  That's all.</p>
+							</div>
+							<div v-else>
+								<ol>
+									<li class="animated-reveal" style="animation-delay: 2.6s;">Write the view:
+										<pre v-html="markup[type]"></pre>
+									</li>
+									<li class="animated-reveal" style="animation-delay: 3.6s;"><strong>That's it.</strong> It works.</li>
+								</ol>
+
+								<p class="animated-reveal" style="animation-delay: 5.5s;">No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/data/<span v-text="collection[type]">notes</span></code>.  That's all.</p>
+							</div>
+
+							<p v-if="type != 'login' && type != 'search'" class="animated-reveal" style="animation-delay: 5.7s;">Sapling will handle the backend, creating the "<span v-text="collection[type]">notes</span>" collection if it doesn't exist, saving the <span v-text="item[type]">note</span> in the database, and returning a list of all <span v-text="collection[type]">notes</span> when you <code>GET /data/<span v-text="collection[type]">notes</span></code> &ndash; all with absolutely zero backend code required.</p>
+
+							<div class="animated-reveal" style="animation-delay: 5.9s;">
+								<hr>
+
+								<div class="has-text-centered">
+									<a href="/docs" class="button is-success">Read the docs</a>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div v-else-if="type == 'login'">
-						<ol>
-							<li>Write the view:
-								<pre v-html="markup[type]"></pre>
-							</li>
-							<li><strong>That's it.</strong> It works.</li>
-						</ol>
-
-						<p>No, seriously.  With Sapling, you have user accounts out of the box - login, registration, password reset, everything.  All you need to do is to send a POST request to a built-in backend route, <code>/api/login</code>.  That's all.</p>
-					</div>
-					<div v-else-if="type == 'search'">
-						<ol>
-							<li>Write the view:
-								<pre v-html="markup[type]"></pre>
-							</li>
-							<li><strong>That's it.</strong> It works.</li>
-						</ol>
-
-						<p>No, seriously.  With Sapling, you get searching built right in.  All you need to do is to send a GET request to a magic built-in backend route, such as <code>/data/posts</code>.  That's all.</p>
-					</div>
-					<div v-else>
-						<ol>
-							<li>Write the view:
-								<pre v-html="markup[type]"></pre>
-							</li>
-							<li><strong>That's it.</strong> It works.</li>
-						</ol>
-
-						<p>No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/data/<span v-text="collection[type]">notes</span></code>.  That's all.</p>
-					</div>
-
-					<p v-if="type != 'login' && type != 'search'">Sapling will handle the backend, creating the "<span v-text="collection[type]">notes</span>" collection if it doesn't exist, saving the <span v-text="item[type]">note</span> in the database, and returning a list of all <span v-text="collection[type]">notes</span> when you <code>GET /data/<span v-text="collection[type]">notes</span></code> &ndash; all with absolutely zero backend code required.</p>
-
-					<hr>
-
-					<div class="has-text-centered">
-						<a href="/docs" class="button is-success">Read the docs</a>
-					</div>
-				</div>
-			</div>
+				</transition>
+			</main>
 		</div>
 	</div>
 </template>
 
 <script>
 
+import smoothReflow from 'vue-smooth-reflow'
+
 export default {
 	name: "usecases",
+
+	mixins: [smoothReflow],
 
 	data() {
 		return {
@@ -195,6 +212,16 @@ export default {
 {{ endforeach }}`
 			}
 		};
+	},
+
+	mounted() {
+		this.$smoothReflow({
+			el: this.$refs.container
+		});
+		this.$smoothReflow({
+			el: this.$refs.title,
+			property: 'width'
+		});
 	}
 };
 
@@ -212,10 +239,21 @@ $background = #f2f2f2;
 		position: absolute;
 	}
 
+	header h2 {
+		display: inline-block;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
 	#usecases-container {
 		background: $background;
 		border-radius: 16px;
 		padding: 0.5rem;
+		overflow: hidden;
+		
+		& > main {
+			position: relative;
+		}
 
 		button {
 			display: flex;
@@ -282,6 +320,50 @@ $background = #f2f2f2;
 	bottom: 0;
 	z-index: 2;
 	background: linear-gradient(to bottom, rgba($background,0), rgba($background,1));
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.animated-reveal {
+	opacity: 0;
+	animation: fade 0.8s forwards ease-out;
+}
+
+
+/* Vue transitions */
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+
+.fade-slide-enter-active, .fade-slide-leave-active {
+	transition: opacity .5s, transform .5s ease-in-out;
+}
+.fade-slide-enter, .fade-slide-leave-to {
+	opacity: 0;
+}
+.fade-slide-enter {
+	transform: translateY(100%);
+}
+.fade-slide-leave-to {
+	transform: translateY(-100%);
+}
+.fade-slide-enter-active {
+	transition-delay: 0.25s;
+}
+.fade-slide-leave-active {
+	position: absolute;
+	width: 100%;
 }
 
 </style>
