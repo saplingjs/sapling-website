@@ -190,10 +190,10 @@ export default {
     &lt;button type="submit">Login&lt;/button>
 &lt;/form>`,
 				todo: `{{ set todos as GET /data/todos/_creator/:user.id }}
-{{ foreach todos as todo }}
+{% foreach todos as todo %}
     &lt;h4>{{ todo.description }}&lt;/h4>
     &lt;p>Due {{ todo.due }}&lt;/p>
-{{ endforeach }}
+{% endforeach %}
 
 &lt;form method="post" action="/data/todos?redirect=/">
     &lt;textarea name="description" placeholder="New todo" required>&lt;/textarea>
@@ -206,10 +206,10 @@ export default {
 &lt;/form>
 
 {{ set results as GET /data/posts/*/:search_term?like=true }}
-{{ foreach results as result }}
+{% foreach results as result %}
     &lt;h4>{{ result.title }}&lt;/h4>
     &lt;p>{{ result.description }}&lt;/p>
-{{ endforeach }}`
+{% endforeach %}`
 			}
 		};
 	},
