@@ -1,16 +1,20 @@
 - Getting started
 
-    - [Home](/)
-    - [Installation](installation.md)
+	- [Home](/)
+	- [Installation](installation.md)
 
 - Basics
 
-    - [Configuration](config.md)
-    - [Views](views.md)
-    - [Models](models.md)
-    - [Routing](routes.md)
-    - [Permissions](permissions.md)
+	- [Configuration](config.md)
+	- [Views](views.md)
+	- [Models](models.md)
+	- [Routing](routes.md)
+	- [Permissions](permissions.md)
+
+- Features
+
+	- [Production mode](production.md)
 
 - Advanced
 
-    - [Production mode](production.md)
+	- [Drivers](drivers.md)

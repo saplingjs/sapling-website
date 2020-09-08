@@ -18,7 +18,7 @@ You can create whatever naming conventions and subdirectories inside `views/` th
 
 The templating language used in Sapling by default is [Nunjucks](https://mozilla.github.io/nunjucks/).  To avoid duplication, we won't go through all of Nunjucks' basic features here - if you're not familiar with it yet, we recommend you check their [official documentation](https://mozilla.github.io/nunjucks/templating.html) first, before continuing.
 
-?> If you don't like Nunjucks, there are alternative templating languages available.  It's even possible for you to add support for your favourite templating language, if it isn't supported yet.  Any language that can be compiled in Node and supports custom tags can theoretically be used.  All that's required for support is to write wrappers for the custom tags Sapling requires.
+?> If you don't like Nunjucks, there are alternative templating languages available.  It's even possible for you to [add support for your favourite templating language](/drivers), if it isn't supported yet.  Any language that can be compiled in Node and supports custom tags can theoretically be used.
 
 The content below goes through the custom tags in Sapling.
 
