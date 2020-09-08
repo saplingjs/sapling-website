@@ -4,7 +4,7 @@ import "docsify-themeable";
 window.$docsify = {
     name: 'Sapling',
     logo: '../images/logo.svg',
-    repo: 'groenroos/sapling',
+    repo: 'saplingjs/sapling',
     homepage: 'home.md',
     auto2top: true,
     loadSidebar: '_sidebar.md',

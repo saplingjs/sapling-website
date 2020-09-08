@@ -1,6 +1,6 @@
 # Sapling Website
 
-This repo contains the website and documentation for [Sapling](https://www.github.com/groenroos/sapling).
+This repo contains the website and documentation for [Sapling](https://www.github.com/saplingjs/sapling).
 
 
 ## Documentation
@@ -21,4 +21,4 @@ Additionally, the `src/stylus/bonsai.styl`, `images/bonsai.svg` and `src/js/bons
 
 ## Issues
 
-Report them on [GitHub](https://www.github.com/groenroos/sapling-website/issues).
+Report them on [GitHub](https://www.github.com/saplingjs/sapling-website/issues).
