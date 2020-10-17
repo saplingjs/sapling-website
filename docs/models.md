@@ -11,21 +11,52 @@ A huge reason why developing with Sapling is much faster than other frameworks i
 
 Each model represents a collection of data (e.g. `reviews`).  They are JSON files stored in the `models/` folder, each named after the collection they represent (e.g. `models/reviews.json`).
 
-Each model contains a number of fields, which contain the data of each record.  The JSON file is simply an array of fields, where each field is represented by an object containing the properties for the field.
+Each model contains a number of fields, which contain the data of each record.  The JSON file is simply an object of fields, where each field is named by the key, and represented by an object value containing the properties for the field.
 
 
 ## Properties
 
 Fields are described by setting properties, which affect the type of data is stored in them, and how the input to the model is validated.
 
-| Property     | Description                                                                                                                            |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `name`       | The name of the field that will be used in the data API.  The only strictly required property.                                         |
-| `type`       | Type of data stored in this field.  Can be one of `"text"` (default), `"number"`, `"boolean"`, `"date"`, `"password"`, `"array"`, or `"reference"`.  |
-| `required`   | Whether this field is mandatory.  `false` by default.  If `true`, Sapling will throw an error if the field is missing.                 |
-| `choices`    | An array of possible values for the field.  If defined, submitting a value not in the array will throw an error.                       |
-| `default`    | The default value if the field is not sent in a request.  Must match `type` and `choices`, if defined.                                 |
-| `reference`  | Only needed if `type` is `"reference"`.  Name of a model that this field references.                                               |
+| Property     | Description                                                                                                                              |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`       | Type of data stored in this field.  Can be one of `"String"` (default), `"Number"`, `"Boolean"`, `"Date"`, `"Array"`, `"File"` or `"Reference"`.  |
+| `required`   | Whether this field is mandatory.  `false` by default.  If `true`, Sapling will throw an error if the field is missing.                   |
+| `values`     | An array of possible values for the field.  If defined, submitting a value not in the array will throw an error.                         |
+| `default`    | The default value if the field is not sent in a request.  Must match `type` and `values`, if defined.                                    |
+| `reference`  | Only needed if `type` is `"Reference"`.  Name of a model that this field references.                                                     |
+| `access`     | Roles that can read or write this property.  Can be set as either a string, or an object with `"r"` and `"w"`.  See below.               |
+| `minlen`     | Minimum length of characters for the value stored.  Sending a value shorter than this returns an error.  Only applicable to `"String"`.  |
+| `maxlen`     | Maximum length of characters for the value stored.  Sending a value longer than this returns an error.  Only applicable to `"String"`.   |
+| `min`        | Minimum value stored.  Sending a value smaller than this returns an error.  Only applicable to `"Number"`.                               |
+| `max`        | Maximum value stored.  Sending a value larger than this returns an error.  Only applicable to `"Number"`.                                |
+
+
+## Access
+
+You can set access permissions for each field, to control who can read or write values from/to this property.  The simplest way to do this is to set the `"access"` property of a field to the minimum role level required to access the property:
+
+    [
+        ...
+        "case_notes": {
+            "type": "String",
+            "access": "admin"
+        }
+    ]
+
+In the above example, only users with the `"admin"` role can view and edit the value in the `"case_notes"` field.  This means that the `"case_notes"` field is not included at all in the response for any data API for users with any role lower than `"admin"`.  Attempting to modify the contents of the field in a `POST` request to the data API will not result in an error, but will fail silently.
+
+You can also set read and write permissions separately:
+
+    [
+        ...
+        "phone_number": {
+            "type": "String",
+            "access": {"r": "anyone", "w": "admin"}
+        }
+    ]
+
+In the above example, anyone can read the value of the `"phone_number"` field, but only users with the `"admin"` role can modify the value.
 
 
 ## Reference fields
@@ -36,9 +67,8 @@ This is useful if you want to make strong many-to-one connections between differ
 
     [
         ...
-        {
-            "name": "movie",
-            "type": "reference",
+        "movie": {
+            "type": "Reference",
             "required": true,
             "reference": "movies"
         }
@@ -78,28 +108,40 @@ Each model contains five fields that are present even when not defined.  They ar
 
 Each Sapling instance contains an invisible model called `users`, where all end user accounts are stored.  By default it contains the `username`, `password` and `role` fields.
 
-    [
-        {
-            "name": "username",
+    {
+        "email": {
+            "type": "String",
+            "minlen": 3,
+            "unique": true,
             "required": true
         },
-        {
-            "name": "password",
-            "type": "password",
-            "required": true
+        "password": {
+            "type": "String",
+            "minlen": 3,
+            "required": true,
+            "access": "owner"
         },
-        {
-            "name": "role",
-            "choices": ["user", "admin"],
-            "default": "user"
+        "_salt": {
+            "type": "String",
+            "access": "owner"
         },
-    ]
+        "role": {
+            "type": "String",
+            "values": ["admin", "member"],
+            "default": "member",
+            "access": {"r": "anyone", "w": "admin"}
+        },
+        "authkey": {
+            "type": "String",
+            "access": "owner"
+        }
+    }
 
 The `role` field is utilised in setting [permissions](/permissions).
 
 If you choose, you can also define a `users` model, in order to add additional fields to each user account.  The model you define will take precedence over the internal one.
 
-!> If you decide to define your own `users` model, be sure to include a definition of the `username`, `password` and `role` fields.  If you don't, and you're in [production mode](/production), or the configuration contains `"strict": true`, you will get an error.
+?> If you decide to define your own `users` model, the above default model is used as defaults.  This allows you to override certain settings (e.g. provide a longer minimum length for passwords), while still making sure the model contains everything required for Sapling to function.
 
 
 ## Database
