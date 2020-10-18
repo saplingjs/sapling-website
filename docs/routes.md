@@ -55,3 +55,13 @@ You can do this with the colon notation:
 Now, the `views/review/view.html` view is injected with the variable `id`, which contains `"12"` when the user visits `/review/12`.
 
 !> The first matching route is the one that's used; therefore, in cases where parameters may make two similar routes clash (`/review/new` and `/review/:id`), define the more specific route first.
+
+
+## Reserved routes
+
+Sapling only has two reserved routes, which cannot be used to route to a view, either automatically or manually.
+
+* `/data/*` - used for the [data API](/data)
+* `/api/*` - used for internal functionality routes, such as [authentication](/authentication)
+
+?> Normally, any attempt to create routes beginning with `/data` or `/api` will fail silently.  In strict mode, Sapling will refuse to run with automatic or manual routes that clash with these reserved routes.
