@@ -45,6 +45,6 @@ This is the default value.  When set to `"auto"`, Sapling will turn on productio
 
 It's common that you would want a different configuration for a production environment than your development environment.  You can create a duplicate of your `config.json`, and call it `config.production.json`.  When in production mode, this file will be used in place of `config.json`.
 
-If you'd like additional configurations for other environments (i.e. staging), set production mode in your `config.json` to `"on"`, and create a separate configuration file with a suffix that matches the `NODE_ENV`.  For instance, if your `NODE_ENV` is set to `"staging"`, Sapling will load `config.staging.json`, if it exists.
+If you'd like additional configurations for other environments (i.e. staging), create a separate configuration file with a suffix that matches the `NODE_ENV`.  For instance, if your `NODE_ENV` is set to `"staging"`, Sapling will load `config.staging.json`, if it exists.
 
 ?> The two config files are **not** merged, so make sure your production config file contains all the settings you would expect to have in the `config.json` for your project.
