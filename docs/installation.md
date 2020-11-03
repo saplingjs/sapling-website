@@ -19,7 +19,7 @@ Run `sapling create` to run a wizard for creating a new blank project.  It will 
 
 Navigate to the folder and run `sapling run` to turn on the server.  You can then visit your new site at `http://localhost:3000`.
 
-?> If port 3000 is no good, you can definite a different port with the `--port` flag; for example, `sapling run --port 8000`
+?> If port 3000 is no good, you can definite a different port with the `--port` flag; for example, `sapling run --port 8000`.  You can also set a port in [the configuration](/config) with the `port` setting.
 
 
 ## Manual installation

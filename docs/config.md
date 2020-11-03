@@ -36,9 +36,9 @@ The name of your Sapling app.  Should be a variable name (no spaces).  It's the 
 
 ### port
 
-**Default value:** `80`, `8000`, `3000`, `3001` or random
+**Default value:** `3000`
 
-The port that this Sapling instance should run on.  If undefined, Sapling will attempt to find the first available port of the list of ports above.  If none are available, it will use a random available port.
+The port that this Sapling instance should run on.  If undefined, Sapling will run on port `3000`.  This configuration option can always be overridden with a command argument when running Sapling, i.e. `sapling run --port 8000`
 
 
 ### production
