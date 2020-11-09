@@ -1,11 +1,42 @@
 @import url('https://rsms.me/inter/inter.css');
 
-@import "../../node_modules/normalize/lib/normalize/index"
-@import "../../node_modules/bulma/css/bulma.css"
-
-
 $green = #4dcf89
-$slate = #384c54
+$grey-dark = $text-strong = #384c54
+
+$colors = {
+	"success": {
+		'1': $success,
+		'2': $success-invert,
+		'3': $success-light,
+		'4': $success-dark
+	}
+}
+
+$column-gap = 0.75rem
+
+@import "~bulma-stylus/stylus/base/minireset"
+
+@import "~bulma-stylus/stylus/utilities/initial-variables"
+@import "~bulma-stylus/stylus/utilities/functions"
+@import "~bulma-stylus/stylus/utilities/derived-variables"
+@import "~bulma-stylus/stylus/utilities/mixins"
+@import "~bulma-stylus/stylus/utilities/controls"
+
+@import "~bulma-stylus/stylus/base/generic"
+
+@import "~bulma-stylus/stylus/layout/_all"
+
+@import "~bulma-stylus/stylus/grid/tiles"
+
+@import "~bulma-stylus/stylus/elements/button"
+@import "~bulma-stylus/stylus/elements/container"
+@import "~bulma-stylus/stylus/elements/content"
+@import "~bulma-stylus/stylus/elements/table"
+@import "~bulma-stylus/stylus/elements/tag"
+@import "~bulma-stylus/stylus/elements/title"
+
+@import "~bulma-stylus/stylus/components/navbar"
+
 
 ::-moz-selection {
 	color: #fff;
@@ -22,15 +53,49 @@ body, button, input, select, textarea {
 
 body {
 	line-height: 1.8;
-	color: $slate;
 }
 
-.title, .subtitle, strong {
-	color: $slate !important;
+.columns
+	margin-left ($column-gap * -1)
+	margin-right ($column-gap * -1)
+	margin-top ($column-gap * -1)
+
+	&:last-child
+		margin-bottom ($column-gap * -1)
+
+	&:not(:last-child)
+		margin-bottom "calc(1.5rem - %s)" % $column-gap
+
+	&.is-centered
+		justify-content center
+	
+	+tablet()
+		display flex
+
+.column {
+	display: block;
+	flex-basis: 0;
+	flex-grow: 1;
+	flex-shrink: 1;
+	padding: $column-gap;
+
+	&.is-four-fifths {
+		flex: none;
+		width: 80%;
+	}
+
+	&.is-two-thirds {
+		flex: none;
+		width: 66.6666%;
+	}
 }
 
 .has-text-success {
-	color: $green !important;
+	color: $success !important;
+}
+
+.has-text-centered {
+	text-align: center !important;
 }
 
 h1.title {
@@ -47,6 +112,7 @@ p {
 
 code {
 	color: #da1c42;
+	background-color: $white-ter;
 }
 
 code, pre {
@@ -123,7 +189,7 @@ p + .title {
 }
 
 .feature-icon {
-	background: $slate;
+	background: $grey-dark;
 	color: $green;
 	border-radius: 50%;
 	margin-bottom: 1rem;
@@ -135,7 +201,7 @@ p + .title {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	box-shadow: 0 0 0 3px lighten($slate, 70%);
+	box-shadow: 0 0 0 3px lighten($grey-dark, 70%);
 }
 
 .title + .tag {

@@ -1549,10 +1549,10 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
-bulma@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.8.2.tgz#5d928f16ed4a84549c2873f95c92c38c69c631a7"
-  integrity sha512-vMM/ijYSxX+Sm+nD7Lmc1UgWDy2JcL2nTKqwgEqXuOMU+IGALbXd5MLt/BcjBAPLIx36TtzhzBcSnOP974gcqA==
+bulma-stylus@^0.8.1-rc.2:
+  version "0.8.1-rc.2"
+  resolved "https://registry.yarnpkg.com/bulma-stylus/-/bulma-stylus-0.8.1-rc.2.tgz#e4de070ed8283574df4bcf3b14ad6a6fdc6679f5"
+  integrity sha512-P8LGGZ0oxB6E5cNl/Vse/ZrS/y6FaflLHK9eYxnqimIgxd1a4xQZBLnipCGzvG4oDsaMrJM369oUUyhV7qZjZA==
 
 bytes@3.0.0:
   version "3.0.0"
