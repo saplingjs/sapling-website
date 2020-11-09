@@ -5,7 +5,7 @@
     "docsify": "^4.11.3",
     "docsify-copy-code": "^2.1.1",
     "docsify-pagination": "^2.6.0",
-    "docsify-themeable": "^0.8.0",
+    "docsify-themeable": "^0.8.4",
     "inline-svg": "^2.2.3",
     "laravel-mix": "^5.0.9",
     "normalize": "^0.3.1",
