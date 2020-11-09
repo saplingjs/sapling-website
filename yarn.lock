@@ -2496,10 +2496,10 @@ dns-txt@^2.0.2:
   dependencies:
     buffer-indexof "^1.0.0"
 
-docsify-copy-code@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/docsify-copy-code/-/docsify-copy-code-2.1.0.tgz#cc72562751565b53808b9f67720b170d28ecdb99"
-  integrity sha512-8vVJf/y4Wgd2C/GdNwctvZXczVQhWHNjihusrUcC0YP9V96KLCOERho+QAhyYR5/iRoQaLhoMaJEeuIQHNVLVw==
+docsify-copy-code@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/docsify-copy-code/-/docsify-copy-code-2.1.1.tgz#73575955f4aff953d127fac8594c3495a7c71612"
+  integrity sha512-3+foIMuohrvYTA8dyDwr4wylKSZHXBq4tvoAP24BvzqSM9Rbh0gvXQunVoFZ7If4FOYmUXOBveg3EbJSBUMaow==
 
 docsify-pagination@^2.6.0:
   version "2.6.0"
