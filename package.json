@@ -3,7 +3,7 @@
     "bulma": "^0.8.2",
     "cross-env": "^7.0.2",
     "docsify": "^4.11.3",
-    "docsify-copy-code": "^2.1.0",
+    "docsify-copy-code": "^2.1.1",
     "docsify-pagination": "^2.6.0",
     "docsify-themeable": "^0.8.0",
     "inline-svg": "^2.2.3",
