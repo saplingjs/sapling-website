@@ -1,5 +1,8 @@
 @import url('https://rsms.me/inter/inter.css');
 
+$family-primary = Inter,BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif
+$family-monospace = antarctican-mono,sans-serif
+
 $green = #4dcf89
 $grey-dark = $text-strong = #384c54
 
@@ -38,22 +41,16 @@ $column-gap = 0.75rem
 @import "~bulma-stylus/stylus/components/navbar"
 
 
-::-moz-selection {
-	color: #fff;
-	background: $green;
-}
-::selection {
-	color: #fff;
-	background: $green;
-}
+::-moz-selection
+	color #fff
+	background $green
 
-body, button, input, select, textarea {
-	font-family: Inter,BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-}
+::selection
+	color #fff
+	background $green
 
-body {
-	line-height: 1.8;
-}
+body
+	line-height 1.8
 
 .columns
 	margin-left ($column-gap * -1)
@@ -72,202 +69,175 @@ body {
 	+tablet()
 		display flex
 
-.column {
-	display: block;
-	flex-basis: 0;
-	flex-grow: 1;
-	flex-shrink: 1;
-	padding: $column-gap;
+.column
+	display block
+	flex-basis 0
+	flex-grow 1
+	flex-shrink 1
+	padding $column-gap
 
-	&.is-four-fifths {
-		flex: none;
-		width: 80%;
-	}
+	&.is-four-fifths
+		flex none
+		width 80%
 
-	&.is-two-thirds {
-		flex: none;
-		width: 66.6666%;
-	}
-}
+	&.is-two-thirds
+		flex none
+		width 66.6666%
 
-.has-text-success {
-	color: $success !important;
-}
+.has-text-success
+	color $success !important
 
-.has-text-centered {
-	text-align: center !important;
-}
+.has-text-centered
+	text-align center !important
 
-h1.title {
-	font-family: clone-rounded-latin, sans-serif;
-	font-weight: 200;
-	font-style: normal;
-	font-size: 2.8em;
-	margin-bottom: 0.5em !important;
-}
+p
+	margin-bottom 0.6em !important
 
-p {
-	margin-bottom: 0.6em !important;
-}
+code
+	color #da1c42
 
-code {
-	color: #da1c42;
-	background-color: $white-ter;
-}
+code, pre
+	border-radius 3px
 
-code, pre {
-	font-family: antarctican-mono,sans-serif;
-	font-weight: 400;
-	font-style: normal;
-	border-radius: 3px;
-}
+.title
+	&:not(.is-spaced) + .subtitle
+		margin-top 1rem !important
+		line-height 1.8
+		font-size 1.15rem
 
-.title:not(.is-spaced)+.subtitle {
-	margin-top: 1rem !important;
-	line-height: 1.8;
-	font-size: 1.15rem;
-}
+	p + &
+		margin-top 1.8em !important
 
-p + .title {
-	margin-top: 1.8em !important;
-}
+	h1&
+		font-family clone-rounded-latin, sans-serif
+		font-weight 200
+		font-style normal
+		font-size 2.8em
+		margin-bottom 0.5em !important
 
-.section {
-	padding: 6.5rem 1.5rem;
-}
+	& + .tag
+		position relative
+		top -0.75rem
+		font-size 0.7rem
+		font-weight bold
+		background $info
+		color $white
 
-.section.is-light {
-	background: #fafafa;
-}
+.section
+	padding 6.5rem 1.5rem
 
-.section.is-light + .section.is-light {
-	padding-top: 0;
-}
+	&.is-light
+		background #fafafa
 
-.table {
-	background: none;
-}
+		& + .section.is-light
+			padding-top 0
 
-.table th {
-	padding-left: 0;
-}
+.table
+	background none
 
-.table th, .table td {
-	padding-top: 1em;
-	padding-bottom: 1em;
-}
+	th
+		padding-left 0
 
-.navbar-brand img {
-	max-height: 2.5rem;
-	margin: 0.5rem 1rem 0.5rem 0;
-}
+	th, td
+		padding-top 1em
+		padding-bottom 1em
 
-.navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
-	color: $green;
-}
+.navbar-brand img
+	max-height 2.5rem
+	margin 0.5rem 1rem 0.5rem 0
 
-.navbar-link:not(.is-arrowless)::after {
-	border-color: #aaa;
-	border-bottom-width: 2px;
-	border-left-width: 2px;
-	border-radius: 2px;
-}
+.navbar-link.is-active,
+.navbar-link:hover,
+a.navbar-item.is-active,
+a.navbar-item:hover
+	color $green
 
-.hero {
-	margin-top: 3rem;
-}
+.navbar-link:not(.is-arrowless)::after
+	border-color #aaa
+	border-bottom-width 2px
+	border-left-width 2px
+	border-radius 2px
 
-.hero code {
-	font-size: 16px;
-	border: 1px solid #ccc;
-	padding: 0 8px;
-	line-height: 26px;
-}
+.hero
+	margin-top 3rem
 
-.hero .level span {
-	height: 28px;
-}
+	code
+		font-size 16px
+		border 1px solid #ccc
+		padding 0 8px
+		line-height 26px
 
-.feature-icon {
-	background: $grey-dark;
-	color: $green;
-	border-radius: 50%;
-	margin-bottom: 1rem;
-	float: left;
-	font-size: 0.9rem;
-	line-height: 1;
-	width: 4rem;
-	height: 4rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	box-shadow: 0 0 0 3px lighten($grey-dark, 70%);
-}
+	.level span
+		height 28px
 
-.title + .tag {
-	position: relative;
-	top: -0.75rem;
-	font-size: 0.7rem;
-	font-weight: bold;
-}
+.feature-icon
+	background $grey-dark
+	color $green
+	border-radius 50%
+	margin-bottom 1rem
+	float left
+	font-size 0.9rem
+	line-height 1
+	width 4rem
+	height 4rem
+	display flex
+	align-items center
+	justify-content center
+	box-shadow 0 0 0 3px lighten($grey-dark, 70%)
 
-#usecase-generator {
-	position: relative;
-	white-space: nowrap;
-	cursor: pointer;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
+#usecase-generator
+	position relative
+	white-space nowrap
+	cursor pointer
+	-webkit-touch-callout none
+	-webkit-user-select none
+	-khtml-user-select none
+	-moz-user-select none
+	-ms-user-select none
+	user-select none
 
-#usecase-generator:after {
-	content: " ";
-	font-size: 0;
-	position: absolute;
-	bottom: -2px;
-	left: 0;
-	right: 0;
-	height: 6px;
-	background: $green;
-	opacity: .5;
-	z-index: -1;
-}
+	&:after
+		content " "
+		font-size 0
+		position absolute
+		bottom -2px
+		left 0
+		right 0
+		height 6px
+		background $green
+		opacity .5
+		z-index -1
 
-@keyframes shake {
-	0%, 100% {
-		top: -1px;
-		left: -1px;
-	}
-	25% {
-		top: 0;
-		left: 1px;
-	}
-	50% {
-		top: -1px;
-		left: 0;
-	}
-	75% {
-		top: 1px;
-		left: 1px;
-	}
-}
+@keyframes shake
+	0%, 100%
+		top -1px
+		left -1px
 
-.has-shake {
-	position: relative;
-	animation: shake 0.2s infinite;
-}
+	25%
+		top 0
+		left 1px
 
-#features .column p, #creds .column p {
-	font-size: 0.95rem;
-	line-height: 1.8em;
-	margin-bottom: 2rem !important;
-	padding-right: 1rem;
-}
+	50%
+		top -1px
+		left 0
 
-#features .column .title, #creds .column .title {
-	margin-bottom: 0.75rem !important;
-	clear: both;
-}
+	75%
+		top 1px
+		left 1px
+
+
+.has-shake
+	position relative
+	animation shake 0.2s infinite
+
+#features, #creds
+	.column
+		p
+			font-size 0.95rem
+			line-height 1.8em
+			margin-bottom 2rem !important
+			padding-right 1rem
+
+		.title
+			margin-bottom 0.75rem !important
+			clear both
