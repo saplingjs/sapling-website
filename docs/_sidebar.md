@@ -11,10 +11,10 @@
 	- [Routing](routes.md)
 	- [Permissions](permissions.md)
 	- [Data](data.md)
-	- [API](api.md)
 
 - Features
 
+	- [Authentication](authentication.md)
 	- [Production mode](production.md)
 
 - Advanced

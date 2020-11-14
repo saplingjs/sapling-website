@@ -1,6 +1,6 @@
 # Permissions
 
-You can control which users can access which [routes](/routes) and data API requests.  Permissions are completely optional, and by default, every route and data API request from anyone is accepted.  In [production mode](/production), defining permissions for all `POST` and `DELETE` data API requests is mandatory.
+You can control which users can access which [routes](/routes) and [data API](/data) requests.  Permissions are completely optional, and by default, every route and data API request from anyone is accepted.  In [production mode](/production), defining permissions for all `POST` and `DELETE` data API requests is mandatory.
 
 
 ## User roles

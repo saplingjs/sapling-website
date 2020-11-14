@@ -2,7 +2,7 @@
 
 Models define the structure of data stored by Sapling in its database.  Each model represents a collection of data (a table), and its definition is a description of the fields (keys, columns) inside that model.
 
-A huge reason why developing with Sapling is much faster than other frameworks is because models are **completely optional**.  By default, any call to Sapling's data API will be accepted, and the structure of data is inferred from what it's sent.  Even after defining a model, Sapling will still accept data for fields that are sent, but not defined in the model.
+A huge reason why developing with Sapling is much faster than other frameworks is because models are **completely optional**.  By default, any call to Sapling's [data API](/data) will be accepted, and the structure of data is inferred from what it's sent.  Even after defining a model, Sapling will still accept data for fields that are sent, but not defined in the model.
 
 !> When Sapling is running in [production mode](/production), or its configuration contains `"strict": true`, the data structure is no longer inferred from requests, and you must define all the models fully.  Requests to undefined models will result in an error.  Any fields sent not defined in the model will be silently ignored.
 
@@ -37,7 +37,7 @@ Fields are described by setting properties, which affect the type of data is sto
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | `minlen`        | Minimum length of characters for the value stored.  Sending a value shorter than this returns an error.                                           |
 | `maxlen`        | Maximum length of characters for the value stored.  Sending a value longer than this returns an error.                                            |
-| `identifiable`  | Only applicable in the `users` model.  This field can be used to identify the user; i.e. used as a username in login.                             |
+| `identifiable`  | Only applicable in the `users` model.  If true, this field can be used as a [username for login purposes](/authentication#custom-identifiables).  |
 
 
 ### Only applicable to `Number`
@@ -184,7 +184,7 @@ If the `movies` model also included a reference field, the contents of the refer
 
 ## Default fields
 
-Each model contains five fields that are present even when not defined.  They are automatically populated by Sapling, and are read-only through the data API.
+Each model contains five fields that are present even when not defined.  They are automatically populated by Sapling, and are read-only through the [data API](/data).
 
 | Field            | Description                                               |
 |------------------|-----------------------------------------------------------|
@@ -197,7 +197,7 @@ Each model contains five fields that are present even when not defined.  They ar
 
 ## Users
 
-Each Sapling instance contains an invisible model called `users`, where all end user accounts are stored.  By default it contains the `username`, `password` and `role` fields.
+Each Sapling instance contains an invisible model called `users`, where all end user accounts are stored.  By default it contains the `email`, `password` and `role` fields.
 
     {
         "email": {
