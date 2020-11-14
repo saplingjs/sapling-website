@@ -16,20 +16,56 @@ Each model contains a number of fields, which contain the data of each record.  
 
 ## Properties
 
-Fields are described by setting properties, which affect the type of data is stored in them, and how the input to the model is validated.
+Fields are described by setting properties, which affect the type of data is stored in them, and how the input to the model is validated.  Some properties are only applicable to certain types of field.
 
-| Property     | Description                                                                                                                              |
-|--------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `type`       | Type of data stored in this field.  Can be one of `"String"` (default), `"Number"`, `"Boolean"`, `"Date"`, `"Array"`, `"File"` or `"Reference"`.  |
-| `required`   | Whether this field is mandatory.  `false` by default.  If `true`, Sapling will throw an error if the field is missing.                   |
-| `values`     | An array of possible values for the field.  If defined, submitting a value not in the array will throw an error.                         |
-| `default`    | The default value if the field is not sent in a request.  Must match `type` and `values`, if defined.                                    |
-| `reference`  | Only needed if `type` is `"Reference"`.  Name of a model that this field references.                                                     |
-| `access`     | Roles that can read or write this property.  Can be set as either a string, or an object with `"r"` and `"w"`.  See below.               |
-| `minlen`     | Minimum length of characters for the value stored.  Sending a value shorter than this returns an error.  Only applicable to `"String"`.  |
-| `maxlen`     | Maximum length of characters for the value stored.  Sending a value longer than this returns an error.  Only applicable to `"String"`.   |
-| `min`        | Minimum value stored.  Sending a value smaller than this returns an error.  Only applicable to `"Number"`.                               |
-| `max`        | Maximum value stored.  Sending a value larger than this returns an error.  Only applicable to `"Number"`.                                |
+
+### Applicable to all types
+
+| Property        | Description                                                                                                                                       |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`          | Type of data stored in this field.  Can be one of `"String"` (default), `"Number"`, `"Boolean"`, `"Date"`, `"Array"`, `"File"` or `"Reference"`.  |
+| `required`      | Whether this field is mandatory.  `false` by default.  If `true`, Sapling will throw an error if the field is missing.                            |
+| `unique`        | Whether the value must be unique.  `false` by default.  If `true`, Sapling will throw an error if the value has already been used.                |
+| `values`        | An array of possible values for the field.  If defined, submitting a value not in the array will throw an error.                                  |
+| `default`       | The default value if the field is not sent in a request.  Must match `type` and `values`, if defined.                                             |
+| `access`        | Roles that can read or write this property.  Can be set as either a string, or an object with `"r"` and `"w"`.  See below.                        |
+
+
+### Only applicable to `String`
+
+| Property        | Description                                                                                                                                       |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `minlen`        | Minimum length of characters for the value stored.  Sending a value shorter than this returns an error.                                           |
+| `maxlen`        | Maximum length of characters for the value stored.  Sending a value longer than this returns an error.                                            |
+| `identifiable`  | Only applicable in the `users` model.  This field can be used to identify the user; i.e. used as a username in login.                             |
+
+
+### Only applicable to `Number`
+
+| Property        | Description                                                                                                                                       |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `min`           | Minimum value stored.  Sending a value smaller than this returns an error.                                                                        |
+| `max`           | Maximum value stored.  Sending a value larger than this returns an error.                                                                         |
+
+
+### Only applicable to `File`
+
+| Property        | Description                                                                                                                                       |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `maxsize`       | Maximum filesize in **bytes**, or as a string (see below).  Sapling will throw an error for any attempt to send a file larger than this.          |
+| `filetype`      | Either a string or an array of acceptable file types.  See below for possible values.  Sending another type of file will result in an error.      |
+| `minwidth`      | Minimum image width in **pixels**.  Only applicable if `filetype` is set to `"image"`.  Sending a smaller image will result in an error.          |
+| `maxwidth`      | Maximum image width in **pixels**.  Only applicable if `filetype` is set to `"image"`.  Sending a larger image will result in an error.           |
+| `minheight`     | Minimum image height in **pixels**.  Only applicable if `filetype` is set to `"image"`.  Sending a smaller image will result in an error.         |
+| `maxheight`     | Maximum image height in **pixels**.  Only applicable if `filetype` is set to `"image"`.  Sending a larger image will result in an error.          |
+
+
+### Only applicable to `Reference`
+
+| Property        | Description                                                                                                                                       |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `reference`     | Name of a model that this field references.                                                                                                       |
+
 
 
 ## Access
@@ -59,9 +95,64 @@ You can also set read and write permissions separately:
 In the above example, anyone can read the value of the `"phone_number"` field, but only users with the `"admin"` role can modify the value.
 
 
+## File fields
+
+If the `type` of a field is set to `"File"`, the field will accept file uploads from the end user.
+
+Almost always, you'll want to limit the size and type of the file.
+
+
+### File size
+
+Using the `maxsize` property, you can define the maximum filesize, either as a numerical value representing **bytes**;
+
+    {
+        "profile_image": {
+            "type": "File",
+            "maxsize": 1048576
+        }
+    }
+
+Or as a string together with a `B`, `K`, `M` or `G` to define the magnitude;
+
+    {
+        "profile_image": {
+            "type": "File",
+            "maxsize": "1M"
+        }
+    }
+
+
+### File type
+
+Using the `filetype`, you can define a string or an array of strings of acceptable file types.  Each string can be either a mimetype, a mimetype with wildcards, or one of Sapling's built-in mimetype groups.
+
+    {
+        "download": {
+            "type": "File",
+            "filetype": "archive"
+        },
+        "preview_video": {
+            "type": "File",
+            "filetype": ["video/ogg", "video/H26*"]
+        }
+    }
+
+In the above example, the `"preview_video"` field will accept either a `video/ogg` video file, or any video file beginning with "H26", for example, `video/H264`.  The `"download"` field will accept any of the mimetypes in Sapling's built-in `"archive"` mimetype group:
+
+| Group name  | Accepted mimetypes                                                                                                                                             |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `archive`   | `application/zip`, `application/gzip`, `application/x-7z-compressed`, `application/x-bzip`, `application/x-bzip2`, `application/vnd.rar`, `application/x-tar`  |
+| `image`     | `image/png`, `image/jpeg`, `image/webp`                                                                                                                        |
+| `video`     | `video/ogg`, `video/mp4`, `video/H264`, `video/mpeg`, `video/webm`                                                                                             |
+| `audio`     | `audio/wav`, `audio/webm`, `audio/ogg`, `audio/mpeg`, `audio/aac`                                                                                              |
+| `document`  | `application/pdf`, `application/msword`, `application/vnd.openxmlformats-officedocument.wordprocessingml.document`                                             |
+| `font`      | `font/ttf`, `font/otf`, `font/woff`, `font/woff2`                                                                                                              |
+
+
 ## Reference fields
 
-If the `type` of a field is set to `"reference"`, it creates a link between two records from the same or different model.
+If the `type` of a field is set to `"Reference"`, it creates a link between two records from the same or different model.
 
 This is useful if you want to make strong many-to-one connections between different records; for instance, a particular review in the `reviews` model may be about a particular movie in the `movies` model.  Therefore, you may want to define a reference field in the `reviews` model:
 
