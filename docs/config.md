@@ -97,6 +97,15 @@ Directory path to where the views are kept, relative to the location of `config.
 File extension used for views.  Any files in the view folder that do not use this extension are ignored.
 
 
+### autoRouting
+
+**Default value:** `true`
+
+**Possible values:** `true` or `false`
+
+Whether to use [automatic routing](/routes#automatic-routing) or not.
+
+
 ### static
 
 **Default value:** `"public"`
