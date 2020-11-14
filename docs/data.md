@@ -62,6 +62,28 @@ You can also filter for multiple values using a comma in the value segment:
 This will fetch all records from the `posts` collection, where the value of the `author` field is `2`, **and** the value of the `category` field is either `5` or `6`.
 
 
+### Sorting
+
+By default, the records come in whatever order they happen to be in the database.  However, in most cases, you'll want them in a specific order.
+
+You can do this by adding a `sortBy` query string variable like so;
+
+    GET /data/posts?sortBy=_created,desc
+
+The value is split by a comma, with the first part being the field to sort by, and the second part being either `"asc"` or `"desc"` to define ascending or descending order, respectively.
+
+?> In addition to `sortBy`, you can also use `sort`, `orderBy`, or `order` to do the same thing - they're all aliases of the same thing.  It's also not case-sensitive.
+
+
+### Limiting
+
+You can also limit the maximum number of records to be returned for a given `GET` query, by using the `limit` query string variable:
+
+    GET /data/posts?limit=10
+
+This will return at most 10 records from the `posts` collection.
+
+
 ## Update
 
 To modify an existing record, send a `POST` request **with** conditions:
@@ -98,13 +120,6 @@ This would delete the record in `posts` with an `_id` of `2`.  Sapling will resp
 !> Conditions are not mandatory for `DELETE` requests.  Therefore, sending `DELETE /data/posts` will delete all records from the `posts` collection.  It's almost always a good idea to protect conditionless `DELETE` requests in the [permissions configuration](/permissions).
 
 
-## CORS
-
-[CORS headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) allow the `/data` endpoints to be used by external clients (e.g. other websites, mobile apps, etc) outside of the app you're building.
-
-You can control whether this is enabled with the `"cors"` setting in [configuration](/config).  It's **on by default**, except if [production mode](/production) is on, in which case you need to explicitly set `"cors"` to `true` to enable it.
-
-
 ## Redirection
 
 By default, Sapling will respond to each data API request with either JSON or a generic HTML view.  However, this is probably not ideal, if you're sending `POST` requests to the data API from a form action like this:
@@ -120,3 +135,10 @@ This would send the user to `/posts` after the data API request has succeeded.  
     <form method="post" action="/data/posts?redirect=/posts/:_id"> .. </form>
 
 This would supplement the `redirect` value with the `_id` field of the record once it is created - therefore, if e.g. the `_id` of the record created by submitting this form is `15`, the user will then be redirected to `/posts/15`.
+
+
+## CORS
+
+[CORS headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) allow the `/data` endpoints to be used by external clients (e.g. other websites, mobile apps, etc) outside of the app you're building.
+
+You can control whether this is enabled with the `"cors"` setting in [configuration](/config).  It's **on by default**, except if [production mode](/production) is on, in which case you need to explicitly set `"cors"` to `true` to enable it.
