@@ -15,7 +15,8 @@ Not all methods will be applicable to all technologies - for instance, to suppor
 
 Currently available database drivers are:
 
-- [MongoDB](https://www.github.com/saplingjs/db-driver-mongodb)
+- **Memory;** this is the fallback built-in driver that keeps all records in an object in application memory.  Will not scale to large apps, and gets emptied every time Sapling is shut down.  Always use some other driver instead.
+- **[MongoDB](https://www.github.com/saplingjs/db-driver-mongodb)**
 
 Anyone can publish a Sapling database driver package for their favourite database technology.  You may then submit issues to get it added [to the CLI](https://github.com/saplingjs/cli/issues) and [to this documentation](https://github.com/saplingjs/sapling-website/issues).
 
@@ -34,8 +35,8 @@ As such, there are only two methods to a render driver: `render` to render the t
 
 Currently available render drivers are:
 
-- HTML; is the default built-in driver that simply loads corresponding `.html` files in the `views/` as-is.  Useful for SPAs, but not much else.
-- [Nunjucks](https://www.github.com/saplingjs/render-driver-nunjucks)
+- **HTML;** this is the fallback built-in driver that simply loads corresponding `.html` files in the `views/` as-is.  Useful for SPAs, but not much else.
+- **[Nunjucks](https://www.github.com/saplingjs/render-driver-nunjucks)**
 
 Anyone can publish a Sapling render driver package for their favourite templating language.  You may then submit issues to get it added [to the CLI](https://github.com/saplingjs/cli/issues) and [to this documentation](https://github.com/saplingjs/sapling-website/issues).
 
