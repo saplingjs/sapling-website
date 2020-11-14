@@ -17,7 +17,7 @@ The built-in users model has a `role` key, which defines the level of access for
 
 Aside from these four roles, you can assign any user any role you wish, and create corresponding permissions.  You cannot prohibit users with the `admin` role from accessing any route or data API request.
 
-You cannot assign the `stranger` or `owner` roles to any actual user account, as these are dynamic.  `stranger` is used to describe visitors who have not logged in.  The `owner` role is only applicable to permissions of `POST` and `DELETE` requests to the data API, and refers to the user who originally created the record in question.
+You cannot assign the `anyone`, `stranger` or `owner` roles to any actual user account, as these are dynamic.  `stranger` is used to describe visitors who have not logged in.  The `owner` role is only applicable to permissions of `POST` and `DELETE` requests to the data API, and refers to the user who originally created the record in question.
 
 
 ## Defining permissions
@@ -86,3 +86,17 @@ The first two definitions are changed into arrays, so that both the original val
 A new defition was added into third place, so that `moderator`s can delete any one specific review by the `_id` key.  However, deleting reviews by any other `key` or deleting all reviews is still something only `admin`s are able to do.
 
 The third definition could've been an array as well (e.g. `["moderator", "admin"]`), but it would've been redundant, since all `admin` users have access to all routes anyway.  Therefore, defining just `moderator` is sufficient.
+
+
+## Redirection
+
+By default, if the user isn't allowed to access a URL, they will displayed an error message.  This is probably not a desirable user experience; you might instead wish to redirect the user to another page, i.e. the login form.
+
+You can do this by passing an object as the permission value, where `role` is the string or array representing the allowed user roles as above, and `redirect` is the URL to redirect disallowed users to.
+
+    {
+        "GET /app/*": {
+            "role": "member",
+            "redirect": "/login"
+        }
+    }
