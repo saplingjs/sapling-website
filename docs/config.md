@@ -60,7 +60,7 @@ This setting is ignored if defined inside of `config-production.json`.
 
 **Possible values:** `true` or `false`
 
-Controls whether Sapling runs in strict mode.  In strict mode, Sapling stops inferring things that aren't defined.  This makes explicitly defining [permissions](/permissions), [manual routing](/routes) and [models](/models) mandatory.  Any requests to the data API for models or keys that haven't been defined will result in an error.
+Controls whether Sapling runs in strict mode.  In strict mode, Sapling stops inferring things that aren't defined.  This makes explicitly defining [permissions](/permissions), [manual routing](/routes) and [models](/models) mandatory.  Any requests to the [data API](/data) for models or keys that haven't been defined will result in an error.
 
 Regardless of the value, strict mode will be enabled if [production mode](/production) is on.
 
@@ -71,7 +71,7 @@ Regardless of the value, strict mode will be enabled if [production mode](/produ
 
 **Possible values:** `true` or `false`
 
-Whether the data API sends CORS headers, allowing the data API to be consumed by external domains.
+Whether the [data API](/data) sends CORS headers, allowing the data API to be consumed by external domains.
 
 It's `true` by default in default configuration.  However, if Sapling is running in production mode, and this value has not been explicitly defined, the default is `false`.
 

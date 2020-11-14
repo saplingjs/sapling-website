@@ -4,7 +4,7 @@ Models define the structure of data stored by Sapling in its database.  Each mod
 
 A huge reason why developing with Sapling is much faster than other frameworks is because models are **completely optional**.  By default, any call to Sapling's data API will be accepted, and the structure of data is inferred from what it's sent.  Even after defining a model, Sapling will still accept data for fields that are sent, but not defined in the model.
 
-!> When Sapling is running in [production mode](/production), or its configuration contains `"strict": true`, the data structure is no longer inferred from requests, and you must define all the models fully.  Requests to undefined models, or containing undefined fields for a defined model, will result in an error.
+!> When Sapling is running in [production mode](/production), or its configuration contains `"strict": true`, the data structure is no longer inferred from requests, and you must define all the models fully.  Requests to undefined models will result in an error.  Any fields sent not defined in the model will be silently ignored.
 
 
 ## Structure

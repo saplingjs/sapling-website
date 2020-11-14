@@ -10,6 +10,8 @@
 	- [Models](models.md)
 	- [Routing](routes.md)
 	- [Permissions](permissions.md)
+	- [Data](data.md)
+	- [API](api.md)
 
 - Features
 

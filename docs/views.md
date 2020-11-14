@@ -27,7 +27,7 @@ The content below goes through the custom tags in Sapling.
 
 ### set
 
-The `set` tag will fetch data from a valid data API call and expose it in a variable.  This is the main way that you can show data in a view.
+The `set` tag will fetch data from a valid [data API](/data) call and expose it in a variable.  This is the main way that you can show data in a view.
 
 For instance:
 
@@ -43,7 +43,7 @@ The `set` tag gets the list of reviews from `/data/reviews`, and exposes it in a
 
 ### post
 
-The `post` tag will fire a `POST` request to the given data API, immediately on pageload.  This could be useful for tracking pageviews, for instance.  As an example:
+The `post` tag will fire a `POST` request to the given [data API](/data), immediately on pageload.  This could be useful for tracking pageviews, for instance.  As an example:
 
     {{ post /data/statistics?type=click }}
 
@@ -52,7 +52,7 @@ The above code would create a new record in the `statistics` collection, with th
 
 ### delete
 
-Much like `post`, the `delete` tag will fire an immediate data API `DELETE` request on pageload.  For example:
+Much like `post`, the `delete` tag will fire an immediate [data API](/data) `DELETE` request on pageload.  For example:
 
     {{ delete /data/statistics?id=1 }}
 
