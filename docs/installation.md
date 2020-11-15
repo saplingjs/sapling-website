@@ -24,4 +24,12 @@ Navigate to the folder and run `sapling run` to turn on the server.  You can the
 
 ## Manual installation
 
-If you do not wish to use the CLI, you can also add Sapling as a dependency with `npm install --save @sapling/framework` or `yarn add @sapling/framework`.
+If you do not wish to use the CLI, you can also add Sapling as a dependency with `npm install --save @sapling/sapling` or `yarn add @sapling/sapling`.
+
+Note that many of the features of Sapling that this documentation references are separate dependencies that you also have to install separately.
+
+| Project                                                                                 | Description                                                                                       |
+|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| [@sapling/vue-components](https://github.com/saplingjs/vue-components)                  | Assortment of optional unopinionated semi-automatic frontend Vue components for common UI tasks.  |
+| [@sapling/db-driver-mongodb](https://github.com/saplingjs/db-driver-mongodb)            | Support for MongoDB databases.                                                                    |
+| [@sapling/render-driver-nunjucks](https://github.com/saplingjs/render-driver-nunjucks)  | Support for Nunjucks templating engine.                                                           |

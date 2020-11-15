@@ -143,6 +143,7 @@ If you've defined your own [users model](/models#users), these fields will be va
 
 ?> This route can only be used by a logged-in user to update their own account.  If you need one user to make changes to another (i.e. an admin modifying a user account), use the normal [data API](/data).
 
+
 ### Changing password
 
 Changing one's password also works through the `/api/user/update` route, with a `new_password` field;
