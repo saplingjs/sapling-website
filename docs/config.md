@@ -2,18 +2,39 @@
 
 All the settings for how Sapling should behave are in the `config.json` file in the root of your project.  While some behaviour also changes automatically (for example, creating a `routes.json` file automatically turns off automatic routing), everything can be ultimately controlled by changing `config.json`.
 
-The `config.json` file consists of a JSON object, where keys are the settings you wish to change, and the values are the setting values you wish to change them to.
+The `config.json` file consists of a JSON object, where keys are the settings you wish to change, and the values are the setting values you wish to change them to;
+
+    {
+        "name": "my-awesome-app",
+        "port": 3000,
+        "db": {
+            "driver": "MongoDB"
+        }
+    }
 
 Every project needs a `config.json`, or it will not run.  Only the `name` key must be defined, all other settings are optional, and will use the default value listed below if undefined.
 
 ?> Whenever you make changes to the config file, you must restart the Sapling instance for the changes to take effect.
 
 
+## Using the CLI
+
+If you have the [CLI](/cli) installed (which is highly recommended), you can use it to edit your configuration without having to edit the `config.json` file yourself - use the `set` command to do this;
+
+    sapling set port 8000
+
+The above command would set the `port` setting in your `config.json` to `8000`.
+
+For nested settings (such as the `driver` setting inside `db`), you can use dot notation;
+
+    sapling set db.driver MongoDB
+
+
 ## Production config
 
 When running in [production mode](/production), Sapling will behave differently than the default configuration.
 
-Therefore, it's common that you would want a different configuration for a production environment than your development environment.  You can create a duplicate of your `config.json`, and call it `config.production.json`.  When in production mode, this file will be used in place of `config.json`.
+Therefore, it's likely that you would want a different configuration for a production environment than your development environment.  You can create a duplicate of your `config.json`, and call it `config.production.json`.  When in production mode, this file will be used in place of `config.json`.
 
 If you'd like additional configurations for other environments (i.e. staging), create a separate configuration file with a suffix that matches the `NODE_ENV`.  For instance, if your `NODE_ENV` is set to `"staging"`, Sapling will load `config.staging.json`, if it exists.
 
