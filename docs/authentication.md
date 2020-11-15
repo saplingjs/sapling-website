@@ -166,7 +166,7 @@ First, the user must request a password reset email, which happens with a `POST`
 
 The request will only fail if the `email` field is missing or doesn't meet the validation rules of the `users` model.  If the request is formed perfectly, the request will always succeed, regardless of whether a valid user account exists for that `email` or not.
 
-Sapling will send the user an email with a link to reset their password, with a unique auth key.  You can customise this email by creating a file in `static/mail/lostpass.html`.
+Sapling will [send the user an email](/notifications) with a link to reset their password, with a unique auth key.  You can customise this email by creating a file in `static/mail/lostpass.html`.
 
 ?> All the rules with [custom identifiables](#custom-identifiables) work here too.
 
