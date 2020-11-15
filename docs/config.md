@@ -70,7 +70,7 @@ The port that this Sapling instance should run on.  If undefined, Sapling will r
 
 Controls whether Sapling runs in [production mode](/production).  `"auto"` means that Sapling will automatically run in production mode if it detects that the site is being accessed from outside `localhost`.  This however isn't necessarily always reliable, so in actual production environments, you should always use `true` as the value.
 
-If `true` (or determined to be on by `"auto"`), and `config-production.json` exists, all other values in `config.json` will be ignored, and the rest of the configuration will be taken from the production configuration file.
+If it's `true` (or determined to be `true` by `"auto"`), and `config-production.json` exists, all other values in `config.json` will be ignored, and the rest of the configuration will be taken from the production configuration file.
 
 This setting is ignored if defined inside of `config-production.json`.
 
