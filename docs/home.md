@@ -29,7 +29,7 @@ No, seriously.  With Sapling, all data is handled by its special and powerful dy
 
 ?> **So, how do you create the `reviews` collection, then?**  You don't have to.  Just by sending a `POST` request to *anything* beginning with `/data/`, Sapling will save the data, and make it available at the corresponding `GET` routes as above.
 
-Say you want to then show a list of the reviews that have been posted.  This is also super easy.  By default, Sapling uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language, with a few custom tags to make things easier.
+Say you then want to show a list of the reviews that have been posted.  This is also super easy.  By default, Sapling uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language, with a few custom tags to make things easier.
 
     {{ set reviews as get /data/reviews }}
      
