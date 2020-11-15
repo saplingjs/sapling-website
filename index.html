@@ -114,7 +114,7 @@
 									</tr>
 									<tr>
 										<th>DIY</th>
-										<td><code>npm i --save @sapling/sapling</code> &amp; <a href="/docs" class="has-text-success">Docs</a></td>
+										<td><code>npm i --save @sapling/sapling</code> &amp; <a href="/docs">Docs</a></td>
 									</tr>
 									<tr>
 										<th>&nbsp;</th>
@@ -303,21 +303,28 @@
 
 							<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value for a where clause, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into a new record or any matching records.</p>
 
+							<p><a href="/docs#/data">Learn more about the data API <i class="far fa-arrow-right"></i></a></p>
+
 							<h2 class="title is-5 has-text-success">Oh wow.  Putting this on production would be <em class="has-shake">insanity!</em></h2>
 							<p>Absolutely, and the default configuration of Sapling is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
-							<p>Sapling has robust support for defining data models (aka database schemata), and access permissions for each type-route combination.  In the default configuration, these are optional for the developer to define.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and <strong>nothing</strong> is ever implicitly saved into the database.</p>
-							<p>Sapling will refuse to run with production mode off when it detects it's not running on localhost. Sapling will also refuse to run if production mode is on, but the required definitions are not found or are incomplete.</p>
+							<p>Sapling has robust support for defining data models (aka database schemata) with built-in data validation, and access control for each method-route combination.  In the default configuration, these are optional for the developer to define.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and <strong>nothing</strong> is ever implicitly saved into the database.</p>
+
+							<p><a href="/docs#/production">Learn more about production mode <i class="far fa-arrow-right"></i></a></p>
 						</div>
 					</div>
 					<div class="column">
 						<div class="content">
 							<h2 class="title is-5 has-text-success">This must be basically a drag'n'drop framework for beginners, with no option for <em>real</em> development.</h2>
 							<p>Just because you don't <em>need</em> to write code to achieve basic CRUD functionality with Sapling, doesn't mean you <em>can't</em> write code when you actually need to.</p>
-							<p>Sapling has built-in support for custom handlers for any route, including the <code>/data</code> backend.  These handlers are just regular Node.js files, where you can code whatever you want just like normal, and organise these handlers in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
+							<p>Sapling has built-in support for custom hooks for any route, including the <code>/data</code> backend.  These hooks are just regular Node.js files, where you can code and import whatever you want just like normal, and organise these hooks in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
+
+							<p><a href="/docs#/hooks">Learn more about hooks <i class="far fa-arrow-right"></i></a></p>
 
 							<h2 class="title is-5 has-text-success">I don't like MongoDB or Nunjucks or Vue.</h2>
 							<p>You don't have to!  By default, Sapling uses these three, but that's all they are &ndash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
-							<p>Database and templating engines are based on a driver model, where Sapling abstracts them into a generic wrapper.  Loads of drivers already exist for the most popular databases and templating languages, and writing your own is a cinch.</p>
+							<p>Database and templating engines connect to Sapling via a generalised abstraction layer called a driver.  You can easily write your own driver for your favourite database or templating engine.</p>
+
+							<p><a href="/docs#/drivers">Learn more about drivers <i class="far fa-arrow-right"></i></a></p>
 
 							<h2 class="title is-5 has-text-success">What about performance?</h2>
 							<p>Sapling features a production mode that turns off the slowest development aids to bring the end-user performance to the same level as other Node.js based frameworks.</p>
@@ -383,8 +390,8 @@
 		<footer class="footer">
 			<div class="content has-text-centered">
 				<p>
-					<strong>Sapling</strong> by <a href="https://groenroos.fi" target="_blank" rel="noopener" class="has-text-success">Oskari Groenroos</a>. Licensed under
-					<a href="https://opensource.org/licenses/MPL-2.0" target="_blank" rel="noopener" class="has-text-success">MPL-2.0</a>.
+					<strong>Sapling</strong> by <a href="https://groenroos.fi" target="_blank" rel="noopener">Oskari Groenroos</a>. Licensed under
+					<a href="https://opensource.org/licenses/MPL-2.0" target="_blank" rel="noopener">MPL-2.0</a>.
 				</p>
 			</div>
 		</footer>
