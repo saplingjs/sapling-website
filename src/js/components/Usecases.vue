@@ -58,7 +58,7 @@
 						</div>
 					</div>
 					<div v-else class="columns is-centered is-light" key="tutorial">
-						<div v-if="type" class="column is-one-third animated-reveal" style="animation-delay: 0.7s;">
+						<div v-if="type" class="column is-one-third animated-reveal" style="animation-delay: 0.9s;">
 							<h3 class="title is-5 has-text-grey">With other leading brands of frameworks</h3>
 
 							<ol class="is-faded">
@@ -86,7 +86,7 @@
 									<li>Nothing!</li>
 								</ol>
 
-								<p class="animated-reveal" style="animation-delay: 5.5s;">No, seriously.  With Sapling, you have a RESTful API out of the box.  All you need to do is to start sending requests to a built-in backend route, for example, <code>/data/<span v-text="collection[type]">notes</span></code>.  That's all.</p>
+								<p class="animated-reveal" style="animation-delay: 4.5s;">No, seriously.  With Sapling, you have a RESTful API out of the box.  All you need to do is to start sending requests to a built-in backend route, for example, <code>/data/<span v-text="collection[type]">notes</span></code>.  That's all.</p>
 							</div>
 							<div v-else-if="type == 'login'">
 								<ol>
@@ -96,7 +96,7 @@
 									<li class="animated-reveal" style="animation-delay: 3.6s;"><strong>That's it.</strong> It works.</li>
 								</ol>
 
-								<p class="animated-reveal" style="animation-delay: 5.5s;">No, seriously.  With Sapling, you have user accounts out of the box - login, registration, password reset, everything.  All you need to do is to send a POST request to a built-in backend route, <code>/api/login</code>.  That's all.</p>
+								<p class="animated-reveal" style="animation-delay: 4.5s;">No, seriously.  With Sapling, you have user accounts out of the box - login, registration, password reset, everything.  All you need to do is to send a POST request to a built-in backend route, <code>/api/login</code>.  That's all.</p>
 							</div>
 							<div v-else-if="type == 'search'">
 								<ol>
@@ -106,7 +106,7 @@
 									<li class="animated-reveal" style="animation-delay: 3.6s;"><strong>That's it.</strong> It works.</li>
 								</ol>
 
-								<p class="animated-reveal" style="animation-delay: 5.5s;">No, seriously.  With Sapling, you get searching built right in.  All you need to do is to send a GET request to a magic built-in backend route, such as <code>/data/posts</code>.  That's all.</p>
+								<p class="animated-reveal" style="animation-delay: 4.5s;">No, seriously.  With Sapling, you get searching built right in.  All you need to do is to send a GET request to a magic built-in backend route, such as <code>/data/posts</code>.  That's all.</p>
 							</div>
 							<div v-else>
 								<ol>
@@ -116,12 +116,12 @@
 									<li class="animated-reveal" style="animation-delay: 3.6s;"><strong>That's it.</strong> It works.</li>
 								</ol>
 
-								<p class="animated-reveal" style="animation-delay: 5.5s;">No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/data/<span v-text="collection[type]">notes</span></code>.  That's all.</p>
+								<p class="animated-reveal" style="animation-delay: 4.5s;">No, seriously.  With Sapling, you only have to write the HTML for the form, and point the POST <code>action</code> to a built-in backend route, for example, <code>/data/<span v-text="collection[type]">notes</span></code>.  That's all.</p>
 							</div>
 
-							<p v-if="type != 'login' && type != 'search'" class="animated-reveal" style="animation-delay: 5.7s;">Sapling will handle the backend, creating the "<span v-text="collection[type]">notes</span>" collection if it doesn't exist, saving the <span v-text="item[type]">note</span> in the database, and returning a list of all <span v-text="collection[type]">notes</span> when you <code>GET /data/<span v-text="collection[type]">notes</span></code> &ndash; all with absolutely zero backend code required.</p>
+							<p v-if="type != 'login' && type != 'search'" class="animated-reveal" style="animation-delay: 4.7s;">Sapling will handle the backend, creating the "<span v-text="collection[type]">notes</span>" collection if it doesn't exist, saving the <span v-text="item[type]">note</span> in the database, and returning a list of all <span v-text="collection[type]">notes</span> when you <code>GET /data/<span v-text="collection[type]">notes</span></code> &ndash; all with absolutely zero backend code required.</p>
 
-							<div class="animated-reveal" style="animation-delay: 5.9s;">
+							<div class="animated-reveal" style="animation-delay: 4.9s;">
 								<hr>
 
 								<div class="has-text-centered">
