@@ -129,8 +129,17 @@ Whether to use [automatic routing](/routes#automatic-routing) or not.
 
 ### static
 
+**Default value:** `"static"`
+
+Directory path to where static files are kept, relative to the location of `config.json`.
+
+This is where things like [email templates](/notifications) and error pages are kept.
+
+
+### public
+
 **Default value:** `"public"`
 
-Directory path to where static public files are kept, relative to the location of `config.json`.
+Directory path to where public files are kept, relative to the location of `config.json`.
 
 This would generally be the best place for your frontend CSS and JS assets, as well as things like `favicon.ico`.
