@@ -229,7 +229,16 @@ export default {
 
 <style lang="stylus">
 
+dark() {
+	@media (prefers-color-scheme dark) {
+		{block}
+	}
+}
+
+$dark-bg = #111;
+$dark-fg = #eaeaea;
 $background = #f2f2f2;
+$background-dark = lighten($dark-bg, 5%);
 
 #usecases {
 	margin: 4rem 0 2rem;
@@ -250,6 +259,10 @@ $background = #f2f2f2;
 		border-radius: 16px;
 		padding: 0.5rem;
 		overflow: hidden;
+
+		+dark() {
+			background: $background-dark;
+		}
 		
 		& > main {
 			position: relative;
@@ -275,14 +288,27 @@ $background = #f2f2f2;
 			cursor: pointer;
 			font-size: 1.1rem;
 
+			+dark() {
+				background: $dark-bg;
+			}
+
 			&:hover {
 				box-shadow: 0 5px 18px 0 rgba(0,0,0,.18);
+
+				+dark() {
+					box-shadow: 0 5px 18px 0 rgba(0,0,0,.4);
+				}
 			}
 
 			.feature-icon {
 				background: none;
 				box-shadow: 0 0 0 3px #4dcf89;
 				color: #5c6b61;
+
+				+dark() {
+					box-shadow: 0 0 0 3px $dark-green;
+					color: darken($dark-fg, 20%);
+				}
 			}
 
 			p {
@@ -298,6 +324,10 @@ $background = #f2f2f2;
 			background: white;
 			border-radius: 8px;
 			padding: 1rem;
+
+			+dark() {
+				background: $dark-bg;
+			}
 
 			ol {
 				margin-bottom: 2.5rem;
@@ -320,6 +350,10 @@ $background = #f2f2f2;
 	bottom: 0;
 	z-index: 2;
 	background: linear-gradient(to bottom, rgba($background,0), rgba($background,1));
+
+	+dark() {
+		background: linear-gradient(to bottom, rgba($background-dark,0), rgba($background-dark,1));
+	}
 }
 
 @keyframes fade {
