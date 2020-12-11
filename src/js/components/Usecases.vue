@@ -229,175 +229,152 @@ export default {
 
 <style lang="stylus">
 
-dark() {
-	@media (prefers-color-scheme dark) {
+dark()
+	@media (prefers-color-scheme dark)
 		{block}
-	}
-}
 
-$dark-bg = #111;
-$dark-fg = #eaeaea;
-$background = #f2f2f2;
-$background-dark = lighten($dark-bg, 5%);
+$dark-bg = #111
+$dark-fg = #eaeaea
+$background = #f2f2f2
+$background-dark = lighten($dark-bg, 5%)
 
-#usecases {
-	margin: 4rem 0 2rem;
-	position: relative;
+#usecases
+	margin 4rem 0 2rem
+	position relative
 
-	#back-button {
-		position: absolute;
-	}
+	#back-button
+		position absolute
 
-	header h2 {
-		display: inline-block;
-		overflow: hidden;
-		white-space: nowrap;
-	}
+	header h2
+		display inline-block
+		overflow hidden
+		white-space nowrap
 
-	#usecases-container {
-		background: $background;
-		border-radius: 16px;
-		padding: 0.5rem;
-		overflow: hidden;
+	#usecases-container
+		background $background
+		border-radius 16px
+		padding 0.5rem
+		overflow hidden
 
-		+dark() {
-			background: $background-dark;
-		}
+		+dark()
+			background $background-dark
 		
-		& > main {
-			position: relative;
-		}
+		& > main
+			position relative
 
-		button {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			font-family: inherit;
-			border: 0;
-			color: inherit;
-			background: white;
-			border-radius: 8px;
-			padding: 1.5rem 1rem;
-			text-align: center;
-			width: 100%;
-			min-height: 4rem;
-			outline: none;
-			box-shadow: 0 0 0 rgba(0,0,0,0);
-			transition: box-shadow 0.3s ease-in-out;
-			cursor: pointer;
-			font-size: 1.1rem;
+		button
+			display flex
+			flex-direction column
+			justify-content center
+			align-items center
+			font-family inherit
+			border 0
+			color inherit
+			background white
+			border-radius 8px
+			padding 1.5rem 1rem
+			text-align center
+			width 100%
+			min-height 4rem
+			outline none
+			box-shadow 0 0 0 rgba(0,0,0,0)
+			transition box-shadow 0.3s ease-in-out
+			cursor pointer
+			font-size 1.1rem
 
-			+dark() {
-				background: $dark-bg;
-			}
+			+dark()
+				background $dark-bg
 
-			&:hover {
-				box-shadow: 0 5px 18px 0 rgba(0,0,0,.18);
+			&:hover
+				box-shadow 0 5px 18px 0 rgba(0,0,0,.18)
 
-				+dark() {
-					box-shadow: 0 5px 18px 0 rgba(0,0,0,.4);
-				}
-			}
+				+dark()
+					box-shadow 0 5px 18px 0 rgba(0,0,0,.4)
 
-			.feature-icon {
-				background: none;
-				box-shadow: 0 0 0 3px #4dcf89;
-				color: #5c6b61;
+			.feature-icon
+				background none
+				box-shadow 0 0 0 3px #4dcf89
+				color #5c6b61
 
-				+dark() {
-					box-shadow: 0 0 0 3px $dark-green;
-					color: darken($dark-fg, 20%);
-				}
-			}
+				+dark()
+					box-shadow 0 0 0 3px $dark-green
+					color darken($dark-fg, 20%)
 
-			p {
-				margin: 0 !important;
-			}
-		}
+			p
+				margin 0 !important
 
-		.columns {
-			padding: 1.5rem;
-		}
+		.columns
+			padding 1.5rem
 
-		.column.is-two-thirds {
-			background: white;
-			border-radius: 8px;
-			padding: 1rem;
+		.column.is-two-thirds
+			background white
+			border-radius 8px
+			padding 1rem
 
-			+dark() {
-				background: $dark-bg;
-			}
+			+dark()
+				background $dark-bg
 
-			ol {
-				margin-bottom: 2.5rem;
-			}
-		}
-	}
-}
+			ol
+				margin-bottom 2.5rem
 
-.is-faded {
-	position: relative;
-}
 
-.is-faded:after {
-	content: " ";
-	display: block;
-	height: 50%;
-	position: absolute;
-	left: -2em;
-	right: 0;
-	bottom: 0;
-	z-index: 2;
-	background: linear-gradient(to bottom, rgba($background,0), rgba($background,1));
+.is-faded
+	position relative
 
-	+dark() {
-		background: linear-gradient(to bottom, rgba($background-dark,0), rgba($background-dark,1));
-	}
-}
+	&:after
+		content " "
+		display block
+		height 50%
+		position absolute
+		left -2em
+		right 0
+		bottom 0
+		z-index 2
+		background linear-gradient(to bottom, rgba($background,0), rgba($background,1))
 
-@keyframes fade {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
+		+dark()
+			background linear-gradient(to bottom, rgba($background-dark,0), rgba($background-dark,1))
 
-.animated-reveal {
-	opacity: 0;
-	animation: fade 0.8s forwards ease-out;
-}
+
+@keyframes fade
+	0%
+		opacity 0
+	
+	100%
+		opacity 1
+
+
+.animated-reveal
+	opacity 0
+	animation fade 0.8s forwards ease-out
 
 
 /* Vue transitions */
 
-.fade-enter-active, .fade-leave-active {
-	transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-	opacity: 0;
-}
+.fade-enter-active, .fade-leave-active
+	transition opacity .5s
 
-.fade-slide-enter-active, .fade-slide-leave-active {
-	transition: opacity .5s, transform .5s ease-in-out;
-}
-.fade-slide-enter, .fade-slide-leave-to {
-	opacity: 0;
-}
-.fade-slide-enter {
-	transform: translateY(100%);
-}
-.fade-slide-leave-to {
-	transform: translateY(-100%);
-}
-.fade-slide-enter-active {
-	transition-delay: 0.25s;
-}
-.fade-slide-leave-active {
-	position: absolute;
-	width: 100%;
-}
+.fade-enter, .fade-leave-to
+	opacity 0
+
+
+.fade-slide-enter-active, .fade-slide-leave-active
+	transition opacity .5s, transform .5s ease-in-out
+
+.fade-slide-enter, .fade-slide-leave-to
+	opacity 0
+
+.fade-slide-enter
+	transform translateY(100%)
+
+.fade-slide-leave-to
+	transform translateY(-100%)
+
+.fade-slide-enter-active
+	transition-delay 0.25s
+
+.fade-slide-leave-active
+	position absolute
+	width 100%
 
 </style>

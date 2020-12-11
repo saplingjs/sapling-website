@@ -67,288 +67,254 @@ export default {
 
 <style lang="stylus">
 
-#bonsai {
-	svg {
-		height: 65%;
-		height: 65vh;
-		width: auto;
-		max-height: 700px;
-		margin: -6rem auto 0;
-		display: block;
+#bonsai
+	svg
+		height 65%
+		height 65vh
+		width auto
+		max-height 700px
+		margin -6rem auto 0
+		display block
 
-		@media (prefers-color-scheme dark) {
-			opacity: .8;
-		}
+		@media (prefers-color-scheme dark)
+			opacity .8
 
-		* {
-			transition: all 400ms cubic-bezier(0.19, 1, 0.22, 1);
-		}
-	}
+		*
+			transition-property all
+			transition-duration 400ms
+			transition-timing-function cubic-bezier(0.19, 1, 0.22, 1)
 
 
 	/* Main trunk */
 
-	#Trunk-A {
-		transform: translate(377px, 664px) rotate(28deg) scale(0);
-	}
-	&.v #Trunk-A {
-		transform: translate(377px, 664px) rotate(28deg) scale(1);
-	}
+	#Trunk-A
+		transform translate(377px, 664px) rotate(28deg) scale(0)
 
-	#Trunk-B {
-		transform: translate(420px, 575px) rotate(-72deg) scale(0);
-		transition-delay: 100ms;
-	}
-	&.v #Trunk-B {
-		transform: translate(420px, 575px) rotate(-72deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(377px, 664px) rotate(28deg) scale(1)
 
-	#Trunk-C {
-		transform: translate(326px, 538px) rotate(-64deg) scale(0);
-		transition-delay: 200ms;
-	}
-	&.v #Trunk-C {
-		transform: translate(326px, 538px) rotate(-64deg) scale(1);
-	}
+	#Trunk-B
+		transform translate(420px, 575px) rotate(-72deg) scale(0)
+		transition-delay 100ms
 
-	#Trunk-D {
-		transform: translate(278px, 504px) scale(0);
-		transition-delay: 300ms;
-	}
-	&.v #Trunk-D {
-		transform: translate(278px, 504px) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(420px, 575px) rotate(-72deg) scale(1)
 
-	#Trunk-E {
-		transform: translate(293px, 442px) rotate(61deg) scale(0);
-		transition-delay: 400ms;
-	}
-	&.v #Trunk-E {
-		transform: translate(293px, 442px) rotate(61deg) scale(1);
-	}
+	#Trunk-C
+		transform translate(326px, 538px) rotate(-64deg) scale(0)
+		transition-delay 200ms
 
-	#Trunk-F {
-		transform: translate(363px, 368px) rotate(-22deg) scale(0);
-		transition-delay: 500ms;
-	}
-	&.v #Trunk-F {
-		transform: translate(363px, 368px) rotate(-22deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(326px, 538px) rotate(-64deg) scale(1)
+
+	#Trunk-D
+		transform translate(278px, 504px) scale(0)
+		transition-delay 300ms
+
+		^[0].v ^[1..-1]
+			transform translate(278px, 504px) scale(1)
+
+	#Trunk-E
+		transform translate(293px, 442px) rotate(61deg) scale(0)
+		transition-delay 400ms
+
+		^[0].v ^[1..-1]
+			transform translate(293px, 442px) rotate(61deg) scale(1)
+
+	#Trunk-F
+		transform translate(363px, 368px) rotate(-22deg) scale(0)
+		transition-delay 500ms
+
+		^[0].v ^[1..-1]
+			transform translate(363px, 368px) rotate(-22deg) scale(1)
 
 
 	/* Branches */
 
-	#Branch-A1 {
-		transform: translate(433px, 581px) rotate(40deg) scale(0);
-		transition-delay: 200ms;
-	}
-	&.v #Branch-A1 {
-		transform: translate(433px, 581px) rotate(40deg) scale(1);
-	}
+	#Branch-A1
+		transform translate(433px, 581px) rotate(40deg) scale(0)
+		transition-delay 200ms
 
-	#Branch-A2 {
-		transform: translate(467px, 547px) rotate(90deg) scale(0);
-		transition-delay: 300ms;
-	}
-	&.v #Branch-A2 {
-		transform: translate(467px, 547px) rotate(90deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(433px, 581px) rotate(40deg) scale(1)
 
-	#Branch-A3 {
-		transform: translate(486px, 547px) rotate(128deg) scale(0);
-		transition-delay: 400ms;
-		transition-duration: 650ms;
-	}
-	&.v #Branch-A3 {
-		transform: translate(486px, 547px) rotate(128deg) scale(1);
-	}
+	#Branch-A2
+		transform translate(467px, 547px) rotate(90deg) scale(0)
+		transition-delay 300ms
 
-	#Branch-A4 {
-		transform: translate(455px, 547px) rotate(-16deg) scale(0);
-		transition-delay: 250ms;
-	}
-	&.v #Branch-A4 {
-		transform: translate(455px, 547px) rotate(-16deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(467px, 547px) rotate(90deg) scale(1)
 
-	#Branch-B1 {
-		transform: translate(370px, 536px) scale(0);
-		transition-delay: 200ms;
-	}
-	&.v #Branch-B1 {
-		transform: translate(370px, 536px) scale(1);
-	}
+	#Branch-A3
+		transform translate(486px, 547px) rotate(128deg) scale(0)
+		transition-delay 400ms
+		transition-duration 650ms
 
-	#Branch-D1 {
-		transform: translate(259px, 469px) rotate(-90deg) scale(0);
-		transition-delay: 400ms;
-	}
-	&.v #Branch-D1 {
-		transform: translate(259px, 469px) rotate(-90deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(486px, 547px) rotate(128deg) scale(1)
 
-	#Branch-D2 {
-		transform: translate(220px, 471px) rotate(-150deg) scale(0);
-		transition-delay: 500ms;
-	}
-	&.v #Branch-D2 {
-		transform: translate(220px, 471px) rotate(-150deg) scale(1);
-	}
+	#Branch-A4
+		transform translate(455px, 547px) rotate(-16deg) scale(0)
+		transition-delay 250ms
 
-	#Branch-D3 {
-		transform: translate(221px, 469px) rotate(-50deg) scale(0);
-		transition-delay: 600ms;
-	}
-	&.v #Branch-D3 {
-		transform: translate(221px, 469px) rotate(-50deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(455px, 547px) rotate(-16deg) scale(1)
 
-	#Branch-D4 {
-		transform: translate(219px, 468px) rotate(50deg) scale(0);
-		transition-delay: 650ms;
-	}
-	&.v #Branch-D4 {
-		transform: translate(219px, 468px) rotate(50deg) scale(1);
-	}
+	#Branch-B1
+		transform translate(370px, 536px) scale(0)
+		transition-delay 200ms
 
-	#Branch-D5 {
-		transform: translate(254px, 438px) rotate(-20deg) scale(0);
-		transition-delay: 850ms;
-	}
-	&.v #Branch-D5 {
-		transform: translate(254px, 438px) rotate(-20deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(370px, 536px) scale(1)
 
-	#Branch-E1 {
-		transform: translate(316px, 409px) rotate(-31deg) scale(0);
-		transition-delay: 600ms;
-	}
-	&.v #Branch-E1 {
-		transform: translate(316px, 409px) rotate(-31deg) scale(1);
-	}
+	#Branch-D1
+		transform translate(259px, 469px) rotate(-90deg) scale(0)
+		transition-delay 400ms
 
-	#Branch-F1 {
-		transform: translate(324px, 323px) rotate(-94deg) scale(0);
-		transition-delay: 700ms;
-	}
-	&.v #Branch-F1 {
-		transform: translate(324px, 323px) rotate(-94deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(259px, 469px) rotate(-90deg) scale(1)
 
-	#Branch-F2 {
-		transform: translate(286px, 317px) rotate(-59deg) scale(0);
-		transition-delay: 850ms;
-	}
-	&.v #Branch-F2 {
-		transform: translate(286px, 317px) rotate(-59deg) scale(1);
-	}
+	#Branch-D2
+		transform translate(220px, 471px) rotate(-150deg) scale(0)
+		transition-delay 500ms
 
-	#Branch-F3 {
-		transform: translate(246px, 333px) rotate(184deg) scale(0);
-		transition-delay: 850ms;
-	}
-	&.v #Branch-F3 {
-		transform: translate(246px, 333px) rotate(184deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(220px, 471px) rotate(-150deg) scale(1)
 
-	#Branch-F4 {
-		transform: translate(234px, 292px) rotate(-98deg) scale(0);
-		transition-delay: 1000ms;
-		transition-duration: 900ms;
-	}
-	&.v #Branch-F4 {
-		transform: translate(234px, 292px) rotate(-98deg) scale(1);
-	}
+	#Branch-D3
+		transform translate(221px, 469px) rotate(-50deg) scale(0)
+		transition-delay 600ms
 
-	#Branch-F5 {
-		transform: translate(322px, 276px) rotate(66deg) scale(0);
-		transition-delay: 650ms;
-		transition-duration: 600ms;
-	}
-	&.v #Branch-F5 {
-		transform: translate(322px, 276px) rotate(66deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(221px, 469px) rotate(-50deg) scale(1)
 
-	#Branch-F6 {
-		transform: translate(384px, 256px) rotate(120deg) scale(0);
-		transition-delay: 800ms;
-		transition-duration: 800ms;
-	}
-	&.v #Branch-F6 {
-		transform: translate(384px, 256px) rotate(120deg) scale(1);
-	}
+	#Branch-D4
+		transform translate(219px, 468px) rotate(50deg) scale(0)
+		transition-delay 650ms
 
-	#Branch-F7 {
-		transform: translate(379px, 244px) rotate(61deg) scale(0);
-		transition-delay: 900ms;
-	}
-	&.v #Branch-F7 {
-		transform: translate(379px, 244px) rotate(61deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(219px, 468px) rotate(50deg) scale(1)
 
-	#Branch-F8 {
-		transform: translate(433px, 282px) rotate(40deg) scale(0);
-		transition-delay: 1000ms;
-		transition-duration: 900ms;
-	}
-	&.v #Branch-F8 {
-		transform: translate(433px, 282px) rotate(40deg) scale(1);
-	}
+	#Branch-D5
+		transform translate(254px, 438px) rotate(-20deg) scale(0)
+		transition-delay 850ms
 
-	#Branch-F9 {
-		transform: translate(417px, 214px) rotate(-36deg) scale(0);
-		transition-delay: 1050ms;
-		transition-duration: 900ms;
-	}
-	&.v #Branch-F9 {
-		transform: translate(417px, 214px) rotate(-36deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(254px, 438px) rotate(-20deg) scale(1)
 
-	#Branch-F10 {
-		transform: translate(465px, 309px) rotate(60deg) scale(0);
-		transition-delay: 1150ms;
-		transition-duration: 1000ms;
-	}
-	&.v #Branch-F10 {
-		transform: translate(465px, 309px) rotate(60deg) scale(1);
-	}
+	#Branch-E1
+		transform translate(316px, 409px) rotate(-31deg) scale(0)
+		transition-delay 600ms
 
-	#Branch-F11 {
-		transform: translate(317px, 226px) rotate(32deg) scale(0);
-		transition-delay: 700ms;
-		transition-duration: 600ms;
-	}
-	&.v #Branch-F11 {
-		transform: translate(317px, 226px) rotate(32deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(316px, 409px) rotate(-31deg) scale(1)
 
-	#Branch-F12 {
-		transform: translate(347px, 175px) rotate(-70deg) scale(0);
-		transition-delay: 900ms;
-		transition-duration: 700ms;
-	}
-	&.v #Branch-F12 {
-		transform: translate(347px, 175px) rotate(-70deg) scale(1);
-	}
+	#Branch-F1
+		transform translate(324px, 323px) rotate(-94deg) scale(0)
+		transition-delay 700ms
 
-	#Branch-F13 {
-		transform: translate(362px, 162px) rotate(82deg) scale(0);
-		transition-delay: 1000ms;
-		transition-duration: 1300ms;
-	}
-	&.v #Branch-F13 {
-		transform: translate(362px, 162px) rotate(82deg) scale(1);
-	}
+		^[0].v ^[1..-1]
+			transform translate(324px, 323px) rotate(-94deg) scale(1)
 
-	#Branch-F14 {
-		transform: translate(320px, 159px) scale(0);
-		transition-delay: 1100ms;
-		transition-duration: 1800ms;
-	}
-	&.v #Branch-F14 {
-		transform: translate(320px, 159px) scale(1);
-	}
-}
+	#Branch-F2
+		transform translate(286px, 317px) rotate(-59deg) scale(0)
+		transition-delay 850ms
 
+		^[0].v ^[1..-1]
+			transform translate(286px, 317px) rotate(-59deg) scale(1)
+
+	#Branch-F3
+		transform translate(246px, 333px) rotate(184deg) scale(0)
+		transition-delay 850ms
+
+		^[0].v ^[1..-1]
+			transform translate(246px, 333px) rotate(184deg) scale(1)
+
+	#Branch-F4
+		transform translate(234px, 292px) rotate(-98deg) scale(0)
+		transition-delay 1000ms
+		transition-duration 900ms
+
+		^[0].v ^[1..-1]
+			transform translate(234px, 292px) rotate(-98deg) scale(1)
+
+	#Branch-F5
+		transform translate(322px, 276px) rotate(66deg) scale(0)
+		transition-delay 650ms
+		transition-duration 600ms
+
+		^[0].v ^[1..-1]
+			transform translate(322px, 276px) rotate(66deg) scale(1)
+
+	#Branch-F6
+		transform translate(384px, 256px) rotate(120deg) scale(0)
+		transition-delay 800ms
+		transition-duration 800ms
+
+		^[0].v ^[1..-1]
+			transform translate(384px, 256px) rotate(120deg) scale(1)
+
+	#Branch-F7
+		transform translate(379px, 244px) rotate(61deg) scale(0)
+		transition-delay 900ms
+
+		^[0].v ^[1..-1]
+			transform translate(379px, 244px) rotate(61deg) scale(1)
+
+	#Branch-F8
+		transform translate(433px, 282px) rotate(40deg) scale(0)
+		transition-delay 1000ms
+		transition-duration 900ms
+
+		^[0].v ^[1..-1]
+			transform translate(433px, 282px) rotate(40deg) scale(1)
+
+	#Branch-F9
+		transform translate(417px, 214px) rotate(-36deg) scale(0)
+		transition-delay 1050ms
+		transition-duration 900ms
+
+		^[0].v ^[1..-1]
+			transform translate(417px, 214px) rotate(-36deg) scale(1)
+
+	#Branch-F10
+		transform translate(465px, 309px) rotate(60deg) scale(0)
+		transition-delay 1150ms
+		transition-duration 1000ms
+
+		^[0].v ^[1..-1]
+			transform translate(465px, 309px) rotate(60deg) scale(1)
+
+	#Branch-F11
+		transform translate(317px, 226px) rotate(32deg) scale(0)
+		transition-delay 700ms
+		transition-duration 600ms
+
+		^[0].v ^[1..-1]
+			transform translate(317px, 226px) rotate(32deg) scale(1)
+
+	#Branch-F12
+		transform translate(347px, 175px) rotate(-70deg) scale(0)
+		transition-delay 900ms
+		transition-duration 700ms
+
+		^[0].v ^[1..-1]
+			transform translate(347px, 175px) rotate(-70deg) scale(1)
+
+	#Branch-F13
+		transform translate(362px, 162px) rotate(82deg) scale(0)
+		transition-delay 1000ms
+		transition-duration 1300ms
+
+		^[0].v ^[1..-1]
+			transform translate(362px, 162px) rotate(82deg) scale(1)
+
+	#Branch-F14
+		transform translate(320px, 159px) scale(0)
+		transition-delay 1100ms
+		transition-duration 1800ms
+
+		^[0].v ^[1..-1]
+			transform translate(320px, 159px) scale(1)
 
 </style>
