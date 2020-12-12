@@ -190,6 +190,9 @@ p
 code
 	color #da1c42
 
+	+dark()
+		color saturate($green, 50%)
+
 code, pre
 	border-radius 3px
 
@@ -247,14 +250,12 @@ code, pre
 	th
 		padding-left 0
 
-		+dark()
-			color $dark-fg
-
 	th, td
 		padding-top 1em
 		padding-bottom 1em
 
 		+dark()
+			color $dark-fg
 			border-color lighten($dark-bg, 10%)
 
 .navbar-brand img
