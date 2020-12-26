@@ -105,6 +105,8 @@ Any other fields sent in the request will also be saved into the user account;
 
 If you've defined your own [users model](/models#users), these fields will be validated against the rules defined in there, and the request will fail with an error if the values fail validation.  However, defining the model is not required in order to send custom fields.
 
+?> Any fields named `password2`, `confirm_password`, or `password_confirm` will not be saved into the database, and will instead be ignored.  This is to prevent accidentally saving a password confirmation field value into the database unhashed.
+
 
 ### Defining the user role
 
