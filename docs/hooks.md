@@ -13,62 +13,65 @@ To get Sapling to call your hook, you must let Sapling know about it in `hooks.j
         "GET /api/upload": "upload.js" 
     }
 
-Unlike permissions however, hooks aren't exclusive; if multiple hook definitions fit the given request, **all** those hooks will be called, in the order they are defined.  Additionally, the same hook file can be used for multiple routes.
+Like permissions, hooks are exclusive; if multiple hook definitions fit the given request, only the first matchin hook will be called.  However, the same hook file can be used for multiple routes.
 
 
 ## Hook files
 
 Sapling expects each hook file to act as a module that exports a single function which will be executed as the hook.  Everything else about the structure of the file, coding style, dependencies etc is up to you.
 
-The function will be passed at least four parameters;
+The function will be passed five parameters;
 
-| Parameter  | Description                                                            |
-|------------|------------------------------------------------------------------------|
-| `app`      | The Sapling instance, containing the config and all internal methods.  |
-| `req`      | The [request object](https://expressjs.com/en/api.html#req)            |
-| `res`      | The [response object](https://expressjs.com/en/api.html#res)           |
-| `cb`       | Optional callback function, [see below](#responding)                   |
-
-Depending on the type of route, additional parameters may be passed.
+| Parameter  | Description                                                                   |
+|------------|-------------------------------------------------------------------------------|
+| `app`      | The Sapling instance, containing the config and all internal methods.         |
+| `req`      | The [request object](https://expressjs.com/en/api.html#req)                   |
+| `res`      | The [response object](https://expressjs.com/en/api.html#res)                  |
+| `data`     | The current data.  Only populated in hooks attached to the [data API](/data)  |
+| `next`     | Optional callback function, [see below](#responding)                          |
 
 An example hook file might look like this;
 
-    module.exports = function(app, req, res, cb) {
+    module.exports = function(app, req, res, data, next) {
         // Do stuff here
 
-        if(cb) cb.call(app, req, res);
+        next(app, req, res, data);
     };
+
+The `data` parameter will only be populated in hooks that are attached to a [data API](/data) `GET` or `POST` route - the hook is called after fetching the data, but before Sapling responds.  This makes hooks a great way to further filter or preprocess data, while still leaving Sapling to deal with the response.
 
 
 ## Responding
 
-If the hook URL is already a valid route in Sapling, the hook will be passed a callback function.  Calling this callback function with all the parameters passed onto the hook (however they may be modified), will pass the buck back to Sapling to continue the execution as normal.
+Each hook will be passed a callback function as the fifth parameter.  If you'd like Sapling to continue its normal execution after your hook has executed, you must call this callback with the four other parameters.
 
-If the hook URL would otherwise be a 404 (or if you prefer not to let Sapling do its thing afterwards), you can ignore the callback, and handle the response yourself with the `res` object;
+If you prefer not to let Sapling do its thing after your hook, you can ignore the callback, and handle the response yourself with the `res` object;
 
-    module.exports = function(app, req, res, cb) {
+    module.exports = function(app, req, res, data, next) {
         // Do stuff here
 
         res.send(200);
     };
 
+!> If you neither call the callback nor send your own response via `res` or `Response`, the route will hang indefinitely.
+
 ### Response object
 
-Sapling also includes a `Response` object you can optionally use to respond to requests yourself.
+Sapling also includes a `Response` object you can optionally use to respond to requests yourself the same way Sapling does.
 
 You can use it to send JSON data (either as a JS object literal or as a string);
 
     const Response = require("@sapling/sapling/lib/Response");
 
-    module.exports = function(app, req, res, cb) {
-        new Response(app, req, res, null, [{"success": true}]);
+    module.exports = function(app, req, res, data, next) {
+        new Response(app, req, res, null, [{"foo": "bar"}]);
     };
 
 To send parsed HTML;
 
     const Response = require("@sapling/sapling/lib/Response");
 
-    module.exports = function(app, req, res, cb) {
+    module.exports = function(app, req, res, data, next) {
         new Response(app, req, res, null, "<strong>Hello</strong>");
     };
 
@@ -77,6 +80,6 @@ Or, to send an error:
     const Response = require("@sapling/sapling/lib/Response");
     const SaplingError = require("@sapling/sapling/lib/SaplingError");
 
-    module.exports = function(app, req, res, cb) {
+    module.exports = function(app, req, res, data, next) {
         new Response(app, req, res, new SaplingError(err));
     };
