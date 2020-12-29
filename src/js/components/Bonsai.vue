@@ -76,8 +76,26 @@ export default {
 		margin -6rem auto 0
 		display block
 
+		.wood-light
+			fill #3B4237
+		.wood-mid
+			fill #222A1E
+		.wood-dark
+			fill #151E10
+		.wood-darkest
+			fill #1A180C
+
 		@media (prefers-color-scheme dark)
 			opacity .8
+
+			.wood-light
+				fill lighten(#3B4237, 16%)
+			.wood-mid
+				fill lighten(#222A1E, 13%)
+			.wood-dark
+				fill lighten(#151E10, 8%)
+			.wood-darkest
+				fill lighten(#1A180C, 11%)
 
 		*
 			transition-property all
