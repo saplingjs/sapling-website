@@ -7,11 +7,15 @@ To make creating and managing projects easier, Sapling has a dedicated CLI tool.
 
 To install the CLI, simply install it globally from npm;
 
-    npm install -g @sapling/cli
+```shell
+npm install -g @sapling/cli
+```
 
 Or, if you prefer Yarn like we do, you can do;
 
-    yarn global add @sapling/cli
+```shell
+yarn global add @sapling/cli
+```
 
 After that, you can use the `sapling` command on your command line anywhere (providing your `PATH` is set up correctly).
 
@@ -20,7 +24,9 @@ After that, you can use the `sapling` command on your command line anywhere (pro
 
 Once the CLI is installed globally, you can create a new Sapling project by simply doing;
 
-    sapling create
+```shell
+sapling create
+```
 
 The CLI will ask a set of questions, including naming your app (lowercase alphanumeric characters and dashes only), and including the usual packages, like [database and render drivers](/drivers), [Vue components](/components) and more.
 
@@ -33,7 +39,9 @@ It will then create a new folder for your app in your current location, install 
 
 The CLI can also run the Sapling app so you can view it in your browser.  Just do;
 
-    sapling run
+```shell
+sapling run
+```
 
 This will start a new single-core instance of Sapling, and open your system's default browser with the front page of your app.
 
@@ -48,20 +56,26 @@ If the default port (or the port defined in the [app config](/config)) is alread
 
 You can use the CLI to edit the [configuration](/config) of your Sapling app.  Simply do;
 
-    sapling set name my-awesome-app
+```shell
+sapling set name my-awesome-app
+```
 
 The above command would set the `name` setting in your `config.json` to `"my-awesome-app"`.
 
 For nested settings, you can use dot notation;
 
-    sapling set db.driver MongoDB
+```shell
+sapling set db.driver MongoDB
+```
 
 
 ## Changing packages
 
 During `sapling run`, the CLI will ask you if you'd like to install different Sapling packages.  If after creating the project you'd like to change your mind about any of these, you can navigate to the project folder and get the same questionnaire again by doing;
 
-    sapling edit
+```shell
+sapling edit
+```
 
 This will run through all the same questions, install any new dependencies you select, and delete any dependencies you decide to forsake.  For [drivers](/drivers), it will edit your app [configuration](/config) to select the new driver.  All your other settings and app content will remain.
 
@@ -72,7 +86,9 @@ This will run through all the same questions, install any new dependencies you s
 
 New versions of Sapling and its dependencies will be released from time to time.  Upgrading to a new version is very simple; just navigate to the root of your project folder in your terminal, and do;
 
-    sapling update
+```shell
+sapling update
+```
 
 This will upgrade Sapling and all its dependencies to the latest version.
 

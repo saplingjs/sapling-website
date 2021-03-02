@@ -28,15 +28,19 @@ Here's a simple comparison of how Sapling behaves in production mode, compared t
 
 To turn production mode on, simply add the following to `config.json`:
 
-    {
-        "production": true
-    }
+```json
+{
+    "production": true
+}
+```
 
 It's also possible to let Sapling automatically determine whether to use production mode:
 
-    {
-        "production": "auto"
-    }
+```json
+{
+    "production": "auto"
+}
+```
 
 This is the default value.  When set to `"auto"`, Sapling will turn on production mode whenever the `NODE_ENV` is set to `"production"`.
 

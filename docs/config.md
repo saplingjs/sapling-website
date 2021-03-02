@@ -4,13 +4,15 @@ All the settings for how Sapling should behave are in the `config.json` file in 
 
 The `config.json` file consists of a JSON object, where keys are the settings you wish to change, and the values are the setting values you wish to change them to;
 
-    {
-        "name": "my-awesome-app",
-        "port": 3000,
-        "db": {
-            "driver": "MongoDB"
-        }
+```json
+{
+    "name": "my-awesome-app",
+    "port": 3000,
+    "db": {
+        "driver": "MongoDB"
     }
+}
+```
 
 Every project needs a `config.json`, or it will not run.  Only the `name` key must be defined, all other settings are optional, and will use the default value listed below if undefined.
 
@@ -21,13 +23,17 @@ Every project needs a `config.json`, or it will not run.  Only the `name` key mu
 
 If you have the [CLI](/cli) installed (which is highly recommended), you can use it to edit your configuration without having to edit the `config.json` file yourself - use the `set` command to do this;
 
-    sapling set port 8000
+```shell
+sapling set port 8000
+```
 
 The above command would set the `port` setting in your `config.json` to `8000`.
 
 For nested settings (such as the `driver` setting inside `db`), you can use dot notation;
 
-    sapling set db.driver MongoDB
+```shell
+sapling set db.driver MongoDB
+```
 
 
 ## Production config

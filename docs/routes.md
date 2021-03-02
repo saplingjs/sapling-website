@@ -34,10 +34,12 @@ The `routes.json` file is just a JSON file containing an object where the key is
 
 For example:
 
-    {
-        "/reviews": "reviews.html",
-        "/review/new": "review/new.html"
-    }
+```json
+{
+    "/reviews": "reviews.html",
+    "/review/new": "review/new.html"
+}
+```
 
 If auto-routing is on and `routes.json` is defined, it will be merged with the auto-routing.  This will allow you to override generated auto-routes, or supplement the auto-routes with e.g. routes that have parameters (see below), which obviously can't be created with auto-routes.
 
@@ -48,9 +50,11 @@ Often, it's useful to define parameters in the URL.  For example, if you wanted 
 
 You can do this with the colon notation:
 
-    {
-        "/review/:id": "review/view.html"
-    }
+```json
+{
+    "/review/:id": "review/view.html"
+}
+```
 
 Now, the `views/review/view.html` view is injected with the variable `id`, which contains `"12"` when the user visits `/review/12`.
 

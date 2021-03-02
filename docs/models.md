@@ -72,25 +72,29 @@ Fields are described by setting properties, which affect the type of data is sto
 
 You can set access permissions for each field, to control who can read or write values from/to this property.  The simplest way to do this is to set the `"access"` property of a field to the minimum role level required to access the property:
 
-    [
-        ...
-        "case_notes": {
-            "type": "String",
-            "access": "admin"
-        }
-    ]
+```json
+[
+    ...
+    "case_notes": {
+        "type": "String",
+        "access": "admin"
+    }
+]
+```
 
 In the above example, only users with the `"admin"` role can view and edit the value in the `"case_notes"` field.  This means that the `"case_notes"` field is not included at all in the response for any data API for users with any role lower than `"admin"`.  Attempting to modify the contents of the field in a `POST` request to the data API will not result in an error, but will fail silently.
 
 You can also set read and write permissions separately:
 
-    [
-        ...
-        "phone_number": {
-            "type": "String",
-            "access": {"r": "anyone", "w": "admin"}
-        }
-    ]
+```json
+[
+    ...
+    "phone_number": {
+        "type": "String",
+        "access": {"r": "anyone", "w": "admin"}
+    }
+]
+```
 
 In the above example, anyone can read the value of the `"phone_number"` field, but only users with the `"admin"` role can modify the value.
 
@@ -106,37 +110,43 @@ Almost always, you'll want to limit the size and type of the file.
 
 Using the `maxsize` property, you can define the maximum filesize, either as a numerical value representing **bytes**;
 
-    {
-        "profile_image": {
-            "type": "File",
-            "maxsize": 1048576
-        }
+```json
+{
+    "profile_image": {
+        "type": "File",
+        "maxsize": 1048576
     }
+}
+```
 
 Or as a string together with a `B`, `K`, `M` or `G` to define the magnitude;
 
-    {
-        "profile_image": {
-            "type": "File",
-            "maxsize": "1M"
-        }
+```json
+{
+    "profile_image": {
+        "type": "File",
+        "maxsize": "1M"
     }
+}
+```
 
 
 ### File type
 
 Using the `filetype`, you can define a string or an array of strings of acceptable file types.  Each string can be either a mimetype, a mimetype with wildcards, or one of Sapling's built-in mimetype groups.
 
-    {
-        "download": {
-            "type": "File",
-            "filetype": "archive"
-        },
-        "preview_video": {
-            "type": "File",
-            "filetype": ["video/ogg", "video/H26*"]
-        }
+```json
+{
+    "download": {
+        "type": "File",
+        "filetype": "archive"
+    },
+    "preview_video": {
+        "type": "File",
+        "filetype": ["video/ogg", "video/H26*"]
     }
+}
+```
 
 In the above example, the `"preview_video"` field will accept either a `video/ogg` video file, or any video file beginning with "H26", for example, `video/H264`.  The `"download"` field will accept any of the mimetypes in Sapling's built-in `"archive"` mimetype group:
 
@@ -156,26 +166,30 @@ If the `type` of a field is set to `"Reference"`, it creates a link between two 
 
 This is useful if you want to make strong many-to-one connections between different records; for instance, a particular review in the `reviews` model may be about a particular movie in the `movies` model.  Therefore, you may want to define a reference field in the `reviews` model:
 
-    [
-        ...
-        "movie": {
-            "type": "Reference",
-            "required": true,
-            "reference": "movies"
-        }
-    ]
+```json
+[
+    ...
+    "movie": {
+        "type": "Reference",
+        "required": true,
+        "reference": "movies"
+    }
+]
+```
 
 The above example would mean that any `POST` request to the `reviews` model would have to include a valid ID of a record in the `movies` model.  Sending an ID that is not a valid record in `movies` would result in an error.
 
 `GET` requests to `reviews` would then include the entire record of the referenced movie in place of the ID in the `movie` key:
 
-    {
-        ...
-        "movie": {
-            "_id": 1,
-            "title": "Gone With The Wind"
-        }
+```json
+{
+    ...
+    "movie": {
+        "_id": 1,
+        "title": "Gone With The Wind"
     }
+}
+```
 
 If the `movies` model also included a reference field, the contents of the referenced field would also be included inside the `movie` field above.  This allows you to create very deep and detailed data structures.
 
@@ -199,34 +213,36 @@ Each model contains five fields that are present even when not defined.  They ar
 
 Each Sapling instance contains an invisible model called `users`, where all end user accounts are stored.  By default it contains the `email`, `password` and `role` fields.
 
-    {
-        "email": {
-            "type": "String",
-            "minlen": 3,
-            "unique": true,
-            "required": true
-        },
-        "password": {
-            "type": "String",
-            "minlen": 3,
-            "required": true,
-            "access": "owner"
-        },
-        "_salt": {
-            "type": "String",
-            "access": "owner"
-        },
-        "role": {
-            "type": "String",
-            "values": ["admin", "member"],
-            "default": "member",
-            "access": {"r": "anyone", "w": "admin"}
-        },
-        "authkey": {
-            "type": "String",
-            "access": "owner"
-        }
+```json
+{
+    "email": {
+        "type": "String",
+        "minlen": 3,
+        "unique": true,
+        "required": true
+    },
+    "password": {
+        "type": "String",
+        "minlen": 3,
+        "required": true,
+        "access": "owner"
+    },
+    "_salt": {
+        "type": "String",
+        "access": "owner"
+    },
+    "role": {
+        "type": "String",
+        "values": ["admin", "member"],
+        "default": "member",
+        "access": {"r": "anyone", "w": "admin"}
+    },
+    "authkey": {
+        "type": "String",
+        "access": "owner"
     }
+}
+```
 
 The `role` field is utilised in setting [permissions](/permissions).
 

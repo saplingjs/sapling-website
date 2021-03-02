@@ -26,17 +26,21 @@ Permissions are defined in `permissions.json` in the root of the project, as a J
 
 For example, if you wanted to make sure that **only logged-in users** can access your `/account` route, you would define like this:
 
-    {
-        "GET /account": "member"
-    }
+```json
+{
+    "GET /account": "member"
+}
+```
 
 It works the same way for controlling access to the data API.  If you wanted to make sure that **only logged-in users** are able to create reviews, users are able to only edit **their own reviews** (and not be able to edit reviews posted by someone else), and **only admins** are able to edit them, you might create a `permissions.json` like this:
 
-    {
-        "POST /data/reviews/*/*": "owner",
-        "POST /data/reviews": "member",
-        "DELETE /data/reviews": "admin"
-    }
+```json
+{
+    "POST /data/reviews/*/*": "owner",
+    "POST /data/reviews": "member",
+    "DELETE /data/reviews": "admin"
+}
+```
 
 The first definition makes sure that users with the `member` role are able to send `POST` requests to the `reviews` model in the data API.  This precludes those with the `stranger` role, i.e. users who have not logged in to a valid account.  However, `admin` users will be able to also do this, as all routes remain available to them.
 
@@ -60,10 +64,12 @@ Sometimes, you may need to create a permission definition that explicitly allows
 
 You can create a definition either with the `anyone` or the `stranger` roles to do this:
 
-    {
-        "GET /about": "anyone",
-        "GET /faq": "stranger"
-    }
+```json
+{
+    "GET /about": "anyone",
+    "GET /faq": "stranger"
+}
+```
 
 ?> The `anyone` role allows access to anyone, whether logged-in or not.  The `stranger` role requires the user to be **explicitly logged out.**
 
@@ -74,12 +80,14 @@ You can create additional user roles simply by creating a user account with that
 
 For example, if you wanted to create a `moderator` role for users that should have access to edit or delete anyone's reviews, you might change the above example to something like this:
 
-    {
-        "POST /data/reviews/*/*": ["moderator", "owner"],
-        "POST /data/reviews": ["moderator", "member"],
-        "DELETE /data/reviews/_id/*": "moderator",
-        "DELETE /data/reviews": "admin"
-    }
+```json
+{
+    "POST /data/reviews/*/*": ["moderator", "owner"],
+    "POST /data/reviews": ["moderator", "member"],
+    "DELETE /data/reviews/_id/*": "moderator",
+    "DELETE /data/reviews": "admin"
+}
+```
 
 The first two definitions are changed into arrays, so that both the original value and the new `moderator` role can be accommodated at the same time.
 
@@ -94,9 +102,11 @@ By default, if the user isn't allowed to access a URL, they will displayed an er
 
 You can do this by passing an object as the permission value, where `role` is the string or array representing the allowed user roles as above, and `redirect` is the URL to redirect disallowed users to.
 
-    {
-        "GET /app/*": {
-            "role": "member",
-            "redirect": "/login"
-        }
+```json
+{
+    "GET /app/*": {
+        "role": "member",
+        "redirect": "/login"
     }
+}
+```

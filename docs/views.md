@@ -31,12 +31,14 @@ The `set` tag will fetch data from a valid [data API](/data) call and expose it 
 
 For instance:
 
-    {{ set reviews as get /data/reviews }}
-     
-    {% for review in reviews %}
-    <h2>{{ review.title }}</h2>
-    <p>{{ review.content }}</p>
-    {% endfor %}
+```nunjucks
+{{ set reviews as get /data/reviews }}
+    
+{% for review in reviews %}
+<h2>{{ review.title }}</h2>
+<p>{{ review.content }}</p>
+{% endfor %}
+```
 
 The `set` tag gets the list of reviews from `/data/reviews`, and exposes it in a variable called `reviews`.
 
@@ -45,7 +47,9 @@ The `set` tag gets the list of reviews from `/data/reviews`, and exposes it in a
 
 The `post` tag will fire a `POST` request to the given [data API](/data), immediately on pageload.  This could be useful for tracking pageviews, for instance.  As an example:
 
-    {{ post /data/statistics?type=click }}
+```nunjucks
+{{ post /data/statistics?type=click }}
+```
 
 The above code would create a new record in the `statistics` collection, with the `type` key set with the value `"click"`.
 
@@ -54,6 +58,8 @@ The above code would create a new record in the `statistics` collection, with th
 
 Much like `post`, the `delete` tag will fire an immediate [data API](/data) `DELETE` request on pageload.  For example:
 
-    {{ delete /data/statistics?id=1 }}
+```nunjucks
+{{ delete /data/statistics?id=1 }}
+```
 
 This would delete any record in the `statistics` collection, where the `id` key has the value of `"1"`.

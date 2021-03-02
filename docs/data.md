@@ -11,7 +11,9 @@ Depending on the URL segments provided and the HTTP method used, Sapling will be
 
 A typical data API URL will look something like this:
 
-    GET /data/posts/author/2/category/5,6
+```http
+GET /data/posts/author/2/category/5,6
+```
 
 The URL will always begin with `/data`.  The second segment (in this case `posts`) is the name of the collection/table being selected.  Successive segments are read in pairs, and define the key and value(s) for conditions (or `WHERE` clauses, if you're familiar with SQL).
 
@@ -22,7 +24,9 @@ Therefore, the above URL will fetch all records from the `posts` collection, whe
 
 To create a new record in a collection, send a `POST` request **without** any conditions:
 
-    POST /data/posts
+```http
+POST /data/posts
+```
 
 Include the data for the new record as `POST` values in the request payload.  This will happen automatically if you're using it as a `<form>` action.
 
@@ -37,7 +41,9 @@ Sapling will respond with the newly created record.
 
 To fetch all records in a given a collection, send a `GET` request:
 
-    GET /data/posts
+```http
+GET /data/posts
+```
 
 Sapling will respond with JSON of all records in the `posts` collection.  If the request comes from the browser, and Sapling is not in strict or production modes, Sapling will respond with a prettified HTML page, making dirty in-browser data browsing easier.
 
@@ -45,19 +51,25 @@ Sapling will respond with JSON of all records in the `posts` collection.  If the
 
 You can define conditions to fetch more specific records:
 
-    GET /data/posts/author/2
+```http
+GET /data/posts/author/2
+```
 
 This will return all records in `posts`, where the `author` field has a value of `2`.
 
 You can chain multiple conditions one after the other:
 
-    GET /data/posts/author/2/category/5
+```http
+GET /data/posts/author/2/category/5
+```
 
 This would return all posts where the `author` is `2`, **and** `category` is `5`.
 
 You can also filter for multiple values using a comma in the value segment:
 
-    GET /data/posts/author/2/category/5,6
+```http
+GET /data/posts/author/2/category/5,6
+```
 
 This will fetch all records from the `posts` collection, where the value of the `author` field is `2`, **and** the value of the `category` field is either `5` or `6`.
 
@@ -68,7 +80,9 @@ By default, the records come in whatever order they happen to be in the database
 
 You can do this by adding a `sortBy` query string variable like so;
 
-    GET /data/posts?sortBy=_created,desc
+```http
+GET /data/posts?sortBy=_created,desc
+```
 
 The value is split by a comma, with the first part being the field to sort by, and the second part being either `"asc"` or `"desc"` to define ascending or descending order, respectively.
 
@@ -79,7 +93,9 @@ The value is split by a comma, with the first part being the field to sort by, a
 
 You can also limit the maximum number of records to be returned for a given `GET` query, by using the `limit` query string variable:
 
-    GET /data/posts?limit=10
+```http
+GET /data/posts?limit=10
+```
 
 This will return at most 10 records from the `posts` collection.
 
@@ -88,7 +104,9 @@ This will return at most 10 records from the `posts` collection.
 
 To modify an existing record, send a `POST` request **with** conditions:
 
-    POST /data/posts/category/5
+```http
+POST /data/posts/category/5
+```
 
 This would update every record in `posts` where `category` has a value of `5`, with whatever data is sent across in the `POST` values in the request payload.
 
@@ -104,7 +122,9 @@ Sapling will respond with the updated record(s).
 
 The easiest way to ensure you're only modifying a single record (and that it is the record you intend) is to use the built-in `_id` as the condition:
 
-    POST /data/posts/_id/2
+```http
+POST /data/posts/_id/2
+```
 
 This would only modify the record with an `_id` of `2`.
 
@@ -113,7 +133,9 @@ This would only modify the record with an `_id` of `2`.
 
 To delete one or more records, send a `DELETE` request:
 
-    DELETE /data/posts/_id/2
+```http
+DELETE /data/posts/_id/2
+```
 
 This would delete the record in `posts` with an `_id` of `2`.  Sapling will respond with a generic success message.
 
@@ -124,15 +146,21 @@ This would delete the record in `posts` with an `_id` of `2`.  Sapling will resp
 
 By default, Sapling will respond to each data API request with either JSON or a generic HTML view.  However, this is probably not ideal, if you're sending `POST` requests to the data API from a form action like this:
 
-    <form method="post" action="/data/posts"> .. </form>
+```html
+<form method="post" action="/data/posts"> .. </form>
+```
 
 You can add a query string variable `redirect` to define a URL to redirect to after a successful request:
 
-    <form method="post" action="/data/posts?redirect=/posts"> .. </form>
+```html
+<form method="post" action="/data/posts?redirect=/posts"> .. </form>
+```
 
 This would send the user to `/posts` after the data API request has succeeded.  You can also define variables for the to-be created/updated record in the `redirect` value:
 
-    <form method="post" action="/data/posts?redirect=/posts/:_id"> .. </form>
+```html
+<form method="post" action="/data/posts?redirect=/posts/:_id"> .. </form>
+```
 
 This would supplement the `redirect` value with the `_id` field of the record once it is created - therefore, if e.g. the `_id` of the record created by submitting this form is `15`, the user will then be redirected to `/posts/15`.
 

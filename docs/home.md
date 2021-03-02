@@ -7,11 +7,13 @@ Sapling is a Node.js framework for building websites, web apps and APIs as fast 
 
 Say you want to create a form that allows users to add a restaurant review.  You might create a form that looks something like this;
 
-    <form action="/data/reviews" method="post">
-    	<input type="text" name="title" placeholder="Review title" />
-    	<textarea name="content" placeholder="Say a few words"></textarea>
-    	<button type="submit">Post review</button>
-    </form>
+```html
+<form action="/data/reviews" method="post">
+    <input type="text" name="title" placeholder="Review title" />
+    <textarea name="content" placeholder="Say a few words"></textarea>
+    <button type="submit">Post review</button>
+</form>
+```
 
 It's fairly straightforward &ndash; just a review title, review text and a submit button.
 
@@ -31,12 +33,14 @@ No, seriously.  With Sapling, all data is handled by its special and powerful dy
 
 Say you then want to show a list of the reviews that have been posted.  This is also super easy.  By default, Sapling uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language, with a few custom tags to make things easier.
 
-    {{ set reviews as get /data/reviews }}
-     
-    {% for review in reviews %}
-    <h2>{{ review.title }}</h2>
-    <p>{{ review.content }}</p>
-    {% endfor %}
+```nunjucks
+{{ set reviews as get /data/reviews }}
+    
+{% for review in reviews %}
+<h2>{{ review.title }}</h2>
+<p>{{ review.content }}</p>
+{% endfor %}
+```
 
 The `set` tag fetches the reviews that have been posted with the form above, and the `for` loop below goes through each review, and displays the fields that were defined in the form.
 

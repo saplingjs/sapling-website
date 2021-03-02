@@ -20,3 +20,13 @@ window.$docsify = {
 
 require("docsify-pagination");
 require("docsify-copy-code");
+
+require("prismjs/components/prism-bash");
+require("prismjs/components/prism-http");
+require("prismjs/components/prism-json");
+require("prismjs/components/prism-twig");
+
+Prism.languages.nunjucks = Prism.languages.twig;
+Prism.languages.env = Prism.languages.bash;
+
+Prism.languages.http['request-line'].pattern = /^(?:GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|PRI|SEARCH)\s(?:https?:\/\/|\/)\S*/m;
