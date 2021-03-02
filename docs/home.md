@@ -34,8 +34,8 @@ No, seriously.  With Sapling, all data is handled by its special and powerful dy
 Say you then want to show a list of the reviews that have been posted.  This is also super easy.  By default, Sapling uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language, with a few custom tags to make things easier.
 
 ```nunjucks
-{{ set reviews as get /data/reviews }}
-    
+{% get reviews = '/data/reviews' %}
+
 {% for review in reviews %}
 <h2>{{ review.title }}</h2>
 <p>{{ review.content }}</p>

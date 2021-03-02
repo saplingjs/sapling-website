@@ -25,14 +25,14 @@ The content below goes through the custom tags in Sapling.
 
 ## Custom tags
 
-### set
+### get
 
-The `set` tag will fetch data from a valid [data API](/data) call and expose it in a variable.  This is the main way that you can show data in a view.
+The `get` tag will fetch data from a valid [data API](/data) call and expose it in a variable.  This is the main way that you can show data in a view.
 
 For instance:
 
 ```nunjucks
-{{ set reviews as get /data/reviews }}
+{% get reviews = '/data/reviews' %}
     
 {% for review in reviews %}
 <h2>{{ review.title }}</h2>
@@ -40,26 +40,4 @@ For instance:
 {% endfor %}
 ```
 
-The `set` tag gets the list of reviews from `/data/reviews`, and exposes it in a variable called `reviews`.
-
-
-### post
-
-The `post` tag will fire a `POST` request to the given [data API](/data), immediately on pageload.  This could be useful for tracking pageviews, for instance.  As an example:
-
-```nunjucks
-{{ post /data/statistics?type=click }}
-```
-
-The above code would create a new record in the `statistics` collection, with the `type` key set with the value `"click"`.
-
-
-### delete
-
-Much like `post`, the `delete` tag will fire an immediate [data API](/data) `DELETE` request on pageload.  For example:
-
-```nunjucks
-{{ delete /data/statistics?id=1 }}
-```
-
-This would delete any record in the `statistics` collection, where the `id` key has the value of `"1"`.
+The `get` tag gets the list of reviews from `/data/reviews`, and exposes it in a variable called `reviews`.
