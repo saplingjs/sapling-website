@@ -52,7 +52,7 @@ For instance, to add a new field called `username`, you can define a `users` mod
         "type": "String",
         "required": true,
         "unique": true,
-        "identifiable": true
+        "identifiable": true,
         "maxlen": 25
     }
 }
