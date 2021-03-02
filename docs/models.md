@@ -38,6 +38,7 @@ Fields are described by setting properties, which affect the type of data is sto
 | `minlen`        | Minimum length of characters for the value stored.  Sending a value shorter than this returns an error.                                           |
 | `maxlen`        | Maximum length of characters for the value stored.  Sending a value longer than this returns an error.                                            |
 | `identifiable`  | Only applicable in the `users` model.  If true, this field can be used as a [username for login purposes](/authentication#custom-identifiables).  |
+| `trim`          | Boolean for whether the incoming value should have whitespace trimmed on both ends.  `true` by default.                                           |
 
 
 ### Only applicable to `Number`
