@@ -2502,10 +2502,10 @@ docsify-themeable@^0.8.4:
   resolved "https://registry.yarnpkg.com/docsify-themeable/-/docsify-themeable-0.8.4.tgz#2e8a76be09e4a4fdbad576a273e403a7e5b60405"
   integrity sha512-nX3JZsR1agC76HoruA/I06dGr+tM1fbnYUlO666s2BhQQjvzO/MKg7Bqrx6Bl0vIdtAzASJGBsu7+9ufBt2bJw==
 
-docsify@^4.12.0:
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/docsify/-/docsify-4.12.0.tgz#ac08a5b4a17bd80413b22e5201e35678cdd7e57f"
-  integrity sha512-oLr48dLeJ8sTVQfL8HLFqd2sPPG8DNAOvYAXXJQr/+/K9uC2KDhoeu+GGj5U2uFGR5czF3oLvqNBxhEElg1wGw==
+docsify@^4.12.1:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/docsify/-/docsify-4.12.1.tgz#46c15a4c101397185835f7e6bdad7bd6cd02896b"
+  integrity sha512-7v4UlCYLTmb83leJLIlheQlQ8kDTbTxcpMttRg0Uf92Nl//m0AcKFHoLLo5HHS4UhnO0KhDV8SKCdTR279zI9A==
   dependencies:
     dompurify "^2.2.6"
     marked "^1.2.9"
