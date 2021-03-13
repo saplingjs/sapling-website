@@ -134,7 +134,7 @@ Or as a string together with a `B`, `K`, `M` or `G` to define the magnitude;
 
 ### File type
 
-Using the `filetype`, you can define a string or an array of strings of acceptable file types.  Each string can be either a mimetype, a mimetype with wildcards, or one of Sapling's built-in mimetype groups.
+Using the `filetype`, you can define a string or an array of strings of acceptable file types.  Each string can be either any mimetype, or one of Sapling's built-in mimetype groups.
 
 ```json
 {
@@ -144,12 +144,12 @@ Using the `filetype`, you can define a string or an array of strings of acceptab
     },
     "preview_video": {
         "type": "File",
-        "filetype": ["video/ogg", "video/H26*"]
+        "filetype": ["video/ogg", "video/H264"]
     }
 }
 ```
 
-In the above example, the `"preview_video"` field will accept either a `video/ogg` video file, or any video file beginning with "H26", for example, `video/H264`.  The `"download"` field will accept any of the mimetypes in Sapling's built-in `"archive"` mimetype group:
+In the above example, the `"preview_video"` field will accept either a `video/ogg` or `video/H264` video file.  The `"download"` field will accept any of the mimetypes in Sapling's built-in `"archive"` mimetype group:
 
 | Group name  | Accepted mimetypes                                                                                                                                             |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
