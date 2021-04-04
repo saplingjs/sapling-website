@@ -86,6 +86,12 @@ GET /data/posts?sortBy=_created,desc
 
 The value is split by a comma, with the first part being the field to sort by, and the second part being either `"asc"` or `"desc"` to define ascending or descending order, respectively.
 
+You can also omit the sort direction, in which case Sapling will default to ascending order:
+
+```http
+GET /data/posts?sortBy=title
+```
+
 ?> In addition to `sortBy`, you can also use `sort`, `orderBy`, or `order` to do the same thing - they're all aliases of the same thing.  It's also not case-sensitive.
 
 
@@ -98,6 +104,19 @@ GET /data/posts?limit=10
 ```
 
 This will return at most 10 records from the `posts` collection.
+
+
+### Skipping
+
+When using the `limit` query string variable, you may also want to skip a specific count of records in order to implement pagination:
+
+```http
+GET /data/posts?limit=10&skip=20
+```
+
+The above would skip the first 20 records, and return the next 10; effectively, records 21 thru 30.
+
+?> The `skip` query string variable only works when `limit` is also defined.  If `limit` is not defined, `skip` has no effect.
 
 
 ## Update
