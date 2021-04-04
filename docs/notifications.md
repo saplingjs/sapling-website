@@ -56,25 +56,6 @@ sapling set mail.path /usr/sbin/sendmail
 If you don't set this, Sapling will attempt to guess it.
 
 
-### Amazon SES
-
-To use Amazon SES to send emails, you can set this up in config;
-
-```shell
-sapling set mail.type SES
-```
-
-For AWS, you need to also provide the credentials and region, which you can do via environment variables;
-
-```env
-AWS_ACCESS_KEY_ID=ABC123
-AWS_SECRET_ACCESS_KEY=DEF456
-AWS_REGION=us-east-1
-```
-
-Alternatively, if `~/.aws/credentials` exists, the credentials will be automatically loaded from there.
-
-
 ## Built-in notifications
 
 Currently, Sapling only has a single built-in notification that it sends - the password reset email when a user indicates they have forgotten their password.
