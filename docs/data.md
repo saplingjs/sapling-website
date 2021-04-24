@@ -47,7 +47,7 @@ GET /data/posts
 
 Sapling will respond with JSON of all records in the `posts` collection.  If the request comes from the browser, and Sapling is not in strict or production modes, Sapling will respond with a prettified HTML page, making dirty in-browser data browsing easier.
 
-!> The responses are not paginated or limited in any way, so fetching every single record from a large collection would probably result in performance degradation.
+?> To avoid performance degradation, by default, an unqualified read request like this will only respond with a maximum of 100 records.  To change this global limit, specify the `limit` setting in the [app config](/config).  To remove this limit and always return all records, set the `limit` setting to `false`.
 
 You can define conditions to fetch more specific records:
 
@@ -78,7 +78,7 @@ This will fetch all records from the `posts` collection, where the value of the 
 
 By default, the records come in whatever order they happen to be in the database.  However, in most cases, you'll want them in a specific order.
 
-You can do this by adding a `sortBy` query string variable like so;
+You can do this by adding a `sortBy` query string parameter like so;
 
 ```http
 GET /data/posts?sortBy=_created,desc
@@ -97,7 +97,7 @@ GET /data/posts?sortBy=title
 
 ### Limiting
 
-You can also limit the maximum number of records to be returned for a given `GET` query, by using the `limit` query string variable:
+You can also limit the maximum number of records to be returned for a given `GET` query, by using the `limit` query string parameter:
 
 ```http
 GET /data/posts?limit=10
@@ -105,10 +105,12 @@ GET /data/posts?limit=10
 
 This will return at most 10 records from the `posts` collection.
 
+!> If the `limit` query string parameter is set to a higher value than the global `limit` setting in the [app config](/config), the maximum number of records returned is according to the value in the app config.
+
 
 ### Skipping
 
-When using the `limit` query string variable, you may also want to skip a specific count of records in order to implement pagination:
+When using the `limit` query string parameter, you may also want to skip a specific count of records in order to implement pagination:
 
 ```http
 GET /data/posts?limit=10&skip=20
@@ -116,7 +118,7 @@ GET /data/posts?limit=10&skip=20
 
 The above would skip the first 20 records, and return the next 10; effectively, records 21 thru 30.
 
-?> The `skip` query string variable only works when `limit` is also defined.  If `limit` is not defined, `skip` has no effect.
+?> The `skip` query string parameter only works when `limit` is also defined.  If `limit` is not defined, `skip` has no effect.
 
 
 ## Update
@@ -169,7 +171,7 @@ By default, Sapling will respond to each data API request with either JSON or a 
 <form method="post" action="/data/posts"> .. </form>
 ```
 
-You can add a query string variable `redirect` to define a URL to redirect to after a successful request:
+You can add a query string parameter `redirect` to define a URL to redirect to after a successful request:
 
 ```html
 <form method="post" action="/data/posts?redirect=/posts"> .. </form>

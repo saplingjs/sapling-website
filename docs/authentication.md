@@ -30,7 +30,7 @@ This request will always succeed, regardless of whether the user was already log
 
 ### Redirection
 
-In case you use these methods as `<form>` actions or `<a>` hrefs, you probably want to redirect the user somewhere else after a successful operation.  You can do this with the `redirect` query string variable;
+In case you use these methods as `<form>` actions or `<a>` hrefs, you probably want to redirect the user somewhere else after a successful operation.  You can do this with the `redirect` query string parameter;
 
 ```http
 POST /api/user/login?redirect=/app
@@ -146,7 +146,7 @@ The role specified in the request must be equal to or lesser than the current us
 
 ### Redirection
 
-In case you use this method as `<form>` action, you probably want to redirect the user somewhere else after a successful operation.  You can do this with the `redirect` query string variable;
+In case you use this method as `<form>` action, you probably want to redirect the user somewhere else after a successful operation.  You can do this with the `redirect` query string parameter;
 
 ```http
 POST /api/user/register?redirect=/app
