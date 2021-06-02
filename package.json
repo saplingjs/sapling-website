@@ -10,7 +10,7 @@
     "laravel-mix": "^5.0.9",
     "normalize": "^0.3.1",
     "prismjs": "^1.23.0",
-    "vue": "^2.6.12",
+    "vue": "^2.6.13",
     "vue-smooth-reflow": "^0.1.12"
   },
   "resolutions": {
@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "stylus-loader": "^3.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.13"
   }
 }
