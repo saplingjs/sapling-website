@@ -2483,10 +2483,10 @@ docsify-pagination@^2.6.1:
     component-matches-selector "^0.1.6"
     component-query "0.0.3"
 
-docsify-themeable@^0.8.4:
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/docsify-themeable/-/docsify-themeable-0.8.4.tgz#2e8a76be09e4a4fdbad576a273e403a7e5b60405"
-  integrity sha512-nX3JZsR1agC76HoruA/I06dGr+tM1fbnYUlO666s2BhQQjvzO/MKg7Bqrx6Bl0vIdtAzASJGBsu7+9ufBt2bJw==
+docsify-themeable@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/docsify-themeable/-/docsify-themeable-0.8.5.tgz#a326e726bd5206be9d11058d6b9a73b50af274c6"
+  integrity sha512-KY5w6NOFZOONMjpMSJY0o1sCDChmY5mLjBstuOK3VOuB7LWjxUD7vuNjjJzOF81wagO0LDL8CQ8NHhsrHXvd1Q==
 
 docsify@^4.12.1:
   version "4.12.1"
