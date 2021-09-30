@@ -2474,10 +2474,10 @@ docsify-copy-code@^2.1.1:
   resolved "https://registry.yarnpkg.com/docsify-copy-code/-/docsify-copy-code-2.1.1.tgz#73575955f4aff953d127fac8594c3495a7c71612"
   integrity sha512-3+foIMuohrvYTA8dyDwr4wylKSZHXBq4tvoAP24BvzqSM9Rbh0gvXQunVoFZ7If4FOYmUXOBveg3EbJSBUMaow==
 
-docsify-pagination@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/docsify-pagination/-/docsify-pagination-2.6.1.tgz#3be4961de85c99fbe075e8cbfd32210817e8ab4f"
-  integrity sha512-aohq7ZoaheazeUWfNaSL3Ewgi4ebXF/arkOeBnNvn2+NJGotz//orf5lrpR/C6DxJU937ZTzhOeNOBEv/XoX/A==
+docsify-pagination@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/docsify-pagination/-/docsify-pagination-2.6.2.tgz#16dfb08888b2a7ca421473032331102960fe23bd"
+  integrity sha512-j1/p9E5t+r07WjchFZEaTvB37PvGVgIAzQD/H3+22ZtqNlKO4u6SwfHvoSX353oLc/BrwdhA92iQJoZ7Z0dERQ==
   dependencies:
     component-closest "^1.0.1"
     component-matches-selector "^0.1.6"
