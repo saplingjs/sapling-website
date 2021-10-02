@@ -1,0 +1,55 @@
+name: Documentation
+description: Errors or omissions in documenting Sapling
+title: ""
+labels: ["documentation"]
+assignees:
+  - groenroos
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to tell us about a problem with the documentation!
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Problem type
+      description: What kind of problem is it?
+      options:
+        - Error (documentation is incorrect)
+        - Omission (documentation doesn't cover something)
+        - Overreach (documentation covers something that doesn't exist)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe in detail the problem with documentation
+    validations:
+      required: true
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      description: What part of Sapling does this concern?
+      options:
+        - Sapling framework
+        - MongoDB driver
+        - Nunjucks driver
+        - Vue components
+        - CLI
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Where is the problem, if applicable?
+      placeholder: https://saplingjs.com/docs/#/config
+    validations:
+      required: false

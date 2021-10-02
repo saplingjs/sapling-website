@@ -1,0 +1,59 @@
+name: Bug report
+description: Errors or problems with the SaplingJS.com website itself
+title: ""
+labels: ["bug"]
+assignees:
+  - groenroos
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to tell us about a problem with the SaplingJS.com website!
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Problem type
+      description: What kind of problem is it?
+      options:
+        - Technical bug (problems with JS, CSS, HTML etc)
+        - Content error (text or images are incorrect)
+        - Responsiveness (broken display on specific devices)
+        - Browser compat (broken display on specific browsers)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Please describe in detail the problem with documentation
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device / operating system
+      description: Which device and/or operating system displays this problem, if applicable?
+      placeholder: iPhone 13 / macOS 11.6
+    validations:
+      required: false
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Which browser and browser version displays this problem, if applicable?
+      placeholder: Chrome 92
+    validations:
+      required: false
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Where is the problem, if applicable?
+      placeholder: https://saplingjs.com/
+    validations:
+      required: false
