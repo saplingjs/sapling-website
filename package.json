@@ -22,10 +22,61 @@
     "watch": "npm run development -- --watch",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "precommit": "lint-staged",
+    "lint-fix": "xo --fix",
+    "lint": "xo"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.15.7",
+    "lint-staged": "^11.1.2",
     "stylus-loader": "^3.0.2",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "^2.6.14",
+    "xo": "^0.45.0"
+  },
+  "xo": {
+    "ignores": [
+      "node_modules/**/*.*"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "requireConfigFile": false
+    },
+    "rules": {
+      "max-params": [
+        "warn",
+        {
+          "max": 6
+        }
+      ],
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 2
+        }
+      ],
+      "no-await-in-loop": "off",
+      "no-new": "off",
+      "no-return-await": "off",
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "unicorn/filename-case": [
+        "error",
+        {
+          "cases": {
+            "camelCase": true,
+            "pascalCase": true
+          }
+        }
+      ],
+      "unicorn/numeric-separators-style": "off"
+    }
+  },
+  "lint-staged": {
+    "!(*test).js": [
+      "npm run lint"
+    ]
   }
 }
