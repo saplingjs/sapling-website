@@ -14,6 +14,7 @@ let mix = require('laravel-mix');
 mix
     .js('src/js/main.js', 'build/js/')
     .js('src/js/docs.js', 'build/js/')
+    .vue()
     .stylus('src/stylus/main.styl', 'build/css/')
     .stylus('src/stylus/docs.styl', 'build/css/');
 
