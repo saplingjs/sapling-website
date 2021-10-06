@@ -23,11 +23,70 @@
     "watch": "mix watch",
     "hot": "mix watch --hot",
     "prod": "npm run production",
-    "production": "mix --production"
+    "production": "mix --production",
+    "precommit": "lint-staged",
+    "lint-fix": "xo --fix",
+    "lint": "npm run lint:stylus && npm run lint:js",
+    "lint:js": "xo",
+    "lint:stylus": "stylint src/stylus/"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.15.7",
+    "lint-staged": "^11.1.2",
+    "stylint": "^2.0.0",
     "stylus-loader": "^3.0.2",
     "vue-loader": "^15.9.8",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "^2.6.14",
+    "xo": "^0.45.0"
+  },
+  "xo": {
+    "envs": [
+      "browser"
+    ],
+    "ignores": [
+      "node_modules/**/*.*",
+      "webpack.mix.js"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "requireConfigFile": false
+    },
+    "rules": {
+      "import/no-unassigned-import": "off",
+      "max-params": [
+        "warn",
+        {
+          "max": 6
+        }
+      ],
+      "no-multiple-empty-lines": [
+        "error",
+        {
+          "max": 2
+        }
+      ],
+      "no-await-in-loop": "off",
+      "no-new": "off",
+      "no-return-await": "off",
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "unicorn/filename-case": [
+        "error",
+        {
+          "cases": {
+            "camelCase": true,
+            "pascalCase": true
+          }
+        }
+      ],
+      "unicorn/numeric-separators-style": "off"
+    }
+  },
+  "lint-staged": {
+    "!(*test).js": [
+      "npm run lint"
+    ]
   }
 }
