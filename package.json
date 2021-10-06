@@ -26,7 +26,9 @@
     "production": "mix --production",
     "precommit": "lint-staged",
     "lint-fix": "xo --fix",
-    "lint": "stylint src/stylus/ && xo"
+    "lint": "npm run lint:stylus && npm run lint:js",
+    "lint:js": "xo",
+    "lint:stylus": "stylint src/stylus/"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.7",
@@ -38,7 +40,9 @@
     "xo": "^0.45.0"
   },
   "xo": {
-    "envs": [ "browser" ],
+    "envs": [
+      "browser"
+    ],
     "ignores": [
       "node_modules/**/*.*",
       "webpack.mix.js"
