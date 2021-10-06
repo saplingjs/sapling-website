@@ -6,6 +6,6 @@ import usecases from './components/Usecases.vue';
 Vue.component('bonsai', bonsai);
 Vue.component('usecases', usecases);
 
-const app = new Vue({
+new Vue({
 	el: '#app',
 });

@@ -52,6 +52,7 @@
       "requireConfigFile": false
     },
     "rules": {
+      "import/no-unassigned-import": "off",
       "max-params": [
         "warn",
         {
