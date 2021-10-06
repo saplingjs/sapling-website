@@ -1,4 +1,4 @@
-@import url('https://rsms.me/inter/inter.css');
+@import url('https://rsms.me/inter/inter.css')
 
 @import 'variables.styl'
 
@@ -8,8 +8,7 @@ $colors = {
 		'2': $success-invert,
 		'3': $success-light,
 		'4': $success-dark
-	}
-}
+	} }
 
 $column-gap = 0.75rem
 
@@ -164,7 +163,7 @@ p
 	white-space nowrap
 
 	+dark()
-		color #fff
+		color $white
 
 	&:not(.button):after
 		content ''
@@ -207,7 +206,7 @@ code, pre
 		margin-top 1.8em !important
 
 	h1&
-		font-family clone-rounded-latin, sans-serif
+		font-family $family-secondary
 		font-weight 200
 		font-style normal
 		font-size 2.8em
@@ -228,7 +227,7 @@ code, pre
 	padding 6.5rem 1.5rem
 
 	&.is-light
-		background #fafafa
+		background $white-bis
 
 		+dark()
 			background lighten($dark-bg, 3%)
@@ -265,7 +264,7 @@ a.navbar-item:hover
 	color $green
 
 .navbar-link:not(.is-arrowless)::after
-	border-color #aaa
+	border-color $grey-light
 	border-bottom-width 2px
 	border-left-width 2px
 	border-radius 2px
@@ -291,7 +290,7 @@ $gradient-dark-top-left = bulma-stylus-lighten(bulma-stylus-saturate(spin($dark-
 
 	code
 		font-size 16px
-		border 1px solid #ccc
+		border 1px solid $grey-lighter
 		padding 0 8px
 		line-height 26px
 
@@ -331,7 +330,7 @@ $gradient-dark-top-left = bulma-stylus-lighten(bulma-stylus-saturate(spin($dark-
 	user-select none
 
 	&:after
-		content " "
+		content ' '
 		font-size 0
 		position absolute
 		bottom -2px

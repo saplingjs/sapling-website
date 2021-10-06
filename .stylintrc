@@ -85,10 +85,7 @@
     "error": true
   },
   "universal": false,
-  "valid": {
-    "expect": true,
-    "error": true
-  },
+  "valid": true,
   "zeroUnits": {
     "expect": "never",
     "error": true
