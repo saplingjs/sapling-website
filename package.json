@@ -38,6 +38,7 @@
     "xo": "^0.45.0"
   },
   "xo": {
+    "envs": [ "browser" ],
     "ignores": [
       "node_modules/**/*.*"
     ],
