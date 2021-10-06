@@ -1,17 +1,9 @@
 @import url('https://rsms.me/inter/inter.css');
 
-$family-primary = Inter,BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif
-$family-monospace = antarctican-mono,sans-serif
-
-$green = #4dcf89
-$grey-dark = $text-strong = $link = #384c54
-
-$dark-bg = #111
-$dark-fg = #eaeaea
-$dark-green = darken($green, 30%)
+@import 'variables.styl'
 
 $colors = {
-	"success": {
+	'success': {
 		'1': $success,
 		'2': $success-invert,
 		'3': $success-light,
@@ -21,28 +13,28 @@ $colors = {
 
 $column-gap = 0.75rem
 
-@import "~bulma-stylus/stylus/base/minireset"
+@import '~bulma-stylus/stylus/base/minireset'
 
-@import "~bulma-stylus/stylus/utilities/initial-variables"
-@import "~bulma-stylus/stylus/utilities/functions"
-@import "~bulma-stylus/stylus/utilities/derived-variables"
-@import "~bulma-stylus/stylus/utilities/mixins"
-@import "~bulma-stylus/stylus/utilities/controls"
+@import '~bulma-stylus/stylus/utilities/initial-variables'
+@import '~bulma-stylus/stylus/utilities/functions'
+@import '~bulma-stylus/stylus/utilities/derived-variables'
+@import '~bulma-stylus/stylus/utilities/mixins'
+@import '~bulma-stylus/stylus/utilities/controls'
 
-@import "~bulma-stylus/stylus/base/generic"
+@import '~bulma-stylus/stylus/base/generic'
 
-@import "~bulma-stylus/stylus/layout/_all"
+@import '~bulma-stylus/stylus/layout/_all'
 
-@import "~bulma-stylus/stylus/grid/tiles"
+@import '~bulma-stylus/stylus/grid/tiles'
 
-@import "~bulma-stylus/stylus/elements/button"
-@import "~bulma-stylus/stylus/elements/container"
-@import "~bulma-stylus/stylus/elements/content"
-@import "~bulma-stylus/stylus/elements/table"
-@import "~bulma-stylus/stylus/elements/tag"
-@import "~bulma-stylus/stylus/elements/title"
+@import '~bulma-stylus/stylus/elements/button'
+@import '~bulma-stylus/stylus/elements/container'
+@import '~bulma-stylus/stylus/elements/content'
+@import '~bulma-stylus/stylus/elements/table'
+@import '~bulma-stylus/stylus/elements/tag'
+@import '~bulma-stylus/stylus/elements/title'
 
-@import "~bulma-stylus/stylus/components/navbar"
+@import '~bulma-stylus/stylus/components/navbar'
 
 
 dark()
@@ -51,11 +43,11 @@ dark()
 
 
 ::-moz-selection
-	color #fff
+	color $white
 	background $green
 
 ::selection
-	color #fff
+	color $white
 	background $green
 
 html
@@ -128,7 +120,7 @@ body
 		margin-bottom ($column-gap * -1)
 
 	&:not(:last-child)
-		margin-bottom "calc(1.5rem - %s)" % $column-gap
+		margin-bottom 'calc(1.5rem - %s)' % $column-gap
 
 	&.is-centered
 		justify-content center
@@ -188,7 +180,7 @@ p
 		color $green
 
 code
-	color #da1c42
+	color $red
 
 	+dark()
 		color saturate($green, 50%)
@@ -264,7 +256,7 @@ code, pre
 
 	+dark()
 		filter brightness(5)
-		opacity .85
+		opacity 0.85
 
 .navbar-link.is-active,
 .navbar-link:hover,
@@ -284,18 +276,18 @@ $gradient-dark-top-left = bulma-stylus-lighten(bulma-stylus-saturate(spin($dark-
 
 .hero
 	margin-top 3rem
-	background-image: linear-gradient(141deg, $gradient-top-left 0%, $light 71%, $gradient-bottom-right 100%)
+	background-image: linear-gradient(141deg, $gradient-top-left 0, $light 71%, $gradient-bottom-right 100%)
 
 	+mobile()
 		.navbar-menu
-			background-image: linear-gradient(141deg, $gradient-top-left 0%, $light 71%, $gradient-bottom-right 100%)
+			background-image: linear-gradient(141deg, $gradient-top-left 0, $light 71%, $gradient-bottom-right 100%)
 	
 	+dark()
-		background-image: linear-gradient(141deg, $gradient-dark-top-left 0%, $dark-bg 85%, $dark-bg 100%)
+		background-image: linear-gradient(141deg, $gradient-dark-top-left 0, $dark-bg 85%, $dark-bg 100%)
 
 		+mobile()
 			.navbar-menu
-				background-image: linear-gradient(141deg, $gradient-dark-top-left 0%, $dark-bg 85%, $dark-bg 100%)
+				background-image: linear-gradient(141deg, $gradient-dark-top-left 0, $dark-bg 85%, $dark-bg 100%)
 
 	code
 		font-size 16px
@@ -347,7 +339,7 @@ $gradient-dark-top-left = bulma-stylus-lighten(bulma-stylus-saturate(spin($dark-
 		right 0
 		height 6px
 		background $green
-		opacity .5
+		opacity 0.5
 		z-index -1
 
 @keyframes shake

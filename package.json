@@ -40,7 +40,8 @@
   "xo": {
     "envs": [ "browser" ],
     "ignores": [
-      "node_modules/**/*.*"
+      "node_modules/**/*.*",
+      "webpack.mix.js"
     ],
     "parser": "@babel/eslint-parser",
     "parserOptions": {
