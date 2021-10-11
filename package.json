@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
-    "lint-staged": "^11.1.2",
+    "lint-staged": "^11.2.3",
     "stylint": "^2.0.0",
     "stylus-loader": "^6.1.0",
     "vue-loader": "^15.9.8",
