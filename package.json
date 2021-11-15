@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
+    "eslint": "^8.2.0",
     "lint-staged": "^11.2.6",
     "stylint": "^2.0.0",
     "stylus-loader": "^6.2.0",
