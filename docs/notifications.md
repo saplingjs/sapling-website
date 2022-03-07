@@ -70,7 +70,7 @@ You can define additional email templates under `static/mail/`, with the `.html`
 You can then send notifications using the built-in notification class;
 
 ```js
-const Notification = require("@sapling/sapling/lib/Notification");
+import Notification from "@sapling/sapling/lib/Notification.js";
 
 new Notification("welcome", "Welcome!", { name: "John" });
 ```
