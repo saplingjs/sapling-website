@@ -35,7 +35,7 @@ The function will be passed five parameters;
 An example hook file might look like this;
 
 ```js
-module.exports = function(app, req, res, data, next) {
+export default function(app, req, res, data, next) {
     // Do stuff here
 
     next(app, req, res, data);
@@ -52,7 +52,7 @@ Each hook will be passed a callback function as the fifth parameter.  If you'd l
 If you prefer not to let Sapling do its thing after your hook, you can ignore the callback, and handle the response yourself with the `res` object;
 
 ```js
-module.exports = function(app, req, res, data, next) {
+export default function(app, req, res, data, next) {
     // Do stuff here
 
     res.send(200);
@@ -68,9 +68,9 @@ Sapling also includes a `Response` object you can optionally use to respond to r
 You can use it to send JSON data (either as a JS object literal or as a string);
 
 ```js
-const Response = require("@sapling/sapling/lib/Response");
+import Response from "@sapling/sapling/lib/Response.js";
 
-module.exports = function(app, req, res, data, next) {
+export default function(app, req, res, data, next) {
     new Response(app, req, res, null, [{"foo": "bar"}]);
 };
 ```
@@ -78,9 +78,9 @@ module.exports = function(app, req, res, data, next) {
 To send parsed HTML;
 
 ```js
-const Response = require("@sapling/sapling/lib/Response");
+import Response from "@sapling/sapling/lib/Response.js";
 
-module.exports = function(app, req, res, data, next) {
+export default function(app, req, res, data, next) {
     new Response(app, req, res, null, "<strong>Hello</strong>");
 };
 ```
@@ -88,10 +88,10 @@ module.exports = function(app, req, res, data, next) {
 Or, to send an error:
 
 ```js
-const Response = require("@sapling/sapling/lib/Response");
-const SaplingError = require("@sapling/sapling/lib/SaplingError");
+import Response from "@sapling/sapling/lib/Response.js";
+import SaplingError from "@sapling/sapling/lib/SaplingError.js";
 
-module.exports = function(app, req, res, data, next) {
+export default function(app, req, res, data, next) {
     new Response(app, req, res, new SaplingError(err));
 };
 ```
