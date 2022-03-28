@@ -11,7 +11,7 @@
     "marked": "^4.0.12",
     "normalize": "^0.3.1",
     "prismjs": "^1.27.0",
-    "vue": "^2.6.14",
+    "vue": "^3.2.31",
     "vue-smooth-reflow": "^0.1.12"
   },
   "resolutions": {
