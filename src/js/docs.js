@@ -6,6 +6,16 @@ import 'docsify-pagination';
 import 'docsify-copy-code';
 import 'docsify-tabs';
 
+
+/* Language highlighting */
+
+import 'prismjs/components/prism-bash.js';
+import 'prismjs/components/prism-handlebars.js';
+import 'prismjs/components/prism-http.js';
+import 'prismjs/components/prism-json.js';
+import 'prismjs/components/prism-pug.js';
+import 'prismjs/components/prism-twig.js';
+
 window.$docsify = Object.assign({}, window.$docsify, {
 	name: 'Sapling',
 	logo: '../images/logo.svg',
@@ -26,19 +36,9 @@ window.$docsify = Object.assign({}, window.$docsify, {
 		sync: true,
 		theme: 'material',
 		tabComments: false,
-		tabHeadings: true
-	}
+		tabHeadings: true,
+	},
 });
-
-
-/* Language highlighting */
-
-import 'prismjs/components/prism-bash.js';
-import 'prismjs/components/prism-handlebars.js';
-import 'prismjs/components/prism-http.js';
-import 'prismjs/components/prism-json.js';
-import 'prismjs/components/prism-pug.js';
-import 'prismjs/components/prism-twig.js';
 
 window.Prism.languages.nunjucks = window.Prism.languages.twig;
 window.Prism.languages.env = window.Prism.languages.bash;
