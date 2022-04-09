@@ -31,13 +31,40 @@ The `get` tag will fetch data from a valid [data API](/data) call and expose it 
 
 For instance:
 
+<!-- tabs:start -->
+
+#### **Nunjucks**
+
 ```nunjucks
 {% get reviews = '/data/reviews' %}
-    
+
 {% for review in reviews %}
 <h2>{{ review.title }}</h2>
 <p>{{ review.content }}</p>
 {% endfor %}
 ```
+
+#### **Handlebars**
+
+```handlebars
+{{ get 'posts' from '/data/posts' as 'admin' }}
+
+{{#each posts}}
+<h2>{{ this.title }}</h2>
+<p>{{ this.content }}</p>
+{{/each}}
+```
+
+#### **Pug**
+
+```pug
+- var posts = get('/data/posts', 'admin')
+
+each post in posts
+	h2= post.title
+	p= post.content
+```
+
+<!-- tabs:end -->
 
 The `get` tag gets the list of reviews from `/data/reviews`, and exposes it in a variable called `reviews`.
