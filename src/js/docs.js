@@ -1,15 +1,12 @@
+/* Docsify setup */
+
 import 'docsify';
 import 'docsify-themeable';
 import 'docsify-pagination';
 import 'docsify-copy-code';
+import 'docsify-tabs';
 
-import 'prismjs/components/prism-bash.js';
-import 'prismjs/components/prism-http.js';
-import 'prismjs/components/prism-json.js';
-import 'prismjs/components/prism-twig.js';
-
-
-window.$docsify = {
+window.$docsify = Object.assign({}, window.$docsify, {
 	name: 'Sapling',
 	logo: '../images/logo.svg',
 	repo: 'saplingjs/sapling',
@@ -24,7 +21,24 @@ window.$docsify = {
 		crossChapter: true,
 		crossChapterText: false,
 	},
-};
+	tabs: {
+		persist: true,
+		sync: true,
+		theme: 'material',
+		tabComments: false,
+		tabHeadings: true
+	}
+});
+
+
+/* Language highlighting */
+
+import 'prismjs/components/prism-bash.js';
+import 'prismjs/components/prism-handlebars.js';
+import 'prismjs/components/prism-http.js';
+import 'prismjs/components/prism-json.js';
+import 'prismjs/components/prism-pug.js';
+import 'prismjs/components/prism-twig.js';
 
 window.Prism.languages.nunjucks = window.Prism.languages.twig;
 window.Prism.languages.env = window.Prism.languages.bash;
