@@ -33,6 +33,10 @@ No, seriously.  With Sapling, all data is handled by its special and powerful dy
 
 Say you then want to show a list of the reviews that have been posted.  This is also super easy.  By default, Sapling uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language, with a few custom tags to make things easier.
 
+<!-- tabs:start -->
+
+#### **Nunjucks**
+
 ```nunjucks
 {% get reviews = '/data/reviews' %}
 
@@ -41,6 +45,29 @@ Say you then want to show a list of the reviews that have been posted.  This is 
 <p>{{ review.content }}</p>
 {% endfor %}
 ```
+
+#### **Handlebars**
+
+```handlebars
+{{ get 'posts' from '/data/posts' as 'admin' }}
+
+{{#each posts}}
+<h2>{{ this.title }}</h2>
+<p>{{ this.content }}</p>
+{{/each}}
+```
+
+#### **Pug**
+
+```pug
+- var posts = get('/data/posts', 'admin')
+
+each post in posts
+	h2= post.title
+	p= post.content
+```
+
+<!-- tabs:end -->
 
 The `set` tag fetches the reviews that have been posted with the form above, and the `for` loop below goes through each review, and displays the fields that were defined in the form.
 

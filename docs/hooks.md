@@ -35,7 +35,7 @@ The function will be passed five parameters;
 An example hook file might look like this;
 
 ```js
-export default function(app, req, res, data, next) {
+export default (app, req, res, data, next) => {
     // Do stuff here
 
     next(app, req, res, data);
@@ -52,7 +52,7 @@ Each hook will be passed a callback function as the fifth parameter.  If you'd l
 If you prefer not to let Sapling do its thing after your hook, you can ignore the callback, and handle the response yourself with the `res` object;
 
 ```js
-export default function(app, req, res, data, next) {
+export default (app, req, res, data, next) => {
     // Do stuff here
 
     res.send(200);
@@ -70,7 +70,7 @@ You can use it to send JSON data (either as a JS object literal or as a string);
 ```js
 import Response from "@sapling/sapling/lib/Response.js";
 
-export default function(app, req, res, data, next) {
+export default (app, req, res, data, next) => {
     new Response(app, req, res, null, [{"foo": "bar"}]);
 };
 ```
@@ -80,7 +80,7 @@ To send parsed HTML;
 ```js
 import Response from "@sapling/sapling/lib/Response.js";
 
-export default function(app, req, res, data, next) {
+export default (app, req, res, data, next) => {
     new Response(app, req, res, null, "<strong>Hello</strong>");
 };
 ```
@@ -91,7 +91,7 @@ Or, to send an error:
 import Response from "@sapling/sapling/lib/Response.js";
 import SaplingError from "@sapling/sapling/lib/SaplingError.js";
 
-export default function(app, req, res, data, next) {
+export default (app, req, res, data, next) => {
     new Response(app, req, res, new SaplingError(err));
 };
 ```
