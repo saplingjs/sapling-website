@@ -30,15 +30,9 @@ $column-gap = 0.75rem
 @import '~bulma-stylus/stylus/elements/container'
 @import '~bulma-stylus/stylus/elements/content'
 @import '~bulma-stylus/stylus/elements/table'
-@import '~bulma-stylus/stylus/elements/tag'
 @import '~bulma-stylus/stylus/elements/title'
 
 @import '~bulma-stylus/stylus/components/navbar'
-
-
-dark()
-	@media (prefers-color-scheme dark)
-		{block}
 
 
 ::-moz-selection
@@ -110,6 +104,9 @@ body
 	hr
 		background lighten($dark-bg, 10%)
 
+.is-relative
+	position relative
+
 .columns
 	margin-left ($column-gap * -1)
 	margin-right ($column-gap * -1)
@@ -134,17 +131,21 @@ body
 	flex-shrink 1
 	padding $column-gap
 
-	&.is-four-fifths
-		flex none
-		width 80%
+	+desktop()
+		&.is-four-fifths
+			flex none
+			width 80%
 
-	&.is-two-thirds
-		flex none
-		width 66.6666%
-	
-	&.is-3
-		flex none
-		width 25%
+		&.is-two-thirds
+			flex none
+			width 66.6666%
+		
+		&.is-3
+			flex none
+			width 25%
+
+.mt-6
+	margin-top 3rem !important
 
 .has-text-success
 	color $success !important
@@ -157,6 +158,11 @@ body
 
 p
 	margin-bottom 0.75em !important
+
+.content > p
+	max-width 40rem
+	margin-left auto
+	margin-right auto
 
 .content a, .table a
 	position relative
@@ -190,6 +196,19 @@ code, pre
 	+dark()
 		background lighten($dark-bg, 7%)
 
+.tag-block:not(body)
+	align-items center
+	display inline-flex
+	font-size $size-small
+	height 2em
+	justify-content center
+	line-height 1.5
+	padding-left 0.75em
+	padding-right 0.75em
+	white-space nowrap
+	background $info
+	border-radius 0.25rem
+
 .title
 	+dark()
 		color $dark-fg
@@ -212,7 +231,7 @@ code, pre
 		font-size 2.8em
 		margin-bottom 0.5em !important
 
-	& + .tag
+	& + .tag-block
 		position relative
 		top -0.75rem
 		font-size 0.7rem
@@ -222,6 +241,9 @@ code, pre
 
 		+dark()
 			background darken($info, 30%)
+
+	em
+		white-space nowrap
 
 .section
 	padding 6.5rem 1.5rem
