@@ -14,8 +14,8 @@
 						$ <vue-typer
 							text="sapling run"
 							:repeat="0"
-							:pre-type-delay="800"
-							:type-delay="180"
+							:pre-type-delay="900"
+							:type-delay="160"
 						></vue-typer>
 					</article>
 				</div>
@@ -280,14 +280,14 @@ export default {
 	position relative
 	margin 0 1.5rem
 	height 400px
-	
+
 	& > div
 		width 100%
 		height 100%
 		display flex
 		justify-content center
 		align-items center
-	
+
 	& > div > article
 		width 100%
 
@@ -301,8 +301,11 @@ export default {
 		padding 2rem 0
 		width min-content
 		margin 0 auto
-		color #111
+		color #fff
 		transition none
+
+		+dark()
+			color #111
 
 		+touch()
 			font-size 1rem
@@ -329,47 +332,62 @@ export default {
 									animation-delay 50ms * i + 200ms * t
 
 		.is-animated &
-			color #fff
+			color #111
 			transition 0.3s color ease-in-out
 			transition-delay 1.1s
-	
+
+			+dark()
+				color #fff
+
 	#shell > article
 		text-align left
 		font-family $family-monospace
 		font-size 2.5rem
 		white-space nowrap
-		color #ddd
+		color #111
 		margin 0 auto
 		max-width 550px
+
+		+dark()
+			color #ddd
 
 		+touch()
 			font-size 1.75rem
 
 		.vue-typer
 			.custom.char
-				color #ddd
+				color inherit
 
 			.custom.caret
 				width 0.5em
 				height 1em
-				background-color #ddd
+				background-color #111
+
+				+dark()
+					background-color #ddd
 
 				&.complete
 					display inline-block
-	
+
 	#final > article
 		display flex
 		justify-content center
 		margin 0 auto
 		max-width 750px
 
+		+touch()
+			width 200%
+
 		& > div
 			text-align left
-			background rgba(0,0,0,.1)
+			background rgba(0,0,0,.025)
 			padding 2rem 3rem
 			border-radius 1rem
 			width min-content
 			margin 1rem
+
+			+dark()
+				background rgba(0,0,0,.2)
 
 			h2
 				white-space nowrap
@@ -383,7 +401,7 @@ export default {
 				font-size 1rem
 				border-radius 0.5rem
 				outline none
-			
+
 			input, textarea
 				width 100%
 				min-width 280px
@@ -396,7 +414,10 @@ export default {
 
 				&:active, &:focus
 					border-color $green
-			
+
+			textarea
+				max-width 100%
+
 			button
 				margin-left auto
 				border 0
@@ -404,7 +425,7 @@ export default {
 				padding 0.75rem 1.5rem
 				color $white
 				font-weight 700
-		
+
 		#database
 			.is-relative
 				min-width 330px
@@ -413,6 +434,10 @@ export default {
 				width 100%
 				line-height 1.6
 				border-radius 8px
+				background $white
+
+				+dark()
+					background rgba(0,0,0,.2)
 
 #demo-caption
 	position relative
@@ -471,8 +496,11 @@ export default {
 			& > div
 				width 0
 				height 8px
-				background #ddd
+				background #666
 				animation none
+
+				+dark()
+					background #ddd
 
 		.is-animated &.is-active
 			& > div
@@ -480,16 +508,19 @@ export default {
 
 				& > div
 					animation 4.5s progress linear forwards
-			
+
 			&.is-final > div
-					width 8px
+				width 8px
+				background #666
+
+				+dark()
 					background #ddd
 
 
 .code
 	.tag, .number
 		color $purple
-	
+
 	.attr-name, .property
 		color $green
 
@@ -499,7 +530,7 @@ export default {
 	@media (prefers-color-scheme dark)
 		.tag, .number
 			color lighten($purple, 50%)
-		
+
 		.attr-name, .property
 			color lighten($green, 20%)
 
@@ -514,14 +545,14 @@ export default {
 	0%
 		text-indent -105%
 		letter-spacing -0.1em
-	
+
 	100%
 		text-indent 0
 
 @keyframes progress
 	0%
 		width 0
-	
+
 	100%
 		width 100%
 
