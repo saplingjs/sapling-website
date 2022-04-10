@@ -3,8 +3,8 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Sapling - Faster-than-light development</title>
-	<meta name="description" content="A Node.js framework for faster-than-light development of websites, web apps and APIs.">
+	<title>Sapling - Faster-than-light web development</title>
+	<meta name="description" content="A rapid Node.js framework for faster-than-light development of websites, web apps and APIs.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="https://use.typekit.net/vlu8wla.css">
@@ -21,13 +21,13 @@
 
 	<meta name="image" content="https://www.saplingjs.com/images/sapling.jpg">
 	<meta itemprop="name" content="Sapling">
-	<meta itemprop="description" content="A Node.js framework for faster-than-light development of websites, web apps and APIs.">
+	<meta itemprop="description" content="A rapid Node.js framework for faster-than-light development of websites, web apps and APIs.">
 	<meta itemprop="image" content="https://www.saplingjs.com/images/sapling.jpg">
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Sapling">
-	<meta name="twitter:description" content="A Node.js framework for faster-than-light development of websites, web apps and APIs.">
+	<meta name="twitter:description" content="A rapid Node.js framework for faster-than-light development of websites, web apps and APIs.">
 	<meta name="og:title" content="Sapling">
-	<meta name="og:description" content="A Node.js framework for faster-than-light development of websites, web apps and APIs.">
+	<meta name="og:description" content="A rapid Node.js framework for faster-than-light development of websites, web apps and APIs.">
 	<meta name="og:image" content="https://www.saplingjs.com/images/sapling.jpg">
 	<meta name="og:url" content="https://www.saplingjs.com">
 	<meta name="og:site_name" content="Sapling">
@@ -104,7 +104,7 @@
 						</div>
 						<div class="column">
 							<h1 class="title">A Node.js framework for <em>faster-than-light</em> development.</h1>
-							<h2 class="subtitle"><strong>Sapling</strong> is a Node.js framework for building websites, web apps and APIs as fast as you can imagine them.  With unrivalled speed of development, you can prototype quickly, iterate with ease, and deploy the same day.  Zero code, zero config &ndash; unless you want to.  And what's more, it comes with all the SaaS features you never want to write, all built-in.</h2>
+							<h2 class="subtitle"><strong>Sapling</strong> is a Node.js framework for building websites, web apps and APIs as fast as you can imagine them.  With unrivalled speed of development, you can prototype quickly, iterate with ease, and deploy the same day.  Zero code, zero config &ndash; unless you want to.</h2>
 
 							<table class="table">
 								<tbody>
@@ -142,7 +142,7 @@
 		<section id="features" class="section is-light">
 			<div class="container">
 				<h1 class="title has-text-centered">All the SaaS features you hate to write.</h1>
-				<p class="subtitle has-text-centered">Sapling features all of the usual SaaS features nobody likes to write, built right in.</p>
+				<p class="subtitle has-text-centered">Sapling will have all of the usual SaaS features nobody likes to write, built right in.</p>
 
 				<div class="columns mt-6 is-centered">
 					<div class="column">
@@ -269,7 +269,7 @@
 						<div>
 							<div class="feature-icon"><i class="far fa-2x fa-box-full"></i></div>
 							<h3 class="title is-5 has-text-success">Unopinionated</h3>
-							<p>Sapling likes MongoDB, Nunjucks and Vue, but you don't have to.  Use any database, templating language and frontend framework you like.</p>
+							<p>Use any database system, templating language, and frontend stack you like.</p>
 						</div>
 					</div>
 				</div>
@@ -285,44 +285,50 @@
 					<div class="column">
 						<div class="content">
 							<h2 class="title is-5 has-text-success">How can all the forms work with no backend code?</h2>
-							<p>Sapling's dynamic data backend figures out what to do based on the type of request it receives to the built-in <code>/data</code> route. It acts as a very light wrapper for abstract CRUD queries;</p>
+							<p>Sapling's dynamic data backend figures out what to do based on the type of request it receives to the built-in <code>/data</code> route.  It acts as a lightweight wrapper for abstract CRUD operations;</p>
 
 							<ul>
 								<li><code>GET /data/posts</code> returns all records in the collection <strong>posts</strong></li>
-								<li><code>GET /data/posts/type/text</code> returns records in the collection <strong>posts</strong>, where the value of <strong>type</strong> is <strong>text</strong></li>
+								<li><code>GET /data/posts/type/text</code> returns records in the collection <strong>posts</strong>, where the value of <strong>type</strong> is <strong>"text"</strong></li>
 								<li><code>POST /data/posts</code> creates a new record in the collection <strong>posts</strong></li>
-								<li><code>POST /data/posts/_id/1</code> modifies records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
+								<li><code>POST /data/posts/_id/1</code> modifies any records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
 								<li><code>DELETE /data/posts</code> deletes all records in the collection <strong>posts</strong></li>
-								<li><code>DELETE /data/posts/_id/1</code> deletes records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
+								<li><code>DELETE /data/posts/_id/1</code> deletes any records in the collection <strong>posts</strong>, where the value of <strong>_id</strong> is <strong>1</strong></li>
 							</ul>
 
-							<p>As such, the second parameter is the collection, and optionally a third and fourth parameter may be provided, which will act as key and value for a where clause, respectively.  The type of HTTP request received determines what is done with the returned records.  In cases of POST requests, any and all POST values sent are saved into a new record or any matching records.</p>
+							<p>As such, the second URL segment is the collection, and if the third and fourth segments are provided, they will act as key and value for a where clause, respectively.  The method of the HTTP request determines what is done with the matching records.  In cases of POST requests, any and all POST values received are saved into a new record or any matching records.</p>
 
 							<p><a href="/docs#/data">Learn more about the data API <i class="far fa-arrow-right"></i></a></p>
 
 							<h2 class="title is-5 has-text-success">Oh wow.  Putting this on production would be <em class="has-shake">insanity!</em></h2>
-							<p>Absolutely, and the default configuration of Sapling is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
-							<p>Sapling has robust support for defining data models (aka database schemata) with built-in data validation, and access control for each method-route combination.  In the default configuration, these are optional for the developer to define.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and <strong>nothing</strong> is ever implicitly saved into the database.</p>
+							<p>Absolutely, and Sapling's default configuration is indeed not meant for production use, but rather, optimised for rapid prototyping.</p>
+							<p>Sapling has robust support for built-in data and request validation, as well as access control for each method-route combination.  By default, these are optional.  However, in Sapling's production mode, both of these <strong>must</strong> be defined, and nothing is ever implicitly saved into the database.</p>
 
 							<p><a href="/docs#/production">Learn more about production mode <i class="far fa-arrow-right"></i></a></p>
+							<p><a href="/docs#/models">Learn more about data models <i class="far fa-arrow-right"></i></a></p>
 						</div>
 					</div>
 					<div class="column">
 						<div class="content">
-							<h2 class="title is-5 has-text-success">This must be basically a drag'n'drop framework for beginners, with no option for <em>real</em> development.</h2>
-							<p>Just because you don't <em>need</em> to write code to achieve basic CRUD functionality with Sapling, doesn't mean you <em>can't</em> write code when you actually need to.</p>
-							<p>Sapling has built-in support for custom hooks for any route, including the <code>/data</code> backend.  These hooks are just regular Node.js files, where you can code and import whatever you want just like normal, and organise these hooks in any directory structure that makes sense to you.  Additionally (and completely optionally), all of Sapling's built-in functions are available to you there.</p>
+							<h2 class="title is-5 has-text-success">This must be some low-code framework for beginners, with no options for advanced development.</h2>
+							<p>Just because you don't <em>need</em> to write code to do basic CRUD operations with Sapling, doesn't mean you <em>can't</em> write code when you actually need to.</p>
+							<p>When you need to write advanced functionality, Sapling will step aside, and let you handle requests just like you would with any other server framework.  Organise and write your code however you wish.  All of Sapling's internals methods are available to you - though you don't need to use them, if you don't want to.</p>
 
 							<p><a href="/docs#/hooks">Learn more about hooks <i class="far fa-arrow-right"></i></a></p>
 
+							<h2 class="title is-5 has-text-success">This doesn't sound very robust &ndash; this would never work for my team of 250 devs building custom enterprise banking solutions.</h2>
+							<p>And that's fine.  No tool is right for every job.</p>
+							<p>Where Sapling shines are situations where speed of development is critical, or available manpower is limited: MVPs, hackathons, prototypes, proofs of concept, mockups, side hustles, personal projects, one-off campaigns, and so on.</p>
+							<p>Get off the ground quickly by never having to write another login form, or worrying about backends for all the basic "put thing in database" stuff &ndash; spend 100% of your time on the things that actually butter your bread.  And if you ever feel your project has "graduated" out of Sapling, all your custom-developed business logic remains easily portable to any other JS framework.</p>
+
+							<p><a href="/docs#/porting">Learn more about code portability <i class="far fa-arrow-right"></i></a></p>
+
 							<h2 class="title is-5 has-text-success">I don't like MongoDB or Nunjucks or Vue.</h2>
-							<p>You don't have to!  By default, Sapling uses these three, but that's all they are &ndash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
-							<p>Database and templating engines connect to Sapling via a generalised abstraction layer called a driver.  You can easily write your own driver for your favourite database or templating engine.</p>
+							<p>You don't have to!  Sapling uses these three by default, but that's all they are &ndash; defaults.  Each functionality (database, templating, frontend framework) is its own separate package, which you can replace or uninstall at any time.</p>
+							<p>Sapling is fairly hands-off with the frontend stack, so you are free to use whatever frontend build pipelines you prefer.</p>
+							<p>Database and templating engines connect to Sapling via an abstraction layer called a <em>driver</em>.  Chances are, there's already a driver for your favourite database or templating engine &ndash; and if not, you can easily write your own.</p>
 
 							<p><a href="/docs#/drivers">Learn more about drivers <i class="far fa-arrow-right"></i></a></p>
-
-							<h2 class="title is-5 has-text-success">What about performance?</h2>
-							<p>Sapling features a production mode that turns off the slowest development aids to bring the end-user performance to the same level as other Node.js based frameworks.</p>
 						</div>
 					</div>
 				</div>

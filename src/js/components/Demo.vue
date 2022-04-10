@@ -202,7 +202,7 @@ export default {
 			/* Clear any previous timeout, and set a new one, if necessary */
 			clearTimeout(this.interval);
 			if (this.stage < 3) {
-				this.interval = setTimeout(() => this.change(), 4500);
+				this.interval = setTimeout(() => this.change(), 4000);
 			}
 
 			/* Reset animations */
@@ -473,13 +473,16 @@ export default {
 #demo-caption
 	position relative
 	margin 1.5rem 0 1rem
-	min-height 90px
+	min-height 100px
 
 	& > div
 		width 100%
 		display flex
 		flex-direction column
 		align-items center
+
+		h1
+			margin-bottom 0.5rem
 
 		p
 			margin-bottom 0 !important
@@ -538,7 +541,7 @@ export default {
 				width 32px
 
 				& > div
-					animation 4.5s progress linear forwards
+					animation 4s progress linear forwards
 
 			&.is-final > div
 				width 8px
