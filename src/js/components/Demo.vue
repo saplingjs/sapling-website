@@ -22,12 +22,12 @@
 
 				<!-- Final result -->
 				<div v-if="stage === 3" key="stage-3" id="final">
-					<article>
+					<article class="columns">
 						<!-- The result of the HTML markup -->
-						<div id="form" v-html="demo.markup" @submit.prevent="handleSubmit"></div>
+						<div id="form" class="column" v-html="demo.markup" @submit.prevent="handleSubmit"></div>
 
 						<!-- Database simulation -->
-						<div id="database">
+						<div id="database" class="column">
 							<h2>Database table <code v-text="demo.collection"></code></h2>
 
 							<div class="is-relative">
@@ -46,7 +46,7 @@
 			<transition name="slidefade">
 				<div v-if="stage === 1" key="caption-1" id="caption-1">
 					<h1>Step 1</h1>
-					<p>Write your HTML &ndash; for example, a <strong v-text="demo.name"></strong>.</p>
+					<p>Write your HTML &ndash; for example, a <a v-text="demo.name" @click="update"></a>.</p>
 				</div>
 				<div v-if="stage === 2" key="caption-2" id="caption-2">
 					<h1>Step 2</h1>
@@ -91,6 +91,9 @@ export default {
 
 			/* Object of user submitted form data */
 			currentObject: false,
+
+			/* Randomly selected demo */
+			demo: { name: null },
 
 			/* All the available demos */
 			demos: [
@@ -164,11 +167,6 @@ export default {
 	},
 
 	computed: {
-		/* Select a random demo */
-		demo() {
-			return this.demos[Math.floor(Math.random()*this.demos.length)];
-		},
-
 		/* Code highlight selected HTML markup */
 		highlightedMarkup() {
 			return Prism.highlight(this.demo.markup, Prism.languages.markup, 'markup');
@@ -197,6 +195,34 @@ export default {
 			}
 		},
 
+		/* Change demos */
+		update() {
+			/* Re-pick a demo */
+			this.randomise();
+
+			/* Reset timer */
+			this.change(1);
+
+			/* Hack to re-start animation */
+			this.animated = false;
+			setTimeout(() => {
+				this.animated = true;
+			}, 1);
+		},
+
+		/* Pick a random demo */
+		randomise() {
+			/* Randomise */
+			const random = this.demos[Math.floor(Math.random()*this.demos.length)];
+
+			/* If it's the same we currently have, re-randomise - otherwise, assign */
+			if (random.name === this.demo.name) {
+				this.randomise();
+			} else {
+				this.demo = random;
+			}
+		},
+
 		/* Capture form submit, convert into object */
 		handleSubmit(event) {
 			const data = new FormData(event.target);
@@ -212,6 +238,11 @@ export default {
 		generateTimestamp() {
 			return + new Date();
 		}
+	},
+
+	created() {
+		/* Pick a demo */
+		this.randomise();
 	},
 
 	mounted() {
@@ -242,10 +273,12 @@ export default {
 
 #demo
 	padding 1.5rem 0 4rem
+	overflow hidden
+	margin 0 -1.5rem
 
 #demo-stage
 	position relative
-	margin 0
+	margin 0 1.5rem
 	height 400px
 	
 	& > div
@@ -271,6 +304,12 @@ export default {
 		color #111
 		transition 0.3s color ease-in-out
 		transition-delay 1.1s
+
+		+touch()
+			font-size 1rem
+			line-height 1.6
+			white-space pre-wrap
+			width 100%
 
 		& > .token
 			& > *
@@ -302,6 +341,9 @@ export default {
 		margin 0 auto
 		max-width 550px
 
+		+touch()
+			font-size 1.75rem
+
 		.vue-typer
 			.custom.char
 				color #ddd
@@ -317,6 +359,8 @@ export default {
 	#final > article
 		display flex
 		justify-content center
+		margin 0 auto
+		max-width 750px
 
 		& > div
 			text-align left
@@ -372,7 +416,7 @@ export default {
 #demo-caption
 	position relative
 	margin 1.5rem 0 1rem
-	height 90px
+	min-height 90px
 
 	& > div
 		width 100%
@@ -382,14 +426,19 @@ export default {
 
 		p
 			margin-bottom 0 !important
-	
+			line-height 1.75
+			padding 0 1.5rem
+
+			a
+				font-weight 700
+
 	#caption-3 p
 		position relative
 
 		&::after
 			content ''
 			position absolute
-			right -2rem
+			right -0.5rem
 			bottom 1rem
 			width 52px
 			height 60px
@@ -422,6 +471,7 @@ export default {
 				width 0
 				height 8px
 				background #ddd
+				animation none
 
 		.is-animated &.is-active
 			& > div
@@ -476,11 +526,12 @@ export default {
 
 
 .popfade-leave-active, .popfade-enter-active
-	transition 0.6s cubic-bezier(0.65, 0, 0.35, 1)
+	transition 0.6s cubic-bezier(0.32, 0, 0.67, 0)
 	position absolute
 	top 0
 
 .popfade-enter-active
+	transition 0.6s cubic-bezier(0.33, 1, 0.68, 1)
 	transition-delay 0.4s
 
 .popfade-enter, .popfade-leave-to
