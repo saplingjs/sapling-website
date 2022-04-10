@@ -44,17 +44,17 @@
 		<!-- Caption for each slide -->
 		<main id="demo-caption">
 			<transition name="slidefade">
-				<div v-if="stage === 1" key="step-1">
+				<div v-if="stage === 1" key="caption-1" id="caption-1">
 					<h1>Step 1</h1>
 					<p>Write your HTML &ndash; for example, a <strong v-text="demo.name"></strong>.</p>
 				</div>
-				<div v-if="stage === 2" key="step-2">
+				<div v-if="stage === 2" key="caption-2" id="caption-2">
 					<h1>Step 2</h1>
 					<p>Run your project.</p>
 				</div>
-				<div v-if="stage === 3" key="step-3">
+				<div v-if="stage === 3" key="caption-3" id="caption-3">
 					<h1>Step 3</h1>
-					<p>It works &ndash; like magic. Try it!</p>
+					<p>It already works &ndash; like magic.  Try it!</p>
 				</div>
 			</transition>
 		</main>
@@ -376,9 +376,24 @@ export default {
 
 	& > div
 		width 100%
+		display flex
+		flex-direction column
+		align-items center
 
 		p
 			margin-bottom 0 !important
+	
+	#caption-3 p
+		position relative
+
+		&::after
+			content ''
+			position absolute
+			right -2rem
+			bottom 1rem
+			width 52px
+			height 60px
+			background url('/images/arrow.svg') no-repeat
 
 #demo-dots
 	display flex
