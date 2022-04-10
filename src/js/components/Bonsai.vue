@@ -67,6 +67,8 @@ export default {
 
 <style lang="stylus">
 
+@import '../../stylus/variables'
+
 #bonsai
 	svg
 		height 65%
@@ -85,7 +87,7 @@ export default {
 		.wood-darkest
 			fill #1A180C
 
-		@media (prefers-color-scheme dark)
+		+dark()
 			opacity .8
 
 			.wood-light

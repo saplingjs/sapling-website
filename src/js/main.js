@@ -1,10 +1,10 @@
 import Vue from 'vue';
 
 import bonsai from './components/Bonsai.vue';
-import usecases from './components/Usecases.vue';
+import demo from './components/Demo.vue';
 
 Vue.component('bonsai', bonsai);
-Vue.component('usecases', usecases);
+Vue.component('demo', demo);
 
 new Vue({
 	el: '#app',
