@@ -193,6 +193,9 @@ export default {
 			if (this.stage < 3) {
 				this.interval = setTimeout(() => this.change(), 4500);
 			}
+
+			/* Reset animations */
+			this.resetAnimation();
 		},
 
 		/* Change demos */
@@ -203,7 +206,12 @@ export default {
 			/* Reset timer */
 			this.change(1);
 
-			/* Hack to re-start animation */
+			/* Reset animations */
+			this.resetAnimation();
+		},
+
+		/* Hack to re-start animation */
+		resetAnimation() {
 			this.animated = false;
 			setTimeout(() => {
 				this.animated = true;
