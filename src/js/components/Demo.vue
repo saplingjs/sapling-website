@@ -165,7 +165,12 @@ export default {
 						_id: this.generateID(),
 						_createdDate: this.generateTimestamp(),
 						status: data.status,
-						photo: data.photo
+						photo: {
+							name: "photo.jpg",
+							width: 1280,
+							height: 768,
+							thumbnails: []
+						}
 					})
 				}
 			]
