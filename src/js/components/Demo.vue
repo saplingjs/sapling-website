@@ -22,12 +22,12 @@
 
 				<!-- Final result -->
 				<div v-if="stage === 3" key="stage-3" id="final">
-					<article class="columns">
+					<transition-group tag="article" name="popfade" class="columns">
 						<!-- The result of the HTML markup -->
-						<div id="form" class="column" v-html="demo.markup" @submit.prevent="handleSubmit"></div>
+						<div id="form" key="form" class="column" v-if="!isTouch || !showDatabase" v-html="demo.markup" @submit.prevent="handleSubmit"></div>
 
 						<!-- Database simulation -->
-						<div id="database" class="column">
+						<div id="database" key="database" class="column" v-if="!isTouch || showDatabase">
 							<h2>Database table <code v-text="demo.collection"></code></h2>
 
 							<div class="is-relative">
@@ -36,7 +36,7 @@
 								</transition>
 							</div>
 						</div>
-					</article>
+					</transition-group>
 				</div>
 			</transition>
 		</figure>
@@ -94,6 +94,12 @@ export default {
 
 			/* Randomly selected demo */
 			demo: { name: null },
+
+			/* Whether we're under the touch breakpoint */
+			isTouch: false,
+
+			/* Whether to show the database on mobile view */
+			showDatabase: false,
 
 			/* All the available demos */
 			demos: [
@@ -196,6 +202,9 @@ export default {
 
 			/* Reset animations */
 			this.resetAnimation();
+
+			/* Reset database view */
+			this.showDatabase = false;
 		},
 
 		/* Change demos */
@@ -235,6 +244,9 @@ export default {
 		handleSubmit(event) {
 			const data = new FormData(event.target);
 			this.currentObject = this.demo.object(Object.fromEntries(data));
+
+			/* Show database view on mobile */
+			this.showDatabase = true;
 		},
 
 		/* Generate random record ID */
@@ -266,6 +278,11 @@ export default {
 			}
 		});
 		window.dispatchEvent(new Event('scroll'));
+
+		window.addEventListener('resize', () => {
+			this.isTouch = window.innerWidth < 1024;
+		});
+		window.dispatchEvent(new Event('resize'));
 	},
 
 	components: {
@@ -383,16 +400,16 @@ export default {
 		margin 0 auto
 		max-width 750px
 
-		+touch()
-			width 200%
-
 		& > div
 			text-align left
 			background rgba(0,0,0,.025)
 			padding 2rem 3rem
 			border-radius 1rem
-			width min-content
 			margin 1rem
+
+			+touch()
+				margin 0.5rem
+				padding 1.5rem 2rem
 
 			+dark()
 				background rgba(0,0,0,.2)
@@ -433,6 +450,7 @@ export default {
 				padding 0.75rem 1.5rem
 				color $white
 				font-weight 700
+				cursor pointer
 
 		#database
 			.is-relative
