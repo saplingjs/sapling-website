@@ -302,8 +302,7 @@ export default {
 		width min-content
 		margin 0 auto
 		color #111
-		transition 0.3s color ease-in-out
-		transition-delay 1.1s
+		transition none
 
 		+touch()
 			font-size 1rem
@@ -322,7 +321,7 @@ export default {
 					animation 0.6s reveal-word both cubic-bezier(0.33, 1, 0.68, 1)
 
 			.is-animated &
-				for t in 0..8
+				for t in 0..10
 					&:nth-child({t + 1})
 						& > *
 							for i in 1..10
@@ -331,6 +330,8 @@ export default {
 
 		.is-animated &
 			color #fff
+			transition 0.3s color ease-in-out
+			transition-delay 1.1s
 	
 	#shell > article
 		text-align left
