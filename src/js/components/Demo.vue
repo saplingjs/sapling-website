@@ -1,41 +1,69 @@
 <template>
 	<div id="demo" :class="{ 'is-animated': animated }" ref="demo">
-		<main id="demo-stage">
-			<div v-if="stage === 0" key="stage-1" id="code" class="code" v-html="highlightedMarkup"></div>
-			<div v-if="stage === 1" key="stage-2" id="shell">
-				$ <vue-typer
-					text="sapling run"
-					:repeat="0"
-					:pre-type-delay="2000"
-					:type-delay="200"
-				></vue-typer>
-			</div>
-			<div v-if="stage === 2" key="stage-3" id="final">
-				<div id="form" v-html="demo.markup" @submit.prevent="handleSubmit"></div>
-				<div id="database">
-					<h2>Database table <code v-text="demo.collection"></code></h2>
-
-					<div class="is-relative">
-						<transition name="popfade">
-							<pre v-if="currentObject" :key="generateID()" class="code" v-html="highlightedCurrentObject"></pre>
-						</transition>
-					</div>
+		<!-- Stage -->
+		<figure id="demo-stage">
+			<transition name="popfade">
+				<!-- HTML code animation -->
+				<div v-if="stage === 1" key="stage-1" id="code">
+					<article class="code" v-html="highlightedMarkup"></article>
 				</div>
-			</div>
+
+				<!-- Shell command animation -->
+				<div v-if="stage === 2" key="stage-2" id="shell">
+					<article>
+						$ <vue-typer
+							text="sapling run"
+							:repeat="0"
+							:pre-type-delay="800"
+							:type-delay="180"
+						></vue-typer>
+					</article>
+				</div>
+
+				<!-- Final result -->
+				<div v-if="stage === 3" key="stage-3" id="final">
+					<article>
+						<!-- The result of the HTML markup -->
+						<div id="form" v-html="demo.markup" @submit.prevent="handleSubmit"></div>
+
+						<!-- Database simulation -->
+						<div id="database">
+							<h2>Database table <code v-text="demo.collection"></code></h2>
+
+							<div class="is-relative">
+								<transition name="popfade">
+									<pre v-if="currentObject" :key="generateID()" class="code" v-html="highlightedCurrentObject"></pre>
+								</transition>
+							</div>
+						</div>
+					</article>
+				</div>
+			</transition>
+		</figure>
+
+		<!-- Caption for each slide -->
+		<main id="demo-caption">
+			<transition name="slidefade">
+				<div v-if="stage === 1" key="step-1">
+					<h1>Step 1</h1>
+					<p>Write your HTML &ndash; for example, a <strong v-text="demo.name"></strong>.</p>
+				</div>
+				<div v-if="stage === 2" key="step-2">
+					<h1>Step 2</h1>
+					<p>Run your project.</p>
+				</div>
+				<div v-if="stage === 3" key="step-3">
+					<h1>Step 3</h1>
+					<p>It works &ndash; like magic. Try it!</p>
+				</div>
+			</transition>
 		</main>
-		<footer id="demo-caption">
-			<div v-if="stage === 0" key="step-1">
-				<h1>Step 1</h1>
-				<p>Write your HTML &ndash; for example, a <strong v-text="demo.name"></strong>.</p>
-			</div>
-			<div v-if="stage === 1" key="step-2">
-				<h1>Step 2</h1>
-				<p>Run your project.</p>
-			</div>
-			<div v-if="stage === 2" key="step-3">
-				<h1>Step 3</h1>
-				<p>It works &ndash; like magic. Try it!</p>
-			</div>
+
+		<!-- Slide controls -->
+		<footer id="demo-dots">
+			<button class="dot" @click="change(1)" :class="{ 'is-active': stage === 1 }"><div><div></div></div></button>
+			<button class="dot" @click="change(2)" :class="{ 'is-active': stage === 2 }"><div><div></div></div></button>
+			<button class="dot is-final" @click="change(3)" :class="{ 'is-active': stage === 3 }"><div></div></button>
 		</footer>
 	</div>
 </template>
@@ -52,12 +80,19 @@ export default {
 
 	data() {
 		return {
-			stage: 0,
+			/* Current slide (1-3) */
+			stage: 1,
 
+			/* Current timeout to next slide */
+			interval: false,
+
+			/* Whether the HTML code animation should play */
 			animated: false,
 
+			/* Object of user submitted form data */
 			currentObject: false,
 
+			/* All the available demos */
 			demos: [
 				{
 					name: 'contact form',
@@ -103,7 +138,7 @@ export default {
 					object: data => ({
 						_id: this.generateID(),
 						email: data.email,
-						password: this.encrypt(data.password),
+						password: '(hashed password)',
 						role: 'member'
 					})
 				},
@@ -129,41 +164,65 @@ export default {
 	},
 
 	computed: {
+		/* Select a random demo */
 		demo() {
 			return this.demos[Math.floor(Math.random()*this.demos.length)];
 		},
 
+		/* Code highlight selected HTML markup */
 		highlightedMarkup() {
 			return Prism.highlight(this.demo.markup, Prism.languages.markup, 'markup');
 		},
 
+		/* Code highlight the database object */
 		highlightedCurrentObject() {
 			return Prism.highlight(JSON.stringify(this.currentObject, undefined, 4), Prism.languages.json, 'json');
 		}
 	},
 
 	methods: {
+		/* Change slides */
+		change(to) {
+			/* Change either to specified slide, or the next one, if any */
+			if (to) {
+				this.stage = to;
+			} else if(this.stage < 3) {
+				this.stage = this.stage + 1;
+			}
+
+			/* Clear any previous timeout, and set a new one, if necessary */
+			clearTimeout(this.interval);
+			if (this.stage < 3) {
+				this.interval = setTimeout(() => this.change(), 4500);
+			}
+		},
+
+		/* Capture form submit, convert into object */
 		handleSubmit(event) {
 			const data = new FormData(event.target);
 			this.currentObject = this.demo.object(Object.fromEntries(data));
 		},
 
+		/* Generate random record ID */
 		generateID() {
 			return (`00000000${Math.random().toString(36).slice(2)}`).slice(-11);
 		},
 
+		/* Generate current UNIX timestamp */
 		generateTimestamp() {
 			return + new Date();
-		},
-
-		encrypt() {
-			return '(hashed password)';
 		}
 	},
 
 	mounted() {
+		/* Start the animation when it's scrolled into view */
 		window.addEventListener('scroll', () => {
 			if (this.$refs.demo.getBoundingClientRect().top < 400) {
+				/* Start timer */
+				if (!this.animated)
+					this.change(1);
+
+				/* Begin code animation */
 				this.animated = true;
 			}
 		});
@@ -182,10 +241,24 @@ export default {
 @import '../../stylus/variables'
 
 #demo
-	padding 6.5rem 0
+	padding 1.5rem 0 4rem
 
 #demo-stage
-	#code
+	position relative
+	margin 0
+	height 400px
+	
+	& > div
+		width 100%
+		height 100%
+		display flex
+		justify-content center
+		align-items center
+	
+	& > div > article
+		width 100%
+
+	#code > article
 		text-align left
 		font-family $family-monospace
 		font-size 1.125rem
@@ -220,14 +293,14 @@ export default {
 		.is-animated &
 			color #fff
 	
-	#shell
+	#shell > article
 		text-align left
 		font-family $family-monospace
 		font-size 2.5rem
 		white-space nowrap
 		color #ddd
 		margin 0 auto
-		max-width 650px
+		max-width 550px
 
 		.vue-typer
 			.custom.char
@@ -241,7 +314,7 @@ export default {
 				&.complete
 					display inline-block
 	
-	#final
+	#final > article
 		display flex
 		justify-content center
 
@@ -292,10 +365,59 @@ export default {
 				min-width 330px
 
 			pre
+				width 100%
 				line-height 1.6
+				border-radius 8px
 
 #demo-caption
-	padding 3rem 0
+	position relative
+	margin 1.5rem 0 1rem
+	height 90px
+
+	& > div
+		width 100%
+
+		p
+			margin-bottom 0 !important
+
+#demo-dots
+	display flex
+	justify-content center
+
+	.dot
+		height 32px
+		background none
+		border 0
+		padding 0 12px
+		outline none
+		display flex
+		justify-content center
+		align-items center
+		cursor pointer
+
+		& > div
+			width 8px
+			height 8px
+			border-radius 4px
+			background #999
+			overflow hidden
+			transition 0.2s width ease-in-out
+
+			& > div
+				width 0
+				height 8px
+				background #ddd
+
+		.is-animated &.is-active
+			& > div
+				width 32px
+
+				& > div
+					animation 4.5s progress linear forwards
+			
+			&.is-final > div
+					width 8px
+					background #ddd
 
 
 .code
@@ -330,13 +452,37 @@ export default {
 	100%
 		text-indent 0
 
+@keyframes progress
+	0%
+		width 0
+	
+	100%
+		width 100%
+
 
 .popfade-leave-active, .popfade-enter-active
 	transition 0.6s cubic-bezier(0.65, 0, 0.35, 1)
 	position absolute
 	top 0
 
+.popfade-enter-active
+	transition-delay 0.4s
+
 .popfade-enter, .popfade-leave-to
-	transform scale(0)
+	transform scale(0.6)
+	opacity 0
+
+.slidefade-leave-active, .slidefade-enter-active
+	transition 0.6s cubic-bezier(0.65, 0, 0.35, 1)
+	position absolute
+	top 0
+
+.slidefade-enter
+	transform translateX(200px)
+	opacity 0
+
+.slidefade-leave-to
+	transform translateX(-200px)
+	opacity 0
 
 </style>
