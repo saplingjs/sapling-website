@@ -47,9 +47,17 @@ body
 	+dark()
 		color $dark-fg
 
+p
+	margin-bottom 0.75em !important
+
 .content
 	h1, h2, h3, h4, h5, h6
 		line-height 1.5
+	
+	& > p
+		max-width 42rem
+		margin-left auto
+		margin-right auto
 
 +dark()
 	.content
@@ -153,14 +161,6 @@ body
 
 .has-text-centered
 	text-align center !important
-
-p
-	margin-bottom 0.75em !important
-
-.content > p
-	max-width 42rem
-	margin-left auto
-	margin-right auto
 
 .content a, .table a
 	position relative
