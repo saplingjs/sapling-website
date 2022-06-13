@@ -9,7 +9,7 @@
     "docsify-themeable": "^0.8.6",
     "inline-svg": "^2.2.3",
     "laravel-mix": "^6.0.48",
-    "marked": "^4.0.16",
+    "marked": "^4.0.17",
     "normalize": "^0.3.1",
     "prismjs": "^1.28.0",
     "vue": "^2.6.14",
