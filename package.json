@@ -8,7 +8,7 @@
     "docsify-tabs": "^1.5.2",
     "docsify-themeable": "^0.8.6",
     "inline-svg": "^2.2.3",
-    "laravel-mix": "^6.0.48",
+    "laravel-mix": "^6.0.49",
     "marked": "^4.0.17",
     "normalize": "^0.3.1",
     "prismjs": "^1.28.0",
