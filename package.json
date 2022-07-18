@@ -12,7 +12,7 @@
     "marked": "^4.0.18",
     "normalize": "^0.3.1",
     "prismjs": "^1.28.0",
-    "vue": "^2.7.5",
+    "vue": "^2.7.7",
     "vue-smooth-reflow": "^0.1.12",
     "vue-typer": "^1.2.0"
   },
@@ -39,7 +39,7 @@
     "stylint": "^2.0.0",
     "stylus-loader": "^7.0.0",
     "vue-loader": "^15.10.0",
-    "vue-template-compiler": "^2.7.5",
+    "vue-template-compiler": "^2.7.7",
     "xo": "^0.50.0"
   },
   "xo": {
