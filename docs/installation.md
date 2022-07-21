@@ -28,8 +28,12 @@ If you do not wish to use the CLI, you can also add Sapling as a dependency with
 
 Note that many of the features of Sapling that this documentation references are separate dependencies that you also have to install separately.
 
-| Project                                                                                 | Description                                                                                       |
-|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| [@sapling/vue-components](https://github.com/saplingjs/vue-components)                  | Assortment of optional unopinionated semi-automatic frontend Vue components for common UI tasks.  |
-| [@sapling/db-driver-mongodb](https://github.com/saplingjs/db-driver-mongodb)            | Support for MongoDB databases.                                                                    |
-| [@sapling/render-driver-nunjucks](https://github.com/saplingjs/render-driver-nunjucks)  | Support for Nunjucks templating engine.                                                           |
+| Project                                                                                     | Description                                                                                       |
+|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| [@sapling/cli](https://github.com/saplingjs/cli)                                            | Command Line Interface for creating and managing Sapling projects.                                |
+| [@sapling/gui](https://github.com/saplingjs/gui)                                            | UI for editing and managing a Sapling project.                                                    |
+| [@sapling/vue-components](https://github.com/saplingjs/vue-components)                      | Assortment of optional unopinionated semi-automatic frontend Vue components for common UI tasks.  |
+| [@sapling/db-driver-mongodb](https://github.com/saplingjs/db-driver-mongodb)                | Support for MongoDB databases.                                                                    |
+| [@sapling/render-driver-handlebars](https://github.com/saplingjs/render-driver-handlebars)  | Support for the Handlebars templating engine.                                                     |
+| [@sapling/render-driver-nunjucks](https://github.com/saplingjs/render-driver-nunjucks)      | Support for the Nunjucks templating engine.                                                       |
+| [@sapling/render-driver-pug](https://github.com/saplingjs/render-driver-pug)                | Support for the Pug templating engine.                                                            |
