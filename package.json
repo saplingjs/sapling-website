@@ -40,7 +40,7 @@
     "stylus-loader": "^7.0.0",
     "vue-loader": "^15.10.0",
     "vue-template-compiler": "^2.7.7",
-    "xo": "^0.50.0"
+    "xo": "^0.51.0"
   },
   "xo": {
     "envs": [
