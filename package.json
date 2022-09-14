@@ -33,7 +33,7 @@
     "lint:stylus": "stylint src/stylus/"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.18.9",
+    "@babel/eslint-parser": "^7.19.1",
     "eslint": "^8.23.1",
     "lint-staged": "^13.0.3",
     "stylint": "^2.0.0",
